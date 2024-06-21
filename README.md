@@ -27,6 +27,6 @@ Apri il tuo IDE preferito (ad esempio IntelliJ IDEA, ECLIPSE, o altro) e importa
 All'interno dell'IDE, assicurati che il progetto utilizzi Maven per la gestione delle dipendenze. Successivamente, cerca il file principale dell'applicazione Spring (solitamente annotato con _@SpringBootApplication_) e eseguilo facendo clic con il tasto destro del mouse e selezionando "Run" o "Debug".
 
 4. **Accedere all'applicazione**
-Una volta avviata l'applicazione dall'IDE, apri il browser e vai all'indirizzo [http://localhost:8080]([https://pages.github.com/](http://localhost:8080)).
+Una volta avviata l'applicazione dall'IDE, apri il browser e vai all'indirizzo [http://localhost:8080](http://localhost:8080).
 
 
