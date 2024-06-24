@@ -12,5 +12,7 @@ public class Main {
 //        System.out.println(ordine.HelloWorld());
 
         System.out.println(context.getBean("ordine", Ordine.class).HelloWorld());
+        System.out.println(context.getBean("prodotto", Prodotto.class).listaProdotti());
+
     }
 }

@@ -5,6 +5,8 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="ordine" class="org.beans.Ordine">
+    </bean>
 
+    <bean id="prodotto" class="org.beans.Prodotto">
     </bean>
 </beans>
