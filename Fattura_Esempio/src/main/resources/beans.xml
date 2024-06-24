@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="ordine" class="org.fattura_esempio.Ordine">
+        <!-- Bean per Ordine -->
+    </bean>
+
+    <bean id="prodotto" class="org.fattura_esempio.Prodotto">
+        <!-- Bean per Prodotto -->
+    </bean>
+
+    <bean id="fattura" class="org.fattura_esempio.Fattura">
+        <constructor-arg ref="ordine"/>
+        <constructor-arg ref="prodotto"/>
+    </bean>
+</beans>
