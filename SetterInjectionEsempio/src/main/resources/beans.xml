@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="clienteService" class="org.setterdi_esempio.ClienteService">
+        <!-- Bean per Ordine -->
+    </bean>
+
+    <bean id="ordineService" class="org.setterdi_esempio.OrdineService">
+        <property name="cliente" ref="clienteService"/>
+        <property name="statoPredefinito" value="COMPLETATO"/>
+
+    </bean>
+
+</beans>
