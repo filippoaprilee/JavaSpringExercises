@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Biblioteca {
 
+    private BibliotecaService service;
+
     public Biblioteca() {
 
     }
-
-    private BibliotecaService service;
 
     public void setService(BibliotecaService service) {
         this.service = service;
