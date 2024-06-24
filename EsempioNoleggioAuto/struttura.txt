@@ -21,6 +21,10 @@ INTERFACCE:
 - NoleggioServiceImpl
 
 
-<bean id="clienteServiceImpl">
-<bean id="autoServiceImpl">
-<
+<bean id="clienteServiceImpl" class="clienteServiceImpl"/>
+<bean id="autoServiceImpl" class="autoServiceImpl"/>
+
+<bean id="noleggioServiceImpl" class="noleggioServiceImpl">
+<constructor-arg ref="clienteServiceImpl">
+<constructor-arg ref="autoServiceImpl">
+</bean>
