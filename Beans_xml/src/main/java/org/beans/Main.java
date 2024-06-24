@@ -6,7 +6,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        HelloWorld helloWorld = (HelloWorld) context.getBean("helloWorld");
-        helloWorld.getMessage();
+
+        Ordine ordine = (Ordine) context.getBean("ordine");
+
+        System.out.println(ordine.HelloWorld());
     }
 }
