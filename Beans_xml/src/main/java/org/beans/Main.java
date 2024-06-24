@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Ordine ordine = (Ordine) context.getBean("ordine");
+        Ordine ordine = context.getBean("ordine", Ordine.class);
 
         System.out.println(ordine.HelloWorld());
     }
