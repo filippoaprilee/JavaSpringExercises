@@ -1,4 +1,4 @@
-package org.beans;
+package org.fattura_esempio;
 
 import java.util.ArrayList;
 import java.util.List;
