@@ -1,0 +1,19 @@
+Noleggio auto:
+
+ENTITY:
+- Auto = String targa, String marca, String modello, int num_posti, TipoAuto tipoAuto
+- Cliente = int id, String nome, String cognome, String numeroTelefono, String email
+
+
+- Noleggio = private Map<Cliente, Auto> noleggi = new HashMap<>();
+
+ENUM:
+TipoAuto = MONOVOLUME, STATION_WAGON, UTILITARIA
+
+- AutoService = aggiungiAuto (Auto auto), trovaAuto (String targa), eliminaAuto (String targa), listaAuto
+- ClienteService = aggiungiCliente (Cliente cliente), trovaCliente (int id), eliminaCliente (int id), listaClienti
+- NoleggioService = aggiungiNoleggio (Cliente cliente, Auto auto), trovaNoleggio (Cliente cliente), eliminaNoleggio (Cliente cliente), listaNoleggi
+
+- AutoServiceImpl
+- ClienteServiceImpl
+- NoleggioServiceImpl
