@@ -18,7 +18,7 @@ manualmente le dipendenze tra i Beans.
 ### Struttura del progetto
 Il progetto è composto dai seguenti file:
 - `Main.java`: classe principale del programma.
-- `ClienteService.java`: classe che rappresenta la logica di business di un cliente.
+- `FatturaService.java`: classe che rappresenta la logica di business di una fattura.
 - `OrdineService.java`: classe che rappresenta la logica di business di un ordine.
 - `ProdottoService.java`: classe che rappresenta la logica di business di un prodotto.
 - `bean.xml`: file di configurazione Spring XML che definisce i beans e le loro dipendenze
