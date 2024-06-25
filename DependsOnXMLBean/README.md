@@ -1,21 +1,20 @@
-# Esempio di utilizzo dei Beans con Constructor Injection in Java
+# Esempio di gestione delle dipendenze tra Beans con Spring XML
 
-Questo progetto dimostra un semplice esempio di utilizzo dei Beans con Constructor Injection
-in Java utilizzando il framework Spring.
+Questo progetto dimostra un semplice esempio di gestione delel dipendenze tra Beans
+utilizzando Spring XML.
 
 ### Cosa sono i Beans?
 I Beans sono oggetti Java che vengono istanziati, assemblati e gestiti
 da un container di inversione di controllo (IoC) come Spring. I Beans
-sono definiti da una classe Java e possono essere configurati,
-assemblati e gestiti da un container IoC.
+sono definiti da una classe Java e possono essere configurati attraverso un file di
+configurazione XML in questo esempio.
 
 ### Struttura del progetto
 Il progetto è composto dai seguenti file:
 - `Main.java`: classe principale del programma.
-- `Ordine.java`: classe che rappresenta un ordine.
-- `Prodotto.java`: classe che rappresenta un prodotto.
-- `Fattura.java`: classe che rappresenta una fattura che contiene prodotti e ordini.
-- `beans.xml`: file di configurazione Spring XML che definisce i beans e le loro dipendenze.
+- `BeanA.java`: classe che rappresenta un bean con un metodo hello().
+- `BeanB.java`: classe che rappresenta un altro bean con un metodo greet().
+- `bean.xml`: file di configurazione Spring XML che definisce i beans e le loro dipendenze.
 
 ### Come eseguire il programma
 1. Clonare il repository o scaricare i file del progetto.
@@ -23,8 +22,7 @@ Il progetto è composto dai seguenti file:
 3. Compilare ed eseguire la classe `Main.java`.
 
 ### Note
-- Questo esempio utilizza i Beans per capire come funzionano e come possono
-  essere utilizzati in un progetto Java.
+- Questo esempio utilizza Spring XML per configurare e gestire le dipendenze tra i beans.
 - Assicurati di avere installato JDK 8 o versioni successive per compilare
   ed eseguire il programma.
 - Il progetto utilizza Maven come sistema di build. Assicurati di avere Maven

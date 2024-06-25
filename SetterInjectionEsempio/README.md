@@ -14,7 +14,8 @@ Il progetto è composto dai seguenti file:
 - `Main.java`: classe principale del programma.
 - `ClienteService.java`: classe che rappresenta un servizio per la gestione dei clienti.
 - `OrdineService.java`: classe che rappresenta un servizio per la gestione degli ordini.
-- `FatturaService.java`: classe che rappresenta un servizio per la gestione delle fatture.'
+- `FatturaService.java`: classe che rappresenta un servizio per la gestione delle fatture.
+- `beans.xml`: file di configurazione Spring XML che definisce i beans e le loro dipendenze.
 
 ### Come eseguire il programma
 1. Clonare il repository o scaricare i file del progetto.
