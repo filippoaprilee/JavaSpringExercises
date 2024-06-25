@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BeanA {
-    String message="ciao sono io";
+    String message="ciao sono io ";
 
     @Value("${message}")
     private String stringValue;
