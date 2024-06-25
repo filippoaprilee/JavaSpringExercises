@@ -6,11 +6,12 @@ import org.springframework.stereotype.Component;
 @Component(value="ordine")
 public class OrdineService {
     private ClienteService cliente;
+    private ProdottoService prodotto;
 
     @Autowired
-    public OrdineService(ClienteService cliente) {
-        super();
+    public void recuperaService(ClienteService cliente, ProdottoService prodotto) {
         this.cliente = cliente;
+        this.prodotto = prodotto;
     }
 
     public OrdineService() {
@@ -18,7 +19,7 @@ public class OrdineService {
     }
 
     public String sayHello() {
-        return "ciao sono un ordine del cliente " + cliente.getCliente(124);
+        return "ciao sono un ordine del cliente " + cliente.getCliente(124) + " e del prodotto " + prodotto.getProdotto(2);
     }
 
     public void stampaClienti() {
