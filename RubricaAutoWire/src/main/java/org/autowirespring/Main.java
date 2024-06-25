@@ -10,6 +10,7 @@ public class Main {
         System.out.println(rubricaService.getMessaggi(1L));
         System.out.println(rubricaService.getMessaggi(2L));
         System.out.println(rubricaService.getMessaggi(3L));
+        System.out.println();
         rubricaService.mostraInfo();
     }
 }

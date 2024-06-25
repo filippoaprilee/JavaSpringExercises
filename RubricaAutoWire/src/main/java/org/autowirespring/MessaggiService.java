@@ -11,6 +11,7 @@ public class MessaggiService {
         messaggi.put(1L, "Ciao");
         messaggi.put(2L, "Hello");
         messaggi.put(3L, "Hola");
+        messaggi.put(4L, "Bonjour");
     }
 
     public void setMessaggioPredefinito(String messaggioPredefinito) {
