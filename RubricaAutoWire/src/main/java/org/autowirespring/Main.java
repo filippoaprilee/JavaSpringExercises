@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
         RubricaService rubricaService = (RubricaService) context.getBean("rubricaService");
-        rubricaService.inviaMessaggio("Mario", "Ciao Mario");
-        rubricaService.inviaMessaggio("Luigi", "Ciao Luigi");
-        rubricaService.visualizzaMessaggi();
+        System.out.println(rubricaService.getMessaggi(1L));
+        System.out.println(rubricaService.getMessaggi(2L));
+        System.out.println(rubricaService.getMessaggi(3L));
         rubricaService.mostraInfo();
     }
 }

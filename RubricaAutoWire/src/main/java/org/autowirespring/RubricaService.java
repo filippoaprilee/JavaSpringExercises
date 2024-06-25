@@ -16,11 +16,11 @@ public class RubricaService {
         this.nome = nome;
     }
 
-    public void getMessaggi(long idUser) {
+    public String getMessaggi(long idUser) {
         return messaggiService.getMessaggi(idUser);
     }
 
-    public void MessaggiService getMessaggiService() {
+    public MessaggiService getMessaggiService() {
         return messaggiService;
     }
 
