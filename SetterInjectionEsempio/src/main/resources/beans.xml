@@ -9,8 +9,13 @@
     </bean>
 
     <bean id="ordineService" class="org.setterdi_esempio.service.OrdineService">
-        <property name="cliente" ref="clienteService"/>
+        <property name="clienteService" ref="clienteService"/>
         <property name="statoPredefinito" value="COMPLETATO"/>
+    </bean>
+
+    <bean id="fatturaService" class="org.setterdi_esempio.service.FatturaService">
+        <property name="ordineService" ref="ordineService"/>
+        <property name="clienteService" ref="clienteService"/>
     </bean>
 
 </beans>

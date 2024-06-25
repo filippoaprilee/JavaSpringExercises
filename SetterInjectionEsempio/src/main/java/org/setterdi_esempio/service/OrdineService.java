@@ -1,15 +1,15 @@
 package org.setterdi_esempio.service;
 
 public class OrdineService {
-    private ClienteService cliente;
+    private ClienteService clienteService;
     private String statoPredefinito;
 
-    public ClienteService getCliente() {
-        return cliente;
+    public ClienteService getClienteService() {
+        return clienteService;
     }
 
-    public void setCliente(ClienteService cliente) {
-        this.cliente = cliente;
+    public void setClienteService(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
     public String getStatoPredefinito() {
@@ -20,8 +20,7 @@ public class OrdineService {
         this.statoPredefinito = statoPredefinito;
     }
 
-    @Override
-    public String toString() {
-        return "OrdineService [cliente=" + cliente + ", statoPredefinito=" + statoPredefinito + "]";
+    public String getOrdine() {
+        return "Ordine di stato " + statoPredefinito;
     }
 }
