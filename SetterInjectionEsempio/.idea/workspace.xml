@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10f65211-f039-48ab-be66-13a831734ee6" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/FatturaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/OrdineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/OrdineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/beans.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DependsOnXMLBean/src/main/java/org/dependsbeans/BeanA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DependsOnXMLBean/src/main/java/org/dependsbeans/BeanB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DependsOnXMLBean/src/main/resources/bean.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +93,7 @@
       <updated>1719238622728</updated>
       <workItem from="1719238623831" duration="316000" />
       <workItem from="1719298189064" duration="36000" />
-      <workItem from="1719300595187" duration="1718000" />
+      <workItem from="1719300595187" duration="2903000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -113,7 +111,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719301487127</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <option name="closed" value="true" />
+      <created>1719302421340</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719302421340</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update">
+      <option name="closed" value="true" />
+      <created>1719303234030</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719303234030</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
