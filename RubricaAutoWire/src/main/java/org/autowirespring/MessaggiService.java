@@ -25,4 +25,8 @@ public class MessaggiService {
     public void mostraInfo() {
         System.out.println("Messaggio predefinito: " + messaggioPredefinito);
     }
+
+    public int getNumeroMessaggi() {
+        return messaggi.size();
+    }
 }

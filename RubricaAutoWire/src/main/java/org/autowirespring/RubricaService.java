@@ -24,6 +24,10 @@ public class RubricaService {
         return messaggiService;
     }
 
+    public int getNumeroMessaggi() {
+        return messaggiService.getNumeroMessaggi();
+    }
+
     public void mostraInfo() {
         System.out.println("Informazioni sulla rubrica: " + nome);
         messaggiService.mostraInfo();
