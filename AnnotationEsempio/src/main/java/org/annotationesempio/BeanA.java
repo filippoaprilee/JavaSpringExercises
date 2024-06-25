@@ -7,14 +7,24 @@ import org.springframework.stereotype.Component;
 public class BeanA {
     String message="ciao sono io";
 
-    @Value("string value")
+    @Value("${message}")
     private String stringValue;
 
     public String hello() {
-        return message;
+        return message + " " + stringValue;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public String getStringValue() {
+        return stringValue;
+    }
+
+    public void setStringValue(String stringValue) {
+        this.stringValue = stringValue;
+    }
+
+
 }
