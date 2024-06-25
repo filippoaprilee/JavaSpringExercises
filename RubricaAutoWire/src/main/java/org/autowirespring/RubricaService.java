@@ -4,6 +4,10 @@ public class RubricaService {
     private MessaggiService messaggiService;
     private String nome;
 
+    public RubricaService() {
+        super();
+    }
+
     public void setMessaggiService(MessaggiService messaggiService) {
         this.messaggiService = messaggiService;
     }
@@ -12,16 +16,12 @@ public class RubricaService {
         this.nome = nome;
     }
 
-    public void inviaMessaggio(String destinatario, String testo) {
-        messaggiService.inviaMessaggio(destinatario, testo);
+    public void getMessaggi(long idUser) {
+        return messaggiService.getMessaggi(idUser);
     }
 
-    public void visualizzaMessaggi() {
-        messaggiService.visualizzaMessaggi();
-    }
-
-    public void setmessaggioPredefinito(String messaggioPredefinito) {
-        messaggiService.setMessaggioPredefinito(messaggioPredefinito);
+    public void MessaggiService getMessaggiService() {
+        return messaggiService;
     }
 
     public void mostraInfo() {
