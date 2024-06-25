@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="messaggiService" class="org.autowirespring.MessaggiService">
+        <property name="messaggioPredefinito" value="Messaggio di default"/>
+    </bean>
+    <bean id="rubricaService" class="org.autowirespring.RubricaService" autowire="byName">
+        <property name="nome" value="Rubrica di esempio"/>
+    </bean>
+</beans>
