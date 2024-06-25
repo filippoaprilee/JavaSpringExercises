@@ -18,6 +18,10 @@ public class OrdineService {
     }
 
     public String sayHello() {
-        return "ciao sono un odine del cliente " + cliente.getCliente(123) + " e dico " + cliente.sayHello();
+        return "ciao sono un ordine del cliente " + cliente.getCliente(124);
+    }
+
+    public void stampaClienti() {
+        cliente.tuttiClienti().forEach((id, nome) -> System.out.println("id: " + id + " nome: " + nome));
     }
 }
