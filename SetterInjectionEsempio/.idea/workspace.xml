@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10f65211-f039-48ab-be66-13a831734ee6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/src/main/java/org/noleggioauto/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/struttura.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/ClienteService.java" afterDir="false" />
+    <list default="true" id="10f65211-f039-48ab-be66-13a831734ee6" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/OrdineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/OrdineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/beans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/OrdineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/OrdineService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,11 +92,24 @@
       <updated>1719238622728</updated>
       <workItem from="1719238623831" duration="316000" />
       <workItem from="1719298189064" duration="36000" />
-      <workItem from="1719300595187" duration="309000" />
+      <workItem from="1719300595187" duration="648000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1719301010593</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719301010593</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

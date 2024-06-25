@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-            System.out.println(context.getBean("ordineService", OrdineService.class).getCliente().clienti());
+            OrdineService ordineService = (OrdineService) context.getBean("ordineService");
+            System.out.println(ordineService.getCliente().clienti());
+            System.out.println(ordineService.getStatoPredefinito());
     }
 }
