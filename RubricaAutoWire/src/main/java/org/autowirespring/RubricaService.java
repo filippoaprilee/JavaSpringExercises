@@ -25,7 +25,7 @@ public class RubricaService {
     }
 
     public void mostraInfo() {
-        System.out.println("RubricaService: " + nome);
+        System.out.println("Informazioni sulla rubrica: " + nome);
         messaggiService.mostraInfo();
     }
 

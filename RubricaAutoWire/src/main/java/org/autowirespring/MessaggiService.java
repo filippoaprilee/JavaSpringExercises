@@ -22,6 +22,6 @@ public class MessaggiService {
     }
 
     public void mostraInfo() {
-        System.out.println("MessaggiService: " + messaggioPredefinito);
+        System.out.println("Messaggio predefinito: " + messaggioPredefinito);
     }
 }

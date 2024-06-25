@@ -14,6 +14,7 @@ Il progetto è composto dai seguenti file:
 - `RubricaService.java`: classe che rappresenta un servizio di rubrica.
 - `MessaggiService.java`: classe che rappresenta un servizio di gestione dei messaggi.
 - `bean.xml`: file di configurazione Spring XML che definisce i beans e le loro dipendenze.
+- 'config.properties': file di configurazione delle proprietà del progetto.
 
 ### Come eseguire il programma
 1. Clonare il repository o scaricare i file del progetto.
