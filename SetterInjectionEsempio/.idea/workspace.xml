@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10f65211-f039-48ab-be66-13a831734ee6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/ClienteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/OrdineService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/beans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/src/main/java/org/noleggioauto/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EsempioNoleggioAuto/struttura.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/OrdineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/setterdi_esempio/service/OrdineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/beans.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,21 +34,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "filippoaprilee"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;filippoaprilee&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/filippoaprilee/JavaSpringExercises.git",
-    "accountId": "a8c7c251-2d31-4e40-bb13-b4e5bc7aeb8c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/filippoaprilee/JavaSpringExercises.git&quot;,
+    &quot;accountId&quot;: &quot;a8c7c251-2d31-4e40-bb13-b4e5bc7aeb8c&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2iKUAIyvBWWyUyhb4B4q35t4Hun" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,10 +56,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "filippoaprilee",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Studente/EserciziJava/JavaSpringExercises/SetterInjectionEsempio",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,6 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1719238622728</updated>
       <workItem from="1719238623831" duration="316000" />
+      <workItem from="1719298189064" duration="36000" />
+      <workItem from="1719300595187" duration="309000" />
     </task>
     <servers />
   </component>

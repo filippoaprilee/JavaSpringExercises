@@ -1,4 +1,4 @@
-package org.setterdi_esempio;
+package org.setterdi_esempio.service;
 
 public class OrdineService {
     private ClienteService cliente;
@@ -12,4 +12,7 @@ public class OrdineService {
         this.statoPredefinito = statoPredefinito;
     }
 
+    public ClienteService getCliente() {
+        return cliente;
+    }
 }

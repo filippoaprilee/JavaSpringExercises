@@ -1,4 +1,4 @@
-package org.setterdi_esempio;
+package org.setterdi_esempio.service;
 
 import java.util.ArrayList;
 import java.util.List;
