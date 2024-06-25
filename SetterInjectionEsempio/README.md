@@ -1,7 +1,7 @@
-# Esempio di utilizzo dei Beans con Constructor Injection in Java
+# Esempio di utilizzo dei Beans con Setter Injection in Java
 
-Questo progetto dimostra un semplice esempio di utilizzo dei Beans con Constructor Injection
-in Java utilizzando il framework Spring.
+Questo progetto dimostra un semplice esempio di utilizzo dei Beans con 
+Setter Injection in Java utilizzando il framework Spring.
 
 ### Cosa sono i Beans?
 I Beans sono oggetti Java che vengono istanziati, assemblati e gestiti
@@ -12,9 +12,9 @@ assemblati e gestiti da un container IoC.
 ### Struttura del progetto
 Il progetto è composto dai seguenti file:
 - `Main.java`: classe principale del programma.
-- `Ordine.java`: classe che rappresenta un ordine.
-- `Prodotto.java`: classe che rappresenta un prodotto.
-- `Fattura.java`: classe che rappresenta una fattura che contiene prodotti e ordini.
+- `ClienteService.java`: classe che rappresenta un servizio per la gestione dei clienti.
+- `OrdineService.java`: classe che rappresenta un servizio per la gestione degli ordini.
+- `FatturaService.java`: classe che rappresenta un servizio per la gestione delle fatture.'
 
 ### Come eseguire il programma
 1. Clonare il repository o scaricare i file del progetto.
