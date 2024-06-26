@@ -1,45 +1,68 @@
 package it.apuliadigital.prova_api.model;
 
-public class Persona {
-    private Long id;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+
+public class Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private int id;
     private String nome;
-    private String email;
+    private String cognome;
+    // Altri campi della persona...
 
-    public Persona() {
+    public Persona() {}
+
+    public Persona(JSONObject jsonObject) {
+        if (jsonObject.has("id")) {
+            this.id = jsonObject.getInt("id");
+        } else {
+            // Se 'id' non è presente nel JSON, non impostiamo l'ID qui
+            // È responsabilità del servizio gestire questo caso in modo appropriato
+        }
+
+        if (jsonObject.has("nome")) {
+            this.nome = jsonObject.getString("nome");
+        } else {
+            // Gestione nel caso 'nome' non sia presente nel JSON
+            throw new JSONException("Campo 'nome' non trovato nel JSON");
+        }
+
+        if (jsonObject.has("cognome")) {
+            this.cognome = jsonObject.getString("cognome");
+        } else {
+            // Gestione nel caso 'cognome' non sia presente nel JSON
+            throw new JSONException("Campo 'cognome' non trovato nel JSON");
+        }
     }
 
-    public Persona(Long id, String nome, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
+
+    // Getters e setters
+    public int getId() {
+        return id;
     }
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getCognome() {
+        return cognome;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 
-    @Override
-    public String toString() {
-        return id + " " + nome + " " + email;
-    }
+    // Altri metodi se necessari
 }

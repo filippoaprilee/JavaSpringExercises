@@ -2,73 +2,74 @@ package it.apuliadigital.prova_api.service.impl;
 
 import it.apuliadigital.prova_api.model.Persona;
 import it.apuliadigital.prova_api.service.PersonaService;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class PersonaServiceImpl implements PersonaService {
-    private final String FILE_PATH = "users.txt";
-    private Map<Long, Persona> persone = new HashMap<>();
+
+    private static final String JSON_FILE_PATH = "persone.json";
+    private Map<Integer, Persona> personaMap = new HashMap<>();
+    private int idCounter = 1;
 
     public PersonaServiceImpl() {
-        loadUsersFromFile();
-    }
-
-    @Override
-    public void addPersona(Persona persona) {
-        persone.put(persona.getId(), persona);
-        writeToFile();
+        caricaPersoneDaFile(); // Carica le persone dal file JSON all'avvio
     }
 
     @Override
     public List<Persona> getAllPersone() {
-        return new ArrayList<>(persone.values());
+        return new ArrayList<>(personaMap.values());
     }
 
     @Override
-    public Persona getPersonaById(Long id) {
-        return persone.get(id);
+    public Persona getPersonaById(int id) {
+        return personaMap.get(id);
     }
 
     @Override
-    public void deletePersona(Long id) {
-        persone.remove(id);
-        writeToFile();
+    public void addPersona(Persona persona) {
+        persona.setId(idCounter++);
+        personaMap.put(persona.getId(), persona);
+        salvaPersoneSuFile();
     }
 
-    private void loadUsersFromFile() {
-        if (!new File(FILE_PATH).exists()) {
-            return;
-        }
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
-                Long id = Long.parseLong(fields[0].trim());
-                String name = fields[1].trim();
-                String email = fields[2].trim();
+    @Override
+    public void deletePersonaById(int id) {
+        personaMap.remove(id);
+        salvaPersoneSuFile();
+    }
 
-                Persona user = new Persona();
-                user.setId(id);
-                user.setNome(name);
-                user.setEmail(email);
-
-                persone.put(id, user);
-            }
-        } catch (IOException | NumberFormatException e) {
+    private void salvaPersoneSuFile() {
+        JSONArray jsonArray = new JSONArray(personaMap.values());
+        try (FileWriter fileWriter = new FileWriter(JSON_FILE_PATH)) {
+            fileWriter.write(jsonArray.toString(2)); // Indentazione per una formattazione più leggibile
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void writeToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            for (Persona user : persone.values()) {
-                writer.write(String.format("%d, %s, %s\n", user.getId(), user.getNome(), user.getEmail()));
+    private void caricaPersoneDaFile() {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(JSON_FILE_PATH))) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            JSONArray jsonArray = new JSONArray(stringBuilder.toString());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                try {
+                    Persona persona = new Persona(jsonObject);
+                    persona.setId(idCounter++);
+                    personaMap.put(persona.getId(), persona);
+                } catch (Exception e) {
+                    System.err.println("Errore nella lettura del JSON per la persona #" + i + ": " + e.getMessage());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

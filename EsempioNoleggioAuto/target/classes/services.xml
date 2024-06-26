@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Definizione del bean per AutoService -->
+    <bean id="autoService" class="org.noleggioauto.Service.Impl.AutoServiceImpl"/>
+
+    <!-- Definizione del bean per ClienteService -->
+    <bean id="clienteService" class="org.noleggioauto.Service.Impl.ClienteServiceImpl"/>
+
+    <!-- Definizione del bean per NoleggioService -->
+    <bean id="noleggioService" class="org.noleggioauto.Service.Impl.NoleggioServiceImpl">
+        <!-- Iniezione dei servizi necessari tramite constructor-arg -->
+        <constructor-arg ref="clienteService"/>
+        <constructor-arg ref="autoService"/>
+    </bean>
+
+</beans>

@@ -10,26 +10,27 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/persone")
 public class PersonaController {
+
     @Autowired
     private PersonaService personaService;
+
+    @GetMapping("/get")
+    public List<Persona> getAllPersone() {
+        return personaService.getAllPersone();
+    }
+
+    @GetMapping("/get/{id}")
+    public Persona getPersonaById(@PathVariable int id) {
+        return personaService.getPersonaById(id);
+    }
 
     @PostMapping("/add")
     public void addPersona(@RequestBody Persona persona) {
         personaService.addPersona(persona);
     }
 
-    @GetMapping("/all")
-    public List<Persona> getAllPersone() {
-        return personaService.getAllPersone();
-    }
-
-    @GetMapping("/{id}")
-    public Persona getPersonaById(@PathVariable Long id) {
-        return personaService.getPersonaById(id);
-    }
-
-    @DeleteMapping("/{id}/delete")
-    public void deletePersona(@PathVariable Long id) {
-        personaService.deletePersona(id);
+    @DeleteMapping("/delete/{id}")
+    public void deletePersonaById(@PathVariable int id) {
+        personaService.deletePersonaById(id);
     }
 }

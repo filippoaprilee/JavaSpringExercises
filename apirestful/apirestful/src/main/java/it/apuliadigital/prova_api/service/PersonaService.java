@@ -5,8 +5,8 @@ import it.apuliadigital.prova_api.model.Persona;
 import java.util.List;
 
 public interface PersonaService {
-    void addPersona(Persona persona);
     List<Persona> getAllPersone();
-    Persona getPersonaById(Long id);
-    void deletePersona(Long id);
+    Persona getPersonaById(int id);
+    void addPersona(Persona persona);
+    void deletePersonaById(int id);
 }
