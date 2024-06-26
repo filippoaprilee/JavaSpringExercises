@@ -12,11 +12,11 @@ import java.util.Map;
 
 @Service
 public class PersonaServiceImpl implements PersonaService {
-    private final String FILE_PATH = "persone.txt";
+    private final String FILE_PATH = "users.txt";
     private Map<Long, Persona> persone = new HashMap<>();
 
     public PersonaServiceImpl() {
-        readFromFile();
+        loadUsersFromFile();
     }
 
     @Override
@@ -41,25 +41,34 @@ public class PersonaServiceImpl implements PersonaService {
         writeToFile();
     }
 
-    private void writeToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            for (Persona persona : persone.values()) {
-                writer.write(String.format("%d %s %s\n", persona.getId(), persona.getNome(), persona.getEmail()));
+    private void loadUsersFromFile() {
+        if (!new File(FILE_PATH).exists()) {
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                Long id = Long.parseLong(fields[0].trim());
+                String name = fields[1].trim();
+                String email = fields[2].trim();
+
+                Persona user = new Persona();
+                user.setId(id);
+                user.setNome(name);
+                user.setEmail(email);
+
+                persone.put(id, user);
             }
-        } catch (IOException e) {
+        } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
         }
     }
 
-    private void readFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(" ");
-                Long id = Long.parseLong(parts[0].trim());
-                String nome = parts[1].trim();
-                String email = parts[2].trim();
-                persone.put(id, new Persona(id, nome, email));
+    private void writeToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (Persona user : persone.values()) {
+                writer.write(String.format("%d, %s, %s\n", user.getId(), user.getNome(), user.getEmail()));
             }
         } catch (IOException e) {
             e.printStackTrace();

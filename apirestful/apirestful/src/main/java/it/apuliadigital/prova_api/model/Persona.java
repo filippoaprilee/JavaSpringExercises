@@ -5,6 +5,9 @@ public class Persona {
     private String nome;
     private String email;
 
+    public Persona() {
+    }
+
     public Persona(Long id, String nome, String email) {
         this.id = id;
         this.nome = nome;
