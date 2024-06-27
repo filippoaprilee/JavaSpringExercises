@@ -49,18 +49,27 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     private void salvaPersoneSuFile() {
-        JSONArray jsonArray = new JSONArray(personaMap.values());
-        fileHandler.writeJSONArrayToFile(jsonArray, JSON_FILE_PATH);
+        try {
+            JSONArray jsonArray = new JSONArray(new ArrayList<>(personaMap.values()));
+            fileHandler.writeJSONArrayToFile(jsonArray, JSON_FILE_PATH);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void caricaPersoneDaFile() {
-        JSONArray jsonArray = fileHandler.readJSONArrayFromFile(JSON_FILE_PATH);
-        for (int i = 0; i < jsonArray.length(); i++) {
-            Persona persona = fileHandler.readObjectFromFile(JSON_FILE_PATH);
-            if (persona != null) {
-                persona.setId(idCounter++);
-                personaMap.put(persona.getId(), persona);
+        try {
+            JSONArray jsonArray = fileHandler.readJSONArrayFromFile(JSON_FILE_PATH);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                Persona persona = fileHandler.readObjectFromFile(jsonArray.getJSONObject(i).toString());
+                if (persona != null) {
+                    persona.setId(idCounter++);
+                    personaMap.put(persona.getId(), persona);
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
