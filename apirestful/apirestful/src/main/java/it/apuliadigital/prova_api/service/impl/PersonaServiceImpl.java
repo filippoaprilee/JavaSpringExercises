@@ -48,6 +48,12 @@ public class PersonaServiceImpl implements PersonaService {
         return deletedPersona;
     }
 
+    @Override
+    public void deleteAll() {
+        personaMap.clear();
+        salvaPersoneSuFile();
+    }
+
     private void salvaPersoneSuFile() {
         try {
             JSONArray jsonArray = new JSONArray(new ArrayList<>(personaMap.values()));

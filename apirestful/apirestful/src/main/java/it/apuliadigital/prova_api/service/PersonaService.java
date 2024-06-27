@@ -9,4 +9,5 @@ public interface PersonaService {
     Persona getPersonaById(int id);
     void addPersona(Persona persona);
     Persona deletePersonaById(int id);
+    void deleteAll();
 }

@@ -62,4 +62,14 @@ public class PersonaController {
             return new ResponseEntity<>("Errore nella rimozione di una persona con id " + id + " all'interno del file JSON.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/deleteall")
+    public ResponseEntity<?> deleteAllPersone() {
+        try {
+            personaService.deleteAll();
+            return new ResponseEntity<>("Tutte le persone sono state eliminate con successo.", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Errore nella rimozione di tutte le persone dentro il file JSON.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
