@@ -30,6 +30,9 @@ public class PersonaController {
     public ResponseEntity<?> getPersonaById(@PathVariable int id) {
         try {
             Persona persona = personaService.getPersonaById(id);
+            if (persona == null) {
+                return new ResponseEntity<>("Errore: persona con id " + id + " non trovata.", HttpStatus.NOT_FOUND);
+            }
             return new ResponseEntity<>(persona, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Errore nella lettura della persona con id " + id + " dal file JSON", HttpStatus.NOT_FOUND);
@@ -49,10 +52,14 @@ public class PersonaController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deletePersonaById(@PathVariable int id) {
         try {
+            Persona persona = personaService.getPersonaById(id);
+            if (persona == null) {
+                return new ResponseEntity<>("Errore: persona con id " + id + " non trovata.", HttpStatus.NOT_FOUND);
+            }
             personaService.deletePersonaById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>("Persona con ID " + id + " eliminata con successo.", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Errore nella rimozione di una persona all'interno del file JSON.", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Errore nella rimozione di una persona con id " + id + " all'interno del file JSON.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
