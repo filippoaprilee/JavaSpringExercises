@@ -57,8 +57,10 @@ public class PersonaServiceImpl implements PersonaService {
         JSONArray jsonArray = fileHandler.readJSONArrayFromFile(JSON_FILE_PATH);
         for (int i = 0; i < jsonArray.length(); i++) {
             Persona persona = fileHandler.readObjectFromFile(JSON_FILE_PATH);
-            persona.setId(idCounter++);
-            personaMap.put(persona.getId(), persona);
+            if (persona != null) {
+                persona.setId(idCounter++);
+                personaMap.put(persona.getId(), persona);
+            }
         }
     }
 }
