@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 import java.io.*;
 import java.util.*;
 
+import static it.apuliadigital.prova_api.utils.Constants.JSON_FILE_PATH;
+
 @Service
 public class PersonaServiceImpl implements PersonaService {
 
     private Map<Integer, Persona> personaMap = new HashMap<>();
     private int idCounter = 1;
-    @Value("${persona.json.file.path}")
-    private String jsonFilePath;
 
     public PersonaServiceImpl() {
         caricaPersoneDaFile(); // Carica le persone dal file JSON all'avvio
@@ -48,29 +48,23 @@ public class PersonaServiceImpl implements PersonaService {
 
     private void salvaPersoneSuFile() {
         JSONArray jsonArray = new JSONArray(personaMap.values());
-        try (FileWriter fileWriter = new FileWriter(jsonFilePath)) {
+        try (FileWriter fileWriter = new FileWriter(JSON_FILE_PATH)) {
             fileWriter.write(jsonArray.toString(2)); // Indentazione per una formattazione più leggibile
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void caricaPersoneDaFile() {
-        File file = new File(jsonFilePath);
-        if (!file.exists()) {
-            try {
-                if (file.createNewFile()) {
-                    // Scrivi un array JSON vuoto nel nuovo file
-                    try (FileWriter fileWriter = new FileWriter(jsonFilePath)) {
-                        fileWriter.write(new JSONArray().toString(2));
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public void caricaPersoneDaFile() {
+        try {
+            File file = new File(JSON_FILE_PATH);
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(jsonFilePath))) {
+            // Se il file non esiste, crea un nuovo file vuoto
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -87,6 +81,7 @@ public class PersonaServiceImpl implements PersonaService {
                     System.err.println("Errore nella lettura del JSON per la persona #" + i + ": " + e.getMessage());
                 }
             }
+            bufferedReader.close(); // Chiudi il BufferedReader dopo l'uso
         } catch (IOException e) {
             e.printStackTrace();
         }
