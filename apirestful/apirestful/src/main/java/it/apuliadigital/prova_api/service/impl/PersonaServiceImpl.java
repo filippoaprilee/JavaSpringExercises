@@ -3,12 +3,10 @@ package it.apuliadigital.prova_api.service.impl;
 import it.apuliadigital.prova_api.model.Persona;
 import it.apuliadigital.prova_api.service.PersonaService;
 import it.apuliadigital.prova_api.utils.FileHandler;
+import jakarta.annotation.PostConstruct;
 import org.json.JSONArray;
-import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
 import java.util.*;
 
 import static it.apuliadigital.prova_api.utils.Constants.JSON_FILE_PATH;
@@ -16,12 +14,14 @@ import static it.apuliadigital.prova_api.utils.Constants.JSON_FILE_PATH;
 @Service
 public class PersonaServiceImpl implements PersonaService {
 
-    private Map<Integer, Persona> personaMap = new HashMap<>();
+    private final Map<Integer, Persona> personaMap = new HashMap<>();
     private int idCounter = 1;
-    private FileHandler<Persona> fileHandler = new FileHandler<>(Persona.class);
 
-    public PersonaServiceImpl() {
-        caricaPersoneDaFile(); // Carica le persone dal file JSON all'avvio
+    private final FileHandler<Persona> fileHandler = new FileHandler<>(Persona.class);
+
+    @PostConstruct
+    private void init() {
+        caricaPersoneDaFile();
     }
 
     @Override

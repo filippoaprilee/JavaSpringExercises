@@ -2,17 +2,15 @@ package it.apuliadigital.prova_api.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.io.*;
 
 public class FileHandler<T> {
 
-    private final Class<T> clazz;
+    private final Class<T> classGenerics;
     private final ObjectMapper objectMapper;
 
-    public FileHandler(Class<T> clazz) {
-        this.clazz = clazz;
+    public FileHandler(Class<T> classGenerics) {
+        this.classGenerics = classGenerics;
         this.objectMapper = new ObjectMapper();
     }
 
@@ -34,12 +32,12 @@ public class FileHandler<T> {
     }
 
     public T readObjectFromFile(String json) throws IOException {
-        return objectMapper.readValue(json, clazz);
+        return objectMapper.readValue(json, classGenerics);
     }
 
-    public void writeObjectToFile(T object, String filePath) throws IOException {
-        try (FileWriter fileWriter = new FileWriter(filePath)) {
-            fileWriter.write(objectMapper.writeValueAsString(object));
-        }
-    }
+//    public void writeObjectToFile(T object, String filePath) throws IOException {
+//        try (FileWriter fileWriter = new FileWriter(filePath)) {
+//            fileWriter.write(objectMapper.writeValueAsString(object));
+//        }
+//    }
 }
