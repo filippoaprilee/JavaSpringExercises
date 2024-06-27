@@ -1,49 +1,82 @@
-@Service
-public class PersonaServiceImpl implements PersonaService {
+package it.apuliadigital.prova_api.utils;
 
-    private Map<Integer, Persona> personaMap = new HashMap<>();
-    private int idCounter = 1;
-    private FileHandler<Persona> fileHandler = new FileHandler<>(Persona.class);
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-    public PersonaServiceImpl() {
-        caricaPersoneDaFile(); // Carica le persone dal file JSON all'avvio
+import java.io.*;
+
+public class FileHandler<T> {
+
+    private final Class<T> clazz;
+    private final ObjectMapper objectMapper;
+
+    public FileHandler(Class<T> clazz) {
+        this.clazz = clazz;
+        this.objectMapper = new ObjectMapper();
     }
 
-    @Override
-    public List<Persona> getAllPersone() {
-        return new ArrayList<>(personaMap.values());
+    public JSONArray readJSONArrayFromFile(String filePath) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            return new JSONArray(stringBuilder.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new JSONArray();
+        }
     }
 
-    @Override
-    public Persona getPersonaById(int id) {
-        return personaMap.get(id);
+    public void writeJSONArrayToFile(JSONArray jsonArray, String filePath) {
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
+            fileWriter.write(jsonArray.toString(2)); // Indentazione per una formattazione più leggibile
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override
-    public void addPersona(Persona persona) {
-        persona.setId(idCounter++);
-        personaMap.put(persona.getId(), persona);
-        salvaPersoneSuFile();
+    public T readObjectFromFile(String filePath) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+            return jsonObjectToJavaObject(jsonObject.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    @Override
-    public Persona deletePersonaById(int id) {
-        Persona deletedPersona = personaMap.remove(id);
-        salvaPersoneSuFile();
-        return deletedPersona;
+    public void writeObjectToFile(T object, String filePath) {
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
+            fileWriter.write(javaObjectToJSONObject(object).toString(2)); // Indentazione per una formattazione più leggibile
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void salvaPersoneSuFile() {
-        JSONArray jsonArray = new JSONArray(personaMap.values());
-        fileHandler.writeJSONArrayToFile(jsonArray, JSON_FILE_PATH);
+    private T jsonObjectToJavaObject(String json) {
+        try {
+            return objectMapper.readValue(json, clazz);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    private void caricaPersoneDaFile() {
-        JSONArray jsonArray = fileHandler.readJSONArrayFromFile(JSON_FILE_PATH);
-        for (int i = 0; i < jsonArray.length(); i++) {
-            Persona persona = fileHandler.readObjectFromFile(JSON_FILE_PATH);
-            persona.setId(idCounter++);
-            personaMap.put(persona.getId(), persona);
+    private JSONObject javaObjectToJSONObject(T object) {
+        try {
+            return new JSONObject(objectMapper.writeValueAsString(object));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
