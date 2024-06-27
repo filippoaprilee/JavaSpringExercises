@@ -1,72 +1,91 @@
-package com.example.demo.service.impl;
+package it.apuliadigital.prova_api.service.impl;
 
-import com.example.demo.model.User;
-import com.example.demo.service.UserService;
+import it.apuliadigital.prova_api.model.Persona;
+import it.apuliadigital.prova_api.service.PersonaService;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class PersonaServiceImpl implements PersonaService {
 
-    private final String FILE_PATH = "users.txt";
-    private Map<Long, User> userMap = new HashMap<>();
+    private final Map<Integer, Persona> personaMap = new HashMap<>();
+    private int idCounter = 1;
 
-    public UserServiceImpl() {
-        loadUsersFromFile();
+    @Value("${persona.json.file.path}")
+    private String jsonFilePath;
+
+    public PersonaServiceImpl() {
+        caricaPersoneDaFile(); // Carica le persone dal file JSON all'avvio
     }
 
     @Override
-    public void addUser(User user) {
-        userMap.put(user.getId(), user);
-        writeToFile();
+    public List<Persona> getAllPersone() {
+        return new ArrayList<>(personaMap.values());
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return new ArrayList<>(userMap.values());
+    public Persona getPersonaById(int id) {
+        return personaMap.get(id);
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userMap.get(id);
+    public void addPersona(Persona persona) {
+        persona.setId(idCounter++);
+        personaMap.put(persona.getId(), persona);
+        salvaPersoneSuFile();
     }
 
     @Override
-    public void deleteUserById(Long id) {
-        userMap.remove(id);
-        writeToFile();
+    public void deletePersonaById(int id) {
+        personaMap.remove(id);
+        salvaPersoneSuFile();
     }
 
-    private void loadUsersFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
-                Long id = Long.parseLong(fields[0].trim());
-                String name = fields[1].trim();
-                String email = fields[2].trim();
-
-                User user = new User();
-                user.setId(id);
-                user.setName(name);
-                user.setEmail(email);
-
-                userMap.put(id, user);
-            }
-        } catch (IOException | NumberFormatException e) {
+    private void salvaPersoneSuFile() {
+        JSONArray jsonArray = new JSONArray(personaMap.values());
+        try (FileWriter fileWriter = new FileWriter(jsonFilePath)) {
+            fileWriter.write(jsonArray.toString(2)); // Indentazione per una formattazione più leggibile
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void writeToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            for (User user : userMap.values()) {
-                writer.write(String.format("%d, %s, %s\n", user.getId(), user.getName(), user.getEmail()));
+    private void caricaPersoneDaFile() {
+        File file = new File(jsonFilePath);
+        if (!file.exists()) {
+            try {
+                if (file.createNewFile()) {
+                    // Scrivi un array JSON vuoto nel nuovo file
+                    try (FileWriter fileWriter = new FileWriter(jsonFilePath)) {
+                        fileWriter.write(new JSONArray().toString(2));
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(jsonFilePath))) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            JSONArray jsonArray = new JSONArray(stringBuilder.toString());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                try {
+                    Persona persona = new Persona(jsonObject);
+                    persona.setId(idCounter++);
+                    personaMap.put(persona.getId(), persona);
+                } catch (Exception e) {
+                    System.err.println("Errore nella lettura del JSON per la persona #" + i + ": " + e.getMessage());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
