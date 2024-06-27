@@ -64,5 +64,8 @@ public class Persona implements Serializable {
         this.cognome = cognome;
     }
 
-    // Altri metodi se necessari
+    @Override
+    public String toString() {
+        return "ID " + id + ". \nNome e cognome: " + nome + " " + cognome;
+    }
 }
