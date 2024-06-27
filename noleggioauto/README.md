@@ -1,40 +1,69 @@
-La struttura proposta per la piattaforma di noleggio auto è ben organizzata e segue i principi di sviluppo software MVC (Model-View-Controller). Ecco come i diversi componenti si integrano:
+Piattaforma di Noleggio Auto
 
-### Struttura dei Pacchetti
-
-- **controller**: Gestisce le richieste HTTP e le interazioni con l'utente. Qui risiedono i controller per utenti, veicoli, prenotazioni e recensioni.
-  
-- **service**: Contiene le logiche di business dell'applicazione, separando la logica di elaborazione dei dati dalla logica di presentazione. 
-  
-- **service/impl**: Implementazioni concrete dei servizi definiti nell'interfaccia `service`.
-  
-- **model**: Definisce i modelli di dati utilizzati nell'applicazione, come Utente, Veicolo, Prenotazione e Recensione.
-  
-- **exception**: Gestisce le eccezioni personalizzate che possono essere lanciate durante l'esecuzione dell'applicazione.
-  
-- **utils**: Contiene classi di utilità che supportano altre parti dell'applicazione, come conversioni di date o altri aiuti funzionali.
+Una piattaforma di noleggio auto che permette agli utenti di cercare, prenotare e gestire noleggi di veicoli, mentre agli amministratori è consentito gestire veicoli, utenti e prenotazioni.
 
 ### Funzionalità Principali
 
-#### Per gli Utenti:
+**Utenti:**
 
-- **Profilo utente**: Visualizzazione e modifica delle informazioni personali.
-- **Ricerca veicoli**: Per trovare veicoli disponibili per il noleggio.
-- **Prenotazione veicoli**: Processo per prenotare un veicolo con date specifiche.
-- **Visualizzazione cronologia delle prenotazioni**: Per vedere le prenotazioni passate e attuali.
-- **Recensione e valutazione dei veicoli**: Possibilità di lasciare recensioni e valutazioni sui veicoli noleggiati.
+- Profilo utente: visualizzazione e modifica informazioni personali.
+- Ricerca veicoli disponibili per noleggio.
+- Prenotazione veicoli.
+- Visualizzazione cronologia delle prenotazioni.
+- Recensione e valutazione dei veicoli.
 
-#### Per gli Amministratori:
+**Amministratori:**
 
-- **Gestione utenti**: Creazione, modifica ed eliminazione di account utente.
-- **Gestione veicoli**: Aggiunta, modifica ed eliminazione di veicoli nel sistema.
-- **Gestione prenotazioni**: Visualizzazione, conferma e cancellazione delle prenotazioni.
-- **Visualizzazione statistiche**: Accesso a statistiche riguardanti le prenotazioni e le recensioni.
+- Gestione utenti: creazione, modifica ed eliminazione.
+- Gestione veicoli: aggiunta, modifica ed eliminazione.
+- Gestione prenotazioni: visualizzazione, conferma e cancellazione.
+- Visualizzazione statistiche: prenotazioni e recensioni.
 
 ### Modelli di Dati
 
-I modelli di dati (`Utente`, `Veicolo`, `Prenotazione`, `Recensione`) sono ben definiti con attributi appropriati che supportano tutte le funzionalità richieste. Ogni modello è progettato per rappresentare correttamente le entità nel sistema di noleggio auto.
+**Utente:**
+- id (Long)
+- nome (String)
+- cognome (String)
+- email (String)
+- password (String)
+- ruolo (Enum: USER, ADMIN)
 
-### Conclusioni
+**Veicolo:**
+- id (Long)
+- modello (String)
+- marca (String)
+- targa (String)
+- anno (Integer)
+- tipo (Enum: BERLINA, SUV, COUPE, ecc.)
+- disponibilità (Boolean)
+- prezzoGiornaliero (Double)
 
-Questa struttura offre una chiara separazione delle responsabilità tra i vari componenti dell'applicazione, rendendo il codice modulare, manutenibile e scalabile. È un approccio solido per sviluppare una piattaforma di noleggio auto che soddisfi le esigenze degli utenti e degli amministratori in modo efficiente e intuitivo.
+**Prenotazione:**
+- id (Long)
+- utenteId (Long)
+- veicoloId (Long)
+- dataInizio (LocalDate)
+- dataFine (LocalDate)
+- stato (Enum: IN_CORSO, CONFERMATA, CANCELLATA)
+
+**Recensione:**
+- id (Long)
+- utenteId (Long)
+- veicoloId (Long)
+- punteggio (Integer)
+- commento (String)
+- data (LocalDate)
+
+### Struttura dei Pacchetti
+
+- it.apuliadigital.noleggioauto
+  - controller
+  - service
+  - service/impl
+  - model
+  - exception
+  - utils
+
+Questa struttura permette agli utenti di utilizzare la piattaforma per gestire i loro noleggi e recensire i veicoli, mentre gli amministratori hanno accesso completo per gestire tutte le entità del sistema.
+
