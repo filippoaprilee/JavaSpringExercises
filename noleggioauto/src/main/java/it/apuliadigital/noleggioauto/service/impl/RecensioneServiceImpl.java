@@ -2,10 +2,12 @@ package it.apuliadigital.noleggioauto.service.impl;
 
 import it.apuliadigital.noleggioauto.model.Recensione;
 import it.apuliadigital.noleggioauto.service.RecensioneService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class RecensioneServiceImpl implements RecensioneService {
     private List<Recensione> recensioni = new ArrayList<>();
     private Long ultimoId = 0L;

@@ -7,6 +7,7 @@ import java.util.List;
 public interface VeicoloService {
     List<Veicolo> trovaTuttiIVeicoli();
     Veicolo trovaVeicoloPerId(Long id);
+    Veicolo trovaVeicoloPerTarga(String targa);
     void aggiungiVeicolo(Veicolo veicolo);
     void modificaVeicolo(Veicolo veicolo);
     void eliminaVeicolo(Long id);

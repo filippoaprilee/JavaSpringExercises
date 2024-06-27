@@ -3,10 +3,12 @@ package it.apuliadigital.noleggioauto.service.impl;
 import it.apuliadigital.noleggioauto.model.Prenotazione;
 import it.apuliadigital.noleggioauto.model.StatoPrenotazione;
 import it.apuliadigital.noleggioauto.service.PrenotazioneService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class PrenotazioneServiceImpl implements PrenotazioneService {
     private List<Prenotazione> prenotazioni = new ArrayList<>();
     private Long ultimoId = 0L;
@@ -22,6 +24,20 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
                 .filter(prenotazione -> prenotazione.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public List<Prenotazione> trovaPrenotazioniPerUtente(Long idUtente) {
+        return prenotazioni.stream()
+                .filter(prenotazione -> prenotazione.getUtenteId().equals(idUtente))
+                .toList();
+    }
+
+    @Override
+    public List<Prenotazione> trovaPrenotazioniPerVeicolo(Long idVeicolo) {
+        return prenotazioni.stream()
+                .filter(prenotazione -> prenotazione.getVeicoloId().equals(idVeicolo))
+                .toList();
     }
 
     @Override

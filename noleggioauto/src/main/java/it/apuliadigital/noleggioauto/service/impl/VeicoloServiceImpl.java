@@ -26,6 +26,14 @@ public class VeicoloServiceImpl implements VeicoloService {
     }
 
     @Override
+    public Veicolo trovaVeicoloPerTarga(String targa) {
+        return veicoli.stream()
+                .filter(veicolo -> veicolo.getTarga().equals(targa))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
     public void aggiungiVeicolo(Veicolo veicolo) {
         veicolo.setId(++ultimoId);
         veicoli.add(veicolo);
