@@ -13,10 +13,10 @@ import java.util.*;
 @Service
 public class PersonaServiceImpl implements PersonaService {
 
-    @Value("${persona.json.file.path}")
-    private String jsonFilePath;
     private Map<Integer, Persona> personaMap = new HashMap<>();
     private int idCounter = 1;
+    @Value("${persona.json.file.path}")
+    private String jsonFilePath;
 
     public PersonaServiceImpl() {
         caricaPersoneDaFile(); // Carica le persone dal file JSON all'avvio
@@ -56,30 +56,11 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     private void caricaPersoneDaFile() {
-//        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(jsonFilePath))) {
-//            StringBuilder stringBuilder = new StringBuilder();
-//            String line;
-//            while ((line = bufferedReader.readLine()) != null) {
-//                stringBuilder.append(line);
-//            }
-//            JSONArray jsonArray = new JSONArray(stringBuilder.toString());
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                try {
-//                    Persona persona = new Persona(jsonObject);
-//                    persona.setId(idCounter++);
-//                    personaMap.put(persona.getId(), persona);
-//                } catch (Exception e) {
-//                    System.err.println("Errore nella lettura del JSON per la persona #" + i + ": " + e.getMessage());
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         File file = new File(jsonFilePath);
         if (!file.exists()) {
             try {
-                if(file.createNewFile()) {
+                if (file.createNewFile()) {
+                    // Scrivi un array JSON vuoto nel nuovo file
                     try (FileWriter fileWriter = new FileWriter(jsonFilePath)) {
                         fileWriter.write(new JSONArray().toString(2));
                     }
@@ -88,6 +69,7 @@ public class PersonaServiceImpl implements PersonaService {
                 e.printStackTrace();
             }
         }
+
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(jsonFilePath))) {
             StringBuilder stringBuilder = new StringBuilder();
             String line;
