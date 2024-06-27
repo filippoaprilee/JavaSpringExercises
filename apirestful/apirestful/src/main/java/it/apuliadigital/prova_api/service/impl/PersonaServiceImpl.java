@@ -18,6 +18,7 @@ public class PersonaServiceImpl implements PersonaService {
 
     private Map<Integer, Persona> personaMap = new HashMap<>();
     private int idCounter = 1;
+    private FileHandler<Persona> fileHandler = new FileHandler<>(Persona.class);
 
     public PersonaServiceImpl() {
         caricaPersoneDaFile(); // Carica le persone dal file JSON all'avvio
@@ -42,35 +43,22 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Override
     public Persona deletePersonaById(int id) {
-        personaMap.remove(id);
+        Persona deletedPersona = personaMap.remove(id);
         salvaPersoneSuFile();
-        return null;
+        return deletedPersona;
     }
 
     private void salvaPersoneSuFile() {
         JSONArray jsonArray = new JSONArray(personaMap.values());
-        try {
-            FileHandler.scriviJSONSuFile(jsonArray, JSON_FILE_PATH);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fileHandler.writeJSONArrayToFile(jsonArray, JSON_FILE_PATH);
     }
 
     private void caricaPersoneDaFile() {
-        try {
-            JSONArray jsonArray = FileHandler.leggiJSONDaFile(JSON_FILE_PATH);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                try {
-                    Persona persona = new Persona(jsonObject);
-                    persona.setId(idCounter++);
-                    personaMap.put(persona.getId(), persona);
-                } catch (Exception e) {
-                    System.err.println("Errore nella lettura del JSON per la persona #" + i + ": " + e.getMessage());
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        JSONArray jsonArray = fileHandler.readJSONArrayFromFile(JSON_FILE_PATH);
+        for (int i = 0; i < jsonArray.length(); i++) {
+            Persona persona = fileHandler.readObjectFromFile(JSON_FILE_PATH);
+            persona.setId(idCounter++);
+            personaMap.put(persona.getId(), persona);
         }
     }
 }
