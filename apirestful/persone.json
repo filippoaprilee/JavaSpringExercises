@@ -1,12 +1,5 @@
-[
-  {
-    "cognome": "bra",
-    "nome": "gf",
-    "id": 2
-  },
-  {
-    "cognome": "wee",
-    "nome": "d",
-    "id": 3
-  }
-]
+[{
+  "cognome": "wee",
+  "nome": "d",
+  "id": 2
+}]

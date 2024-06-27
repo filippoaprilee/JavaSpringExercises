@@ -2,6 +2,7 @@ package it.apuliadigital.prova_api.service.impl;
 
 import it.apuliadigital.prova_api.model.Persona;
 import it.apuliadigital.prova_api.service.PersonaService;
+import it.apuliadigital.prova_api.utils.FileHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -48,29 +49,16 @@ public class PersonaServiceImpl implements PersonaService {
 
     private void salvaPersoneSuFile() {
         JSONArray jsonArray = new JSONArray(personaMap.values());
-        try (FileWriter fileWriter = new FileWriter(JSON_FILE_PATH)) {
-            fileWriter.write(jsonArray.toString(2)); // Indentazione per una formattazione più leggibile
+        try {
+            FileHandler.scriviJSONSuFile(jsonArray, JSON_FILE_PATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void caricaPersoneDaFile() {
+    private void caricaPersoneDaFile() {
         try {
-            File file = new File(JSON_FILE_PATH);
-
-            // Se il file non esiste, crea un nuovo file vuoto
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-            JSONArray jsonArray = new JSONArray(stringBuilder.toString());
+            JSONArray jsonArray = FileHandler.leggiJSONDaFile(JSON_FILE_PATH);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 try {
@@ -81,7 +69,6 @@ public class PersonaServiceImpl implements PersonaService {
                     System.err.println("Errore nella lettura del JSON per la persona #" + i + ": " + e.getMessage());
                 }
             }
-            bufferedReader.close(); // Chiudi il BufferedReader dopo l'uso
         } catch (IOException e) {
             e.printStackTrace();
         }
