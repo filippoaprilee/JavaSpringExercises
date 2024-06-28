@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.bottoneInvia {
+    margin-right: 130px;
+}
+
+#personasList {
+    margin-top: 20px;
+}
+
+.persona {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Allinea verticalmente gli elementi */
+}
+
+.persona .buttons {
+    margin-left: auto; /* Spinge i pulsanti verso destra */
+    display: flex;
+    gap: 10px; /* Spazio tra i pulsanti */
+}
+
+.persona button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.update-button {
+    background-color: #5bc0de;
+    color: white;
+    border-radius: .25rem;
+}
+
+.delete-button {
+    background-color: #d9534f;
+    color: white;
+    border-radius: .25rem;
+}

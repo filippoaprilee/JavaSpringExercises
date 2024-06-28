@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Persone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Personalized CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mb-4">Gestione persone</h1>
+    <h5 class="text-center mb-4">Filippo Aprile & Luca Zacheo</h5>
+    <form id="personaForm" class="mb-4">
+        <input type="hidden" id="personaId">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <input type="text" class="form-control" id="nome" placeholder="Nome" required>
+            </div>
+            <div class="form-group col-md-5">
+                <input type="text" class="form-control" id="cognome" placeholder="Cognome" required>
+            </div>
+            <div class="form-group col-md-2 text-right" style="padding-right: 15px !important;">
+                <button type="submit" class="btn btn-success mr-auto">Invia</button>
+            </div>
+        </div>
+    </form>
+    <div id="personasList"></div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Your custom JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
