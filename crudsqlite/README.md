@@ -1,5 +1,5 @@
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-28T10:18:26.403+02:00 ERROR 13584 --- [crudsqlite] [           main] o.s.boot.SpringApplication               : Application run failed
+2024-06-28T10:22:30.156+02:00 ERROR 6164 --- [crudsqlite] [           main] o.s.boot.SpringApplication               : Application run failed
 
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: jakarta/persistence/CheckConstraint
 at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788) ~[spring-beans-6.1.10.jar:6.1.10]
