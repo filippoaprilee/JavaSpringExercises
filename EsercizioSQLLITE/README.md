@@ -1,14 +1,7 @@
-2024-06-28T12:19:08.077+02:00 ERROR 2536 --- [EsercizioSQLLITE] [           main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to resolve name [org.hibernate.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
-2024-06-28T12:19:08.078+02:00  WARN 2536 --- [EsercizioSQLLITE] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to resolve name [org.hibernate.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
-2024-06-28T12:19:08.078+02:00  INFO 2536 --- [EsercizioSQLLITE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-06-28T12:19:08.080+02:00  INFO 2536 --- [EsercizioSQLLITE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-06-28T12:19:08.083+02:00  INFO 2536 --- [EsercizioSQLLITE] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-28T12:19:08.092+02:00  INFO 2536 --- [EsercizioSQLLITE] [           main] .s.b.a.l.ConditionEvaluationReportLogger :
-
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-28T12:19:08.107+02:00 ERROR 2536 --- [EsercizioSQLLITE] [           main] o.s.boot.SpringApplication               : Application run failed
+2024-06-28T12:23:29.164+02:00 ERROR 1320 --- [EsercizioSQLLITE] [           main] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to resolve name [org.hibernate.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: jakarta/persistence/CheckConstraint
 at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788) ~[spring-beans-6.1.10.jar:6.1.10]
 at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.10.jar:6.1.10]
 at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.10.jar:6.1.10]
@@ -25,16 +18,17 @@ at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[
 at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.1.jar:3.3.1]
 at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.1.jar:3.3.1]
 at it.apuliadigital.eserciziosqllite.EsercizioSqlliteApplication.main(EsercizioSqlliteApplication.java:10) ~[classes/:na]
-Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to resolve name [org.hibernate.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
-at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+Caused by: java.lang.NoClassDefFoundError: jakarta/persistence/CheckConstraint
+at org.hibernate.boot.models.JpaAnnotations.<clinit>(JpaAnnotations.java:230) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
+at org.hibernate.boot.models.internal.OrmAnnotationHelper.forEachOrmAnnotation(OrmAnnotationHelper.java:40) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
+at org.hibernate.boot.models.internal.ModelsHelper.preFillRegistries(ModelsHelper.java:25) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
+at org.hibernate.models.internal.SourceModelBuildingContextImpl.primeRegistries(SourceModelBuildingContextImpl.java:87) ~[hibernate-models-0.8.5.jar:na]
+at org.hibernate.models.internal.SourceModelBuildingContextImpl.<init>(SourceModelBuildingContextImpl.java:48) ~[hibernate-models-0.8.5.jar:na]
+at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.createModelBuildingContext(InFlightMetadataCollectorImpl.java:233) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
+at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
+at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:197) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
+at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1429) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
+at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1500) ~[hibernate-core-7.0.0.Alpha3.jar:7.0.0.Alpha3]
 at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.10.jar:6.1.10]
 at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.10.jar:6.1.10]
 at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.10.jar:6.1.10]
@@ -43,53 +37,11 @@ at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPrope
 at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835) ~[spring-beans-6.1.10.jar:6.1.10]
 at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.10.jar:6.1.10]
 ... 15 common frames omitted
-Caused by: org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [org.hibernate.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
-at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:154) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:236) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:189) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.constructDialect(DialectFactoryImpl.java:123) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:88) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:152) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:362) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-... 30 common frames omitted
-Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [org.hibernate.dialect.SQLiteDialect]
-at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:126) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:150) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-... 40 common frames omitted
-Caused by: java.lang.ClassNotFoundException: Could not load requested class : org.hibernate.dialect.SQLiteDialect
-at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:216) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:593) ~[na:na]
-at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
-at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
-at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
-at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
-at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-... 41 common frames omitted
-Caused by: java.lang.Throwable: null
-at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:209) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-... 47 common frames omitted
-Suppressed: java.lang.ClassNotFoundException: org.hibernate.dialect.SQLiteDialect
+Caused by: java.lang.ClassNotFoundException: jakarta.persistence.CheckConstraint
 at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
 at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
-at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-... 47 common frames omitted
-Suppressed: java.lang.ClassNotFoundException: org.hibernate.dialect.SQLiteDialect
-at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
-at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
-at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
-at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-... 47 common frames omitted
-Suppressed: java.lang.ClassNotFoundException: org.hibernate.dialect.SQLiteDialect
-at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
-at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
-at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
-at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-... 47 common frames omitted
+... 32 common frames omitted
 
 
 Process finished with exit code 1
