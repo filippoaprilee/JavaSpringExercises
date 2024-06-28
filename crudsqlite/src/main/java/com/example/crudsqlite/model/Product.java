@@ -1,4 +1,4 @@
-package it.apuliadigital.esercizioprovadbsqllite.model;
+package com.example.crudsqlite.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
