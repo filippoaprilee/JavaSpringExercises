@@ -7,8 +7,11 @@ public RestaurantTable freeTable(List<RestaurantTable> elegibleTables, LocalDate
                     .noneMatch(reservation ->
                             reservation.getRestaurantTable().getId() == table.getId() &&
                                     reservation.getReservationDate().equals(reservationDate) &&
-                                    ((reservationStartTime.isAfter(reservation.getReservationStartTime()) && reservationStartTime.isBefore(reservation.getReservationEndTime())) ||
-                                     (reservationEndTime.isAfter(reservation.getReservationStartTime()) && reservationEndTime.isBefore(reservation.getReservationEndTime())))
+                                    (
+                                        // Controlla se c'è sovrapposizione di orari
+                                        (reservationStartTime.isBefore(reservation.getReservationEndTime()) &&
+                                         reservationEndTime.isAfter(reservation.getReservationStartTime()))
+                                    )
                     )
             )
             .findFirst()
