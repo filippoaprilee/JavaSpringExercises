@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +29,17 @@ public class ReservationServiceImpl implements ReservationService {
     @Autowired
     private UserRepository userRepository;
 
+    private static final Logger logger = LoggerFactory.getLogger(ReservationServiceImpl.class);
+
     @Override
-    public boolean addReservation(ReservationDTO reservationDTO) {        
+    public boolean addReservation(ReservationDTO reservationDTO) {
         try {
             Reservation reservation = fromDTOToReservation(reservationDTO, new Reservation());
             reservationRepository.save(reservation);
+            logger.info("Prenotazione aggiunta con successo: {}", reservation.getId());
             return true;
         } catch (Exception e) {
+            logger.error("Errore durante l'aggiunta della prenotazione", e);
             return false;
         }
     }
@@ -43,10 +47,11 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public boolean removeReservation(long id) {
         try {
-            reservationRepository.findById(id).get(); // risolto ma bruttino
-            reservationRepository.deleteById(id); // TODO torna sempre true perchè ignora se non trova l'entità
+            reservationRepository.deleteById(id);
+            logger.info("Prenotazione con ID {} rimossa con successo", id);
             return true;
         } catch (Exception e) {
+            logger.error("Errore durante la rimozione della prenotazione con ID {}", id, e);
             return false;
         }
     }
@@ -64,13 +69,14 @@ public class ReservationServiceImpl implements ReservationService {
     public List<ReservationDTO> getReservations() {
         try {
             List<Reservation> listReservations = reservationRepository.findAll();
-            List<ReservationDTO> listReservationsDTO = new ArrayList<ReservationDTO>();
-            for (Reservation x : listReservations) {
-                listReservationsDTO.add(fromReservationToDTO(x, new ReservationDTO()));
+            List<ReservationDTO> listReservationsDTO = new ArrayList<>();
+            for (Reservation reservation : listReservations) {
+                listReservationsDTO.add(fromReservationToDTO(reservation, new ReservationDTO()));
             }
+            logger.info("Trovate {} prenotazioni", listReservations.size());
             return listReservationsDTO;
-
         } catch (Exception e) {
+            logger.error("Errore durante il recupero delle prenotazioni", e);
             return null;
         }
     }
@@ -84,9 +90,11 @@ public class ReservationServiceImpl implements ReservationService {
             // reservation = fromDTOtoReservation(reservationDTO, reservation);
             // reservationRepository.save(reservation);
             reservationRepository.save(fromDTOToReservation(reservationDTO, reservationRepository.findById(id).get()));
+            logger.info("Prenotazione con ID {} aggiornata con successo", id);
             return true;
 
         } catch (Exception e) {
+            logger.error("Errore durante l'aggiornamento della prenotazione con ID {}", id, e);
             return false;
         }
     }
