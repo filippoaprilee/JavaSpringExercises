@@ -124,13 +124,9 @@ public class ReservationServiceImpl implements ReservationService {
 
     public RestaurantTable freeTable(List<RestaurantTable> elegibleTables, LocalDate reservationDate,
             LocalTime reservationStartTime, LocalTime reservationEndTime) {
-
-        RestaurantTable tableFound = reservationRepository.findAll().stream()
-                .filter(x -> x.getReservationDate().compareTo(reservationDate) == 0
-                        && reservationStartTime.compareTo(x.getReservationEndTime()) == 1
-                        || reservationEndTime.compareTo(x.getReservationStartTime()) == -1)
-                .findFirst().get().getRestaurantTable();
-
-        return tableFound;
+        return reservationRepository.findAll().stream().filter(x -> x.getReservationDate().isEqual(reservationDate)
+                && (reservationStartTime.isAfter(x.getReservationEndTime()) ||
+                reservationEndTime.isBefore(x.getReservationStartTime()))).findFirst().map(
+                        Reservation::getRestaurantTable).orElse(null);
     }
 }
