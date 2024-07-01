@@ -1,27 +1,28 @@
-public RestaurantTable freeTable(List<RestaurantTable> eligibleTables, LocalDate reservationDate,
-        LocalTime reservationStartTime, LocalTime reservationEndTime) {
-
     // Trova tutte le prenotazioni che si sovrappongono nel tempo con la nuova prenotazione
     List<Reservation> overlappingReservations = reservationRepository.findAll().stream()
             .filter(reservation ->
-                reservation.getReservationDate().isEqual(reservationDate) &&
-                (
-                    (reservationStartTime.isAfter(reservation.getReservationStartTime()) && reservationStartTime.isBefore(reservation.getReservationEndTime())) ||
-                    (reservationEndTime.isAfter(reservation.getReservationStartTime()) && reservationEndTime.isBefore(reservation.getReservationEndTime())) ||
-                    (reservationStartTime.isBefore(reservation.getReservationStartTime()) && reservationEndTime.isAfter(reservation.getReservationEndTime()))
-                )
+                    reservation.getReservationDate().isEqual(reservationDate) &&
+                            (
+                                    (reservationStartTime.isBefore(reservation.getReservationEndTime()) && reservation.getReservationStartTime().isBefore(reservationEndTime)) &&
+                                    (reservationEndTime.isAfter(reservation.getReservationStartTime()) && reservation.getReservationEndTime().isAfter(reservationStartTime))
+                            )
             )
             .collect(Collectors.toList());
 
-    // Costruisci un set di tavoli già prenotati
-    Set<RestaurantTable> bookedTables = overlappingReservations.stream()
+    // Ottieni l'elenco dei tavoli già prenotati
+    List<RestaurantTable> reservedTables = overlappingReservations.stream()
             .map(Reservation::getRestaurantTable)
-            .collect(Collectors.toSet());
+            .collect(Collectors.toList());
 
-    // Trova il primo tavolo tra quelli elegibili che non è già prenotato
-    Optional<RestaurantTable> availableTable = eligibleTables.stream()
-            .filter(table -> !bookedTables.contains(table))
-            .findFirst();
+    // Filtra i tavoli elegibili per prenotazione escludendo quelli già prenotati
+    List<RestaurantTable> availableTables = eligibleTables.stream()
+            .filter(table -> !reservedTables.contains(table))
+            .collect(Collectors.toList());
 
-    return availableTable.orElse(null);
+    // Se ci sono tavoli disponibili, restituisci il primo della lista
+    if (!availableTables.isEmpty()) {
+        return availableTables.get(0);
+    } else {
+        return null; // Se non ci sono tavoli disponibili
+    }
 }
