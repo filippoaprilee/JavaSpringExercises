@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -122,11 +126,34 @@ public class ReservationServiceImpl implements ReservationService {
         return elegibleTables;
     }
 
-    public RestaurantTable freeTable(List<RestaurantTable> elegibleTables, LocalDate reservationDate,
-            LocalTime reservationStartTime, LocalTime reservationEndTime) {
-        return reservationRepository.findAll().stream().filter(x -> x.getReservationDate().isEqual(reservationDate)
-                && (reservationStartTime.isAfter(x.getReservationEndTime()) ||
-                reservationEndTime.isBefore(x.getReservationStartTime()))).findFirst().map(
-                        Reservation::getRestaurantTable).orElse(null);
+    public RestaurantTable freeTable(List<RestaurantTable> eligibleTables, LocalDate reservationDate,
+                                     LocalTime reservationStartTime, LocalTime reservationEndTime) {
+        // Trova una prenotazione che si sovrappone nel tempo
+        Optional<Reservation> overlappingReservation = reservationRepository.findAll().stream()
+                .filter(reservation ->
+                        reservation.getReservationDate().isEqual(reservationDate) &&
+                                (
+                                        (reservationStartTime.isAfter(reservation.getReservationStartTime()) && reservationStartTime.isBefore(reservation.getReservationEndTime())) ||
+                                                (reservationEndTime.isAfter(reservation.getReservationStartTime()) && reservationEndTime.isBefore(reservation.getReservationEndTime())) ||
+                                                (reservationStartTime.isBefore(reservation.getReservationStartTime()) && reservationEndTime.isAfter(reservation.getReservationEndTime()))
+                                )
+                )
+                .findFirst();
+
+        // Se non ci sono prenotazioni sovrapposte, restituisci il primo tavolo disponibile
+        if (overlappingReservation.isEmpty()) {
+            return eligibleTables.stream().findFirst().orElse(null);
+        } else {
+            // Escludi i tavoli già prenotati
+            Set<RestaurantTable> bookedTables = overlappingReservation.stream()
+                    .map(Reservation::getRestaurantTable)
+                    .collect(Collectors.toSet());
+
+            // Trova il primo tavolo tra quelli elegibili che non è già prenotato
+            return eligibleTables.stream()
+                    .filter(table -> !bookedTables.contains(table))
+                    .findFirst()
+                    .orElse(null);
+        }
     }
 }
