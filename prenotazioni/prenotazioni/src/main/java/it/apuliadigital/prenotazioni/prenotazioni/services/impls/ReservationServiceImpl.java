@@ -4,10 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -96,6 +92,8 @@ public class ReservationServiceImpl implements ReservationService {
         reservationDTO.setNumberOfGuests(reservation.getRestaurantTable().getSeats());
         reservationDTO.setReservationDate(reservation.getReservationDate());
         reservationDTO.setReservationStartTime(reservation.getReservationStartTime());
+        reservationDTO.setUserId(reservation.getUser().getId());
+        reservationDTO.setTableType(reservation.getRestaurantTable().getTableType());
         return reservationDTO;
     }
 
@@ -129,17 +127,12 @@ public class ReservationServiceImpl implements ReservationService {
     public RestaurantTable freeTable(List<RestaurantTable> elegibleTables, LocalDate reservationDate,
                                      LocalTime reservationStartTime, LocalTime reservationEndTime) {
 
-        // Cerca il primo tavolo elegibile che sia libero durante l'intervallo richiesto
-        return elegibleTables.stream()
-                .filter(table -> reservationRepository.findAll().stream()
-                        .noneMatch(reservation ->
-                                reservation.getRestaurantTable().getId() == table.getId() &&
-                                        reservation.getReservationDate().equals(reservationDate) &&
-                                        ((reservationStartTime.isAfter(reservation.getReservationStartTime()) && reservationStartTime.isBefore(reservation.getReservationEndTime())) ||
-                                                (reservationEndTime.isAfter(reservation.getReservationStartTime()) && reservationEndTime.isBefore(reservation.getReservationEndTime())))
-                        )
-                )
-                .findFirst()
-                .orElse(null); // Ritorna null se non trova un tavolo libero
+        RestaurantTable tableFound = reservationRepository.findAll().stream()
+                .filter(x -> x.getReservationDate().compareTo(reservationDate) == 0
+                        && reservationStartTime.compareTo(x.getReservationEndTime()) == 1
+                        || reservationEndTime.compareTo(x.getReservationStartTime()) == -1)
+                .findFirst().get().getRestaurantTable();
+
+        return tableFound;
     }
 }
