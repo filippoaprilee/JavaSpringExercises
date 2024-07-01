@@ -114,25 +114,36 @@ public class ReservationServiceImpl implements ReservationService {
         return reservation;
     }
 
-    public List<RestaurantTable> elegibleTables(ReservationDTO reservationDTO) {
+    public List<RestaurantTable> findAvailableTables(ReservationDTO reservationDTO) {
+        LocalDate reservationDate = reservationDTO.getReservationDate();
+        LocalTime reservationStartTime = reservationDTO.getReservationStartTime();
+        LocalTime reservationEndTime = reservationStartTime.plusHours(2);
 
-        List<RestaurantTable> elegibleTables = tableRepository.findAll().stream()
-                .filter(x -> x.getSeats() == reservationDTO.getNumberOfGuests()
-                        && x.getTableType() == reservationDTO.getTableType())
+        List<Reservation> overlappingReservations = reservationRepository.findAll().stream()
+                .filter(r -> r.getReservationDate().equals(reservationDate))
+                .filter(r -> r.getRestaurantTable().getSeats() == reservationDTO.getNumberOfGuests())
+                .filter(r -> r.getReservationStartTime().isBefore(reservationEndTime) && r.getReservationEndTime().isAfter(reservationStartTime))
                 .toList();
 
-        return elegibleTables;
+        List<RestaurantTable> allTables = tableRepository.findAll();
+
+        List<RestaurantTable> availableTables = allTables.stream()
+                .filter(t -> !overlappingReservations.stream()
+                        .map(Reservation::getRestaurantTable)
+                        .toList()
+                        .contains(t))
+                .toList();
+
+        return availableTables;
     }
 
-    public RestaurantTable freeTable(List<RestaurantTable> elegibleTables, LocalDate reservationDate,
-                                     LocalTime reservationStartTime, LocalTime reservationEndTime) {
+    public boolean isTableAvailable(RestaurantTable table, LocalDate reservationDate, LocalTime reservationStartTime, LocalTime reservationEndTime) {
+        List<Reservation> overlappingReservations = reservationRepository.findAll().stream()
+                .filter(r -> r.getRestaurantTable().equals(table))
+                .filter(r -> r.getReservationDate().equals(reservationDate))
+                .filter(r -> r.getReservationStartTime().isBefore(reservationEndTime) && r.getReservationEndTime().isAfter(reservationStartTime))
+                .toList();
 
-        RestaurantTable tableFound = reservationRepository.findAll().stream()
-                .filter(x -> x.getReservationDate().compareTo(reservationDate) == 0
-                        && reservationStartTime.compareTo(x.getReservationEndTime()) == 1
-                        || reservationEndTime.compareTo(x.getReservationStartTime()) == -1)
-                .findFirst().get().getRestaurantTable();
-
-        return tableFound;
+        return overlappingReservations.isEmpty();
     }
 }
