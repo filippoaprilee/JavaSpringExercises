@@ -1,13 +1,27 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
 
     private static final Logger logger = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
-    // ... altri metodi del servizio
+    @Autowired
+    private ReservationRepository reservationRepository;
+
+    @Autowired
+    private RestaurantTableRepository tableRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public boolean addReservation(ReservationDTO reservationDTO) {
@@ -35,14 +49,12 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public boolean updateReservation(long id, ReservationDTO reservationDTO) {
+    public ReservationDTO getReservation(long id) {
         try {
-            reservationRepository.save(fromDTOToReservation(reservationDTO, reservationRepository.findById(id).orElse(null)));
-            logger.info("Prenotazione con ID {} aggiornata con successo", id);
-            return true;
+            return fromReservationToDTO(reservationRepository.findById(id).orElse(null), new ReservationDTO());
         } catch (Exception e) {
-            logger.error("Errore durante l'aggiornamento della prenotazione con ID {}", id, e);
-            return false;
+            logger.error("Errore durante il recupero della prenotazione con ID {}", id, e);
+            return null;
         }
     }
 
@@ -62,18 +74,75 @@ public class ReservationServiceImpl implements ReservationService {
         }
     }
 
-    // Aggiungi anche logging per il metodo freeTable
-    public RestaurantTable freeTable(List<RestaurantTable> eligibleTables, LocalDate reservationDate,
-            LocalTime reservationStartTime, LocalTime reservationEndTime) {
+    @Override
+    public boolean updateReservation(long id, ReservationDTO reservationDTO) {
         try {
-            // Tuo codice attuale per il metodo freeTable
+            reservationRepository.save(fromDTOToReservation(reservationDTO, reservationRepository.findById(id).orElse(null)));
+            logger.info("Prenotazione con ID {} aggiornata con successo", id);
+            return true;
+        } catch (Exception e) {
+            logger.error("Errore durante l'aggiornamento della prenotazione con ID {}", id, e);
+            return false;
+        }
+    }
 
-            logger.info("Eligible tables: {}", eligibleTables.size());
-            eligibleTables.forEach(table -> logger.info("Eligible table: {}", table.getId()));
+    @Override
+    public ReservationDTO fromReservationToDTO(Reservation reservation, ReservationDTO reservationDTO) {
+        reservationDTO.setNumberOfGuests(reservation.getRestaurantTable().getSeats());
+        reservationDTO.setReservationDate(reservation.getReservationDate());
+        reservationDTO.setReservationStartTime(reservation.getReservationStartTime());
+        return reservationDTO;
+    }
+
+    @Override
+    public Reservation fromDTOToReservation(ReservationDTO reservationDTO, Reservation reservation) {
+        reservation.setReservationDate(reservationDTO.getReservationDate());
+        reservation.setReservationStartTime(reservationDTO.getReservationStartTime());
+        reservation.setReservationEndTime(reservationDTO.getReservationStartTime().plusHours(2));
+
+        List<RestaurantTable> eligibleTables = elegibleTables(reservationDTO);
+
+        RestaurantTable freeTable = freeTable(eligibleTables, reservation.getReservationDate(),
+                reservation.getReservationStartTime(), reservation.getReservationEndTime());
+
+        reservation.setRestaurantTable(freeTable);
+        reservation.setUser(userRepository.findById(reservationDTO.getUserId()).orElse(null));
+        return reservation;
+    }
+
+    private List<RestaurantTable> elegibleTables(ReservationDTO reservationDTO) {
+        return tableRepository.findAll().stream()
+                .filter(table -> table.getSeats() == reservationDTO.getNumberOfGuests()
+                        && table.getTableType().equals(reservationDTO.getTableType()))
+                .collect(Collectors.toList());
+    }
+
+    private RestaurantTable freeTable(List<RestaurantTable> eligibleTables, LocalDate reservationDate,
+                                      LocalTime reservationStartTime, LocalTime reservationEndTime) {
+        try {
+            List<Reservation> overlappingReservations = reservationRepository.findAll().stream()
+                    .filter(reservation ->
+                            reservation.getReservationDate().isEqual(reservationDate) &&
+                                    (
+                                            (reservationStartTime.isBefore(reservation.getReservationEndTime()) && reservation.getReservationStartTime().isBefore(reservationEndTime)) &&
+                                                    (reservationEndTime.isAfter(reservation.getReservationStartTime()) && reservation.getReservationEndTime().isAfter(reservationStartTime))
+                                    )
+                    )
+                    .collect(Collectors.toList());
+
+            List<RestaurantTable> reservedTables = overlappingReservations.stream()
+                    .map(Reservation::getRestaurantTable)
+                    .collect(Collectors.toList());
+
+            List<RestaurantTable> availableTables = eligibleTables.stream()
+                    .filter(table -> !reservedTables.contains(table))
+                    .collect(Collectors.toList());
 
             if (!availableTables.isEmpty()) {
+                logger.info("Trovato tavolo disponibile: {}", availableTables.get(0).getId());
                 return availableTables.get(0);
             } else {
+                logger.warn("Nessun tavolo disponibile per la prenotazione");
                 return null;
             }
         } catch (Exception e) {
