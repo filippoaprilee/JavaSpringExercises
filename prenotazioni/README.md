@@ -1,7 +1,8 @@
 public RestaurantTable freeTable(List<RestaurantTable> eligibleTables, LocalDate reservationDate,
         LocalTime reservationStartTime, LocalTime reservationEndTime) {
-    // Trova una prenotazione che si sovrappone nel tempo
-    Optional<Reservation> overlappingReservation = reservationRepository.findAll().stream()
+
+    // Trova tutte le prenotazioni che si sovrappongono nel tempo con la nuova prenotazione
+    List<Reservation> overlappingReservations = reservationRepository.findAll().stream()
             .filter(reservation ->
                 reservation.getReservationDate().isEqual(reservationDate) &&
                 (
@@ -10,21 +11,17 @@ public RestaurantTable freeTable(List<RestaurantTable> eligibleTables, LocalDate
                     (reservationStartTime.isBefore(reservation.getReservationStartTime()) && reservationEndTime.isAfter(reservation.getReservationEndTime()))
                 )
             )
-            .findFirst();
+            .collect(Collectors.toList());
 
-    // Se non ci sono prenotazioni sovrapposte, restituisci il primo tavolo disponibile
-    if (overlappingReservation.isEmpty()) {
-        return eligibleTables.stream().findFirst().orElse(null);
-    } else {
-        // Escludi i tavoli già prenotati
-        Set<RestaurantTable> bookedTables = overlappingReservation.stream()
+    // Costruisci un set di tavoli già prenotati
+    Set<RestaurantTable> bookedTables = overlappingReservations.stream()
             .map(Reservation::getRestaurantTable)
             .collect(Collectors.toSet());
 
-        // Trova il primo tavolo tra quelli elegibili che non è già prenotato
-        return eligibleTables.stream()
+    // Trova il primo tavolo tra quelli elegibili che non è già prenotato
+    Optional<RestaurantTable> availableTable = eligibleTables.stream()
             .filter(table -> !bookedTables.contains(table))
-            .findFirst()
-            .orElse(null);
-    }
+            .findFirst();
+
+    return availableTable.orElse(null);
 }
