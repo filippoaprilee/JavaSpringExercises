@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b98d23c1-d8d0-4d28-b6c5-2cf1e443b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/js/crud.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/reservation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/ServletInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/controllers/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/controllers/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entitiesDTO/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entitiesDTO/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/services/impls/ReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/services/impls/ReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni/src/test/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/test/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplicationTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="b98d23c1-d8d0-4d28-b6c5-2cf1e443b176" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,6 +101,7 @@
       <updated>1719850531648</updated>
       <workItem from="1719850533392" duration="1812000" />
       <workItem from="1719852564513" duration="2126000" />
+      <workItem from="1719936895987" duration="523000" />
     </task>
     <servers />
   </component>
