@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations CRUD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Reservations CRUD</h1>
+
+    <!-- Add Reservation -->
+    <div class="card">
+        <div class="card-header">
+            <h2>Add Reservation</h2>
+        </div>
+        <div class="card-body">
+            <form id="addReservationForm">
+                <div class="form-group">
+                    <label for="reservationUserId">User ID</label>
+                    <input type="number" class="form-control" id="reservationUserId" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationNumberOfGuests">Number of Guests</label>
+                    <input type="number" class="form-control" id="reservationNumberOfGuests" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationTableType">Table Type</label>
+                    <input type="text" class="form-control" id="reservationTableType" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationDate">Reservation Date</label>
+                    <input type="date" class="form-control" id="reservationDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationStartTime">Reservation Start Time</label>
+                    <input type="time" class="form-control" id="reservationStartTime" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Get All Reservations -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>All Reservations</h2>
+        </div>
+        <div class="card-body" id="reservationList">
+            <!-- Reservation list will be populated dynamically -->
+        </div>
+    </div>
+
+    <!-- Get Reservation By ID -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Get Reservation By ID</h2>
+        </div>
+        <div class="card-body">
+            <form id="getReservationByIdForm">
+                <div class="form-group">
+                    <label for="reservationIdGet">Reservation ID</label>
+                    <input type="number" class="form-control" id="reservationIdGet" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Get Reservation</button>
+            </form>
+            <div id="reservationByIdResult"></div>
+        </div>
+    </div>
+
+    <!-- Update Reservation -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Update Reservation</h2>
+        </div>
+        <div class="card-body">
+            <form id="updateReservationForm">
+                <div class="form-group">
+                    <label for="reservationIdUpdate">Reservation ID</label>
+                    <input type="number" class="form-control" id="reservationIdUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationUserIdUpdate">User ID</label>
+                    <input type="number" class="form-control" id="reservationUserIdUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationNumberOfGuestsUpdate">Number of Guests</label>
+                    <input type="number" class="form-control" id="reservationNumberOfGuestsUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationTableTypeUpdate">Table Type</label>
+                    <input type="text" class="form-control" id="reservationTableTypeUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationDateUpdate">Reservation Date</label>
+                    <input type="date" class="form-control" id="reservationDateUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationStartTimeUpdate">Reservation Start Time</label>
+                    <input type="time" class="form-control" id="reservationStartTimeUpdate" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Reservation -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Delete Reservation</h2>
+        </div>
+        <div class="card-body">
+            <form id="deleteReservationForm">
+                <div class="form-group">
+                    <label for="reservationIdDelete">Reservation ID</label>
+                    <input type="number" class="form-control" id="reservationIdDelete" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Delete Reservation</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/crud.js"></script>
+</body>
+</html>

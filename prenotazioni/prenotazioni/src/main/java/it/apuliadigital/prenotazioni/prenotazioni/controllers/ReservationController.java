@@ -25,10 +25,15 @@ public class ReservationController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addReservation(@RequestBody ReservationDTO reservationDTO) {
-        if (reservationService.addReservation(reservationDTO)) {
-            return new ResponseEntity<>("Reservation added successfully", HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>("Unexpected Error", HttpStatus.INTERNAL_SERVER_ERROR);
+        try {
+            if (reservationService.addReservation(reservationDTO)) {
+                return new ResponseEntity<>("Reservation added successfully", HttpStatus.CREATED);
+            } else {
+                return new ResponseEntity<>("Unexpected Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Internal Server Error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

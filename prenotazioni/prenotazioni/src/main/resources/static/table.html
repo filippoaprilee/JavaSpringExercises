@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables CRUD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Tables CRUD</h1>
+
+    <!-- Add Table -->
+    <div class="card">
+        <div class="card-header">
+            <h2>Add Table</h2>
+        </div>
+        <div class="card-body">
+            <form id="addTableForm">
+                <div class="form-group">
+                    <label for="tableSeats">Seats</label>
+                    <input type="number" class="form-control" id="tableSeats" required>
+                </div>
+                <div class="form-group">
+                    <label for="tableType">Table Type</label>
+                    <input type="text" class="form-control" id="tableType" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Table</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Get All Tables -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>All Tables</h2>
+        </div>
+        <div class="card-body" id="tableList">
+            <!-- Table list will be populated dynamically -->
+        </div>
+    </div>
+
+    <!-- Get Table By ID -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Get Table By ID</h2>
+        </div>
+        <div class="card-body">
+            <form id="getTableByIdForm">
+                <div class="form-group">
+                    <label for="tableIdGet">Table ID</label>
+                    <input type="number" class="form-control" id="tableIdGet" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Get Table</button>
+            </form>
+            <div id="tableByIdResult"></div>
+        </div>
+    </div>
+
+    <!-- Update Table -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Update Table</h2>
+        </div>
+        <div class="card-body">
+            <form id="updateTableForm">
+                <div class="form-group">
+                    <label for="tableIdUpdate">Table ID</label>
+                    <input type="number" class="form-control" id="tableIdUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="tableSeatsUpdate">Seats</label>
+                    <input type="number" class="form-control" id="tableSeatsUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="tableTypeUpdate">Table Type</label>
+                    <input type="text" class="form-control" id="tableTypeUpdate" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Table</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Table -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Delete Table</h2>
+        </div>
+        <div class="card-body">
+            <form id="deleteTableForm">
+                <div class="form-group">
+                    <label for="tableIdDelete">Table ID</label>
+                    <input type="number" class="form-control" id="tableIdDelete" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Delete Table</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/crud.js"></script>
+</body>
+</html>

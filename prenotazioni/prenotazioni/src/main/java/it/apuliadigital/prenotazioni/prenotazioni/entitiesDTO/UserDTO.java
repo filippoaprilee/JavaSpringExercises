@@ -30,4 +30,8 @@ public class UserDTO {
         this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+        return "Name and surname: " + this.name + " " + this.surname + ". \nPhone: " + this.phone;
+    }
 }

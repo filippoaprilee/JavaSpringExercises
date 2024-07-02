@@ -104,9 +104,7 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setReservationStartTime(reservationDTO.getReservationStartTime());
         reservation.setReservationEndTime(reservationDTO.getReservationStartTime().plusHours(2));
 
-        List<RestaurantTable> elegibleTables = elegibleTables(reservationDTO);
-
-        RestaurantTable freeTable = freeTable(elegibleTables, reservation.getReservationDate(),
+        RestaurantTable freeTable = freeTable(reservationDTO, reservation.getReservationDate(),
                 reservation.getReservationStartTime(), reservation.getReservationEndTime());
 
         reservation.setRestaurantTable(freeTable);
@@ -114,36 +112,36 @@ public class ReservationServiceImpl implements ReservationService {
         return reservation;
     }
 
-    public List<RestaurantTable> findAvailableTables(ReservationDTO reservationDTO) {
-        LocalDate reservationDate = reservationDTO.getReservationDate();
-        LocalTime reservationStartTime = reservationDTO.getReservationStartTime();
-        LocalTime reservationEndTime = reservationStartTime.plusHours(2);
+    public RestaurantTable freeTable(ReservationDTO reservationDTO, LocalDate reservationDate,
+                                     LocalTime reservationStartTime, LocalTime reservationEndTime) {
 
-        List<Reservation> overlappingReservations = reservationRepository.findAll().stream()
-                .filter(r -> r.getReservationDate().equals(reservationDate))
-                .filter(r -> r.getRestaurantTable().getSeats() == reservationDTO.getNumberOfGuests())
-                .filter(r -> r.getReservationStartTime().isBefore(reservationEndTime) && r.getReservationEndTime().isAfter(reservationStartTime))
+        // Lista di TAVOLI che soddisfano le richieste numero di invitati e tipologia
+        List<RestaurantTable> elegibleTables = tableRepository.findAll()
+                .stream()
+                .filter(x -> x.getSeats() == reservationDTO.getNumberOfGuests()
+                        && x.getTableType() == reservationDTO.getTableType())
                 .toList();
 
-        List<RestaurantTable> allTables = tableRepository.findAll();
-
-        List<RestaurantTable> availableTables = allTables.stream()
-                .filter(t -> !overlappingReservations.stream()
-                        .map(Reservation::getRestaurantTable)
-                        .toList()
-                        .contains(t))
+        /*
+         * Lista di ID di tavoli occupati nella data della prenotazione con
+         * orari che vanno in conflitto con la prenotazione
+         */
+        List<Long> occupiedTablesID = reservationRepository.findAll()
+                .stream()
+                .filter(x -> x.getReservationDate().compareTo(reservationDate) == 0
+                        && (reservationStartTime.compareTo(x.getReservationEndTime()) != 1
+                        || reservationEndTime.compareTo(x.getReservationStartTime()) != -1))
+                .map(x -> x.getRestaurantTable().getId())
                 .toList();
 
-        return availableTables;
-    }
+        /*
+         * Rimuovo dalla lista di tavoli possibili quelli i cui id sono presenti nella
+         * lista di ID di tavoli occupati
+         */
+        elegibleTables.removeIf(x -> occupiedTablesID.contains(x.getId()));
 
-    public boolean isTableAvailable(RestaurantTable table, LocalDate reservationDate, LocalTime reservationStartTime, LocalTime reservationEndTime) {
-        List<Reservation> overlappingReservations = reservationRepository.findAll().stream()
-                .filter(r -> r.getRestaurantTable().equals(table))
-                .filter(r -> r.getReservationDate().equals(reservationDate))
-                .filter(r -> r.getReservationStartTime().isBefore(reservationEndTime) && r.getReservationEndTime().isAfter(reservationStartTime))
-                .toList();
+        RestaurantTable freeTable = elegibleTables.get(0);
 
-        return overlappingReservations.isEmpty();
+        return freeTable;
     }
 }

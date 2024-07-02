@@ -1,0 +1,35 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-header h2 {
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+#reservationList, #userList, #tableList {
+    margin-top: 10px;
+}
+
+#reservationList div, #userList div, #tableList div {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 5px;
+}

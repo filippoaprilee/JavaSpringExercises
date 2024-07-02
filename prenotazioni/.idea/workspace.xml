@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b98d23c1-d8d0-4d28-b6c5-2cf1e443b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/js/crud.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/reservation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/static/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/ServletInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/controllers/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/controllers/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entitiesDTO/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/entitiesDTO/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/services/impls/ReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/java/it/apuliadigital/prenotazioni/prenotazioni/services/impls/ReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni/src/test/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni/src/test/java/it/apuliadigital/prenotazioni/prenotazioni/PrenotazioniApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;filippoaprilee&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/filippoaprilee/JavaSpringExercises.git&quot;,
+    &quot;accountId&quot;: &quot;33ccad91-9e3c-48ce-8d56-0a10a05c74f4&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2ieURR8WpwnbL4u7gptvqxKDV4A" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PrenotazioniApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;filippoaprilee&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/filip/JavaSpringExercises/eserciziohtml&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\filip\JavaSpringExercises\prenotazioni\prenotazioni\src\main\resources\static\css" />
+      <recent name="C:\Users\filip\JavaSpringExercises\prenotazioni\prenotazioni\src\main\resources\static\js" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PrenotazioniApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="prenotazioni" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="it.apuliadigital.prenotazioni.prenotazioni.PrenotazioniApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b98d23c1-d8d0-4d28-b6c5-2cf1e443b176" name="Changes" comment="" />
+      <created>1719850531648</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719850531648</updated>
+      <workItem from="1719850533392" duration="1812000" />
+      <workItem from="1719852564513" duration="2126000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

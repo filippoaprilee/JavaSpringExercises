@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users CRUD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Users CRUD</h1>
+
+    <!-- Add User -->
+    <div class="card">
+        <div class="card-header">
+            <h2>Add User</h2>
+        </div>
+        <div class="card-body">
+            <form id="addUserForm">
+                <div class="form-group">
+                    <label for="userName">Name</label>
+                    <input type="text" class="form-control" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userSurname">Surname</label>
+                    <input type="text" class="form-control" id="userSurname" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPhone">Phone</label>
+                    <input type="text" class="form-control" id="userPhone" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Get All Users -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>All Users</h2>
+        </div>
+        <div class="card-body" id="userList">
+            <!-- User list will be populated dynamically -->
+        </div>
+    </div>
+
+    <!-- Get User By ID -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Get User By ID</h2>
+        </div>
+        <div class="card-body">
+            <form id="getUserByIdForm">
+                <div class="form-group">
+                    <label for="userIdGet">User ID</label>
+                    <input type="number" class="form-control" id="userIdGet" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Get User</button>
+            </form>
+            <div id="userByIdResult"></div>
+        </div>
+    </div>
+
+    <!-- Update User -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Update User</h2>
+        </div>
+        <div class="card-body">
+            <form id="updateUserForm">
+                <div class="form-group">
+                    <label for="userIdUpdate">User ID</label>
+                    <input type="number" class="form-control" id="userIdUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="userNameUpdate">Name</label>
+                    <input type="text" class="form-control" id="userNameUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="userSurnameUpdate">Surname</label>
+                    <input type="text" class="form-control" id="userSurnameUpdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPhoneUpdate">Phone</label>
+                    <input type="text" class="form-control" id="userPhoneUpdate" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete User -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Delete User</h2>
+        </div>
+        <div class="card-body">
+            <form id="deleteUserForm">
+                <div class="form-group">
+                    <label for="userIdDelete">User ID</label>
+                    <input type="number" class="form-control" id="userIdDelete" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Delete User</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/crud.js"></script>
+</body>
+</html>
