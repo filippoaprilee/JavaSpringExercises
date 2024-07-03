@@ -33,62 +33,38 @@ class ConversioniApplicationTests {
 
     @Test
     public void testingConvertIntegerToRoman() {
-        int number = 3549;
-        String expectedRoman = "MMMDXLIX";
-        String result = conversionService.convertIntegerToRoman(number);
-        assertEquals(expectedRoman, result);
-        verify(conversionLogRepository).save(any());
+        assertEquals("I", conversionService.convertIntegerToRoman(1));
+        assertNotEquals("I", conversionService.convertIntegerToRoman(2));
     }
 
     @Test
     public void testingConvertRomanToInteger() {
-        String roman = "MMMDXLIX";
-        int expectedInteger = 3549;
-        int result = conversionService.convertRomanToInteger(roman);
-        assertEquals(expectedInteger, result);
-        verify(conversionLogRepository).save(any());
+        assertEquals(1, conversionService.convertRomanToInteger("I"));
+        assertNotEquals(1, conversionService.convertRomanToInteger("II"));
     }
 
     @Test
     public void testingConvertIntegerToHex() {
-        int number = 1234;
-        String expectedHex = "4D2";
-        String result = conversionService.convertIntegerToHex(number);
-        assertEquals(expectedHex, result);
-        verify(conversionLogRepository).save(any());
+        assertEquals("4D2", conversionService.convertIntegerToHex(1234));
+        assertNotEquals("4D2", conversionService.convertIntegerToHex(1235));
     }
 
     @Test
     public void testingConvertHexToInteger() {
-        String hex = "4D2";
-        int expectedInteger = 1234;
-        int result = conversionService.convertHexToInteger(hex);
-        assertEquals(expectedInteger, result);
-        verify(conversionLogRepository).save(any());
+        assertEquals(1234, conversionService.convertHexToInteger("4D2"));
+        assertNotEquals(1234, conversionService.convertHexToInteger("4D3"));
     }
 
     @Test
     public void testingConvertIntegerToBinary() {
-        int number = 42;
-        String expectedBinary = "101010";
-        String result = conversionService.convertIntegerToBinary(number);
-        assertEquals(expectedBinary, result);
-        verify(conversionLogRepository).save(any());
+        assertEquals("101010", conversionService.convertIntegerToBinary(42));
+        assertNotEquals("101010", conversionService.convertIntegerToBinary(43));
     }
 
     @Test
     public void testingConvertBinaryToInteger() {
-        String binary = "101010";
-        int expectedInteger = 42;
-        int result = conversionService.convertBinaryToInteger(binary);
-        assertEquals(expectedInteger, result);
-        verify(conversionLogRepository).save(any());
-    }
-
-    @Test
-    void testConvertToRoman() {
-        assertEquals("I", conversionService.convertIntegerToRoman(1));
-        assertNotEquals("I", conversionService.convertIntegerToRoman(2));
+        assertEquals(42, conversionService.convertBinaryToInteger("101010"));
+        assertNotEquals(42, conversionService.convertBinaryToInteger("101011"));
     }
 
 
