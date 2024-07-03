@@ -11,7 +11,8 @@ public class ConversionLog {
     private Long id;
     private String path;
     private String message;
-    private LocalDateTime timestamp;
+    @Column(columnDefinition = "TEXT")
+    private String timestamp;
 
     public Long getId() {
         return id;
@@ -37,11 +38,11 @@ public class ConversionLog {
         this.message = message;
     }
 
-    public LocalDateTime getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 }

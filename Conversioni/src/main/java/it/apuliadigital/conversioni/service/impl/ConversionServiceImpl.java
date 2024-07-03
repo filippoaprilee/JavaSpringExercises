@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class ConversionServiceImpl implements ConversionService {
 
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static final int[] INTEGERS = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
     private static final String[] ROMANS = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
 
@@ -140,7 +142,7 @@ public class ConversionServiceImpl implements ConversionService {
         ConversionLog log = new ConversionLog();
         log.setPath(path);
         log.setMessage(message);
-        log.setTimestamp(LocalDateTime.now());
+        log.setTimestamp(LocalDateTime.now().format(formatter));
         conversionLogRepository.save(log);
     }
 }
