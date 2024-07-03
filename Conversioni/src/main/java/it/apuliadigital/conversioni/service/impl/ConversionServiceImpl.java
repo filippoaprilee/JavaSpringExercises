@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +30,7 @@ public class ConversionServiceImpl implements ConversionService {
                 number -= INTEGERS[i];
             }
         }
-        saveLog("/integer-to-roman/" + originalNumber, "Converted to Roman: " + roman.toString());
+        saveLog("/integer-to-roman/" + originalNumber, "Converted to Roman: " + roman);
         return roman.toString();
     }
 
@@ -78,7 +77,7 @@ public class ConversionServiceImpl implements ConversionService {
             }
             number = number / 16;
         }
-        saveLog("/integer-to-hex/" + originalNumber, "Converted to Hex: " + hex.toString());
+        saveLog("/integer-to-hex/" + originalNumber, "Converted to Hex: " + hex);
         return hex.toString();
     }
 
@@ -115,7 +114,7 @@ public class ConversionServiceImpl implements ConversionService {
             binary.insert(0, number % 2);
             number = number / 2;
         }
-        saveLog("/integer-to-binary/" + originalNumber, "Converted to Binary: " + binary.toString());
+        saveLog("/integer-to-binary/" + originalNumber, "Converted to Binary: " + binary);
         return binary.toString();
     }
 
