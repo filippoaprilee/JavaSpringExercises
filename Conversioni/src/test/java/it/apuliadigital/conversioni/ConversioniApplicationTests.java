@@ -2,20 +2,15 @@ package it.apuliadigital.conversioni;
 
 import it.apuliadigital.conversioni.repository.ConversionLogRepository;
 import it.apuliadigital.conversioni.service.impl.ConversionServiceImpl;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 @SpringBootTest
 class ConversioniApplicationTests {
@@ -65,6 +60,12 @@ class ConversioniApplicationTests {
     public void testingConvertBinaryToInteger() {
         assertEquals(42, conversionService.convertBinaryToInteger("101010"));
         assertNotEquals(42, conversionService.convertBinaryToInteger("101011"));
+    }
+
+    @Test
+    void testConvertToRoman() {
+        assertEquals("I", conversionService.convertIntegerToRoman(1));
+        assertNotEquals("I", conversionService.convertIntegerToRoman(2));
     }
 
 
