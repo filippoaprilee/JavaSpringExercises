@@ -24,13 +24,14 @@ public class ConversionServiceImpl implements ConversionService {
     public String convertIntegerToRoman(int number) {
         if (number <= 0) return "";
         StringBuilder roman = new StringBuilder();
+        int originalNumber = number;
         for (int i = INTEGERS.length - 1; i >= 0; i--) {
             while (number >= INTEGERS[i]) {
                 roman.append(ROMANS[i]);
                 number -= INTEGERS[i];
             }
         }
-        saveLog("/integer-to-roman/" + number, "Converted to Roman: " + roman.toString());
+        saveLog("/integer-to-roman/" + originalNumber, "Converted to Roman: " + roman.toString());
         return roman.toString();
     }
 
@@ -66,6 +67,7 @@ public class ConversionServiceImpl implements ConversionService {
         }
 
         StringBuilder hex = new StringBuilder();
+        int originalNumber = number;
         int remainder;
         while (number > 0) {
             remainder = number % 16;
@@ -76,7 +78,7 @@ public class ConversionServiceImpl implements ConversionService {
             }
             number = number / 16;
         }
-        saveLog("/integer-to-hex/" + number, "Converted to Hex: " + hex.toString());
+        saveLog("/integer-to-hex/" + originalNumber, "Converted to Hex: " + hex.toString());
         return hex.toString();
     }
 
@@ -108,11 +110,12 @@ public class ConversionServiceImpl implements ConversionService {
         }
 
         StringBuilder binary = new StringBuilder();
+        int originalNumber = number;
         while (number > 0) {
             binary.insert(0, number % 2);
             number = number / 2;
         }
-        saveLog("/integer-to-binary/" + number, "Converted to Binary: " + binary.toString());
+        saveLog("/integer-to-binary/" + originalNumber, "Converted to Binary: " + binary.toString());
         return binary.toString();
     }
 
