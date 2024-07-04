@@ -1,0 +1,30 @@
+### Create Contact
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "nome": "Filippo",
+  "cognome": "Aprile",
+  "telefono": "1234567890",
+  "email": "email@example.com"
+}
+
+### Get Contact by ID
+GET http://localhost:8080/contacts/1
+
+### Get All Contacts
+GET http://localhost:8080/contacts
+
+### Search Contacts
+GET http://localhost:8080/contacts/search?nome=Filippo&cognome=Aprile
+
+### Update Contact
+PUT http://localhost:8080/contacts/1
+Content-Type: application/json
+
+{
+  "nome": "Nuovo nome",
+  "cognome": "Nuovo cognome",
+  "telefono": "9876543210",
+  "email": "nuova_email@example.com"
+}
