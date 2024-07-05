@@ -40,15 +40,16 @@ public class TemplateController {
     }
 
     @GetMapping("/cerca")
-    public SuccessResponse<List<TemplateEntity>> cercaContatti(@RequestParam String nome, @RequestParam String cognome) {
-        List<ContattoEntity> contatti = contattoService.cercaContatti(nome, cognome);
+    public SuccessResponse<List<TemplateEntity>> cercaTemplate(@RequestParam(value = "nome", required = false) String nome,
+                                                               @RequestParam(value = "cognome", required = false) String cognome) {
+        List<TemplateEntity> contatti = templateService.cercaTemplate(nome, cognome);
         return new SuccessResponse<>(HttpStatus.OK.value(), "Contatti trovati con successo", contatti);
     }
 
     // metodo per gestire le eccezioni
     @ExceptionHandler(value = TemplateException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponse handleContactsNotFound(TemplateException e) {
+    public ErrorResponse handleTemplatesNotFound(TemplateException e) {
         return new ErrorResponse(HttpStatus.NOT_FOUND.value(), e.getMessage());
     }
 }
