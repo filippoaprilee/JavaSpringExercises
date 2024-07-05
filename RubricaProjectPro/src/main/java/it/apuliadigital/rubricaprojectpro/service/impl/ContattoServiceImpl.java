@@ -21,6 +21,10 @@ public class ContattoServiceImpl implements ContattoService {
 
     @Override
     public boolean rimuoviContatto(int id) {
+        if (contattoRepository.existsById(id)) {
+            contattoRepository.deleteById(id);
+            return true;
+        }
         return false;
     }
 

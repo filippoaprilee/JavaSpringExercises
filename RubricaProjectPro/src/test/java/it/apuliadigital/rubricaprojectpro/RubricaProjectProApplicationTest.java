@@ -33,11 +33,38 @@ class RubricaProjectProApplicationTest {
         // Chiamata al metodo del servizio
         int result = contattoService.aggiungiContatto(contatto);
 
-        // Verifica che il metodo del servizio ritorni 1
+        // Verifica che il metodo del servizio ritorni il valore inserito
         assertEquals(0, result);
 
         // Verifica che il metodo save sia stato chiamato esattamente una volta con il contatto specificato
         verify(contattoRepository).save(contatto);
+    }
+
+    @Test
+    @Order(2)
+    void testRimuoviContatto() {
+        int contattoId = 1;
+
+        // Setup: Assume the contact exists
+        when(contattoRepository.existsById(contattoId)).thenReturn(true);
+
+        // Action: Attempt to remove the contact
+        boolean result = contattoService.rimuoviContatto(contattoId);
+
+        // Assert: The contact was successfully removed
+        assertEquals(true, result);
+        verify(contattoRepository).deleteById(contattoId);
+
+        // Setup: Assume the contact does not exist
+        when(contattoRepository.existsById(contattoId)).thenReturn(false);
+
+        // Action: Attempt to remove a non-existing contact
+        result = contattoService.rimuoviContatto(contattoId);
+
+        // Assert: The method returns false as the contact does not exist
+        assertEquals(false, result);
+        // Verify deleteById was not called for a non-existing contact
+        verify(contattoRepository).deleteById(contattoId);
     }
 }
 
