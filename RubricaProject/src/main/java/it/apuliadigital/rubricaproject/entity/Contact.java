@@ -15,6 +15,15 @@ public class Contact {
     private String numeroTelefono;
     private String email;
 
+    public Contact() {}
+
+    public Contact(String nome, String cognome, String numeroTelefono, String email) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.numeroTelefono = numeroTelefono;
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }

@@ -16,7 +16,7 @@ public class ContattoServiceImpl implements ContattoService {
 
     @Override
     public int aggiungiContatto(ContattoEntity cEntity) {
-        throw new UnsupportedOperationException("Not implemented");
+        return contattoRepository.save(cEntity).getId();
     }
 
     @Override
