@@ -30,7 +30,7 @@ Content-Type: application/json
 ###
 
 ### Find Contatto by ID
-GET http://localhost:8080/contatti/1
+GET http://localhost:8080/contatti/2
 
 ###
 

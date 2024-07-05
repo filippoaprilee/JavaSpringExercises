@@ -1,6 +1,7 @@
 package it.apuliadigital.rubricaprojectpro.service.impl;
 
 import it.apuliadigital.rubricaprojectpro.entity.ContattoEntity;
+import it.apuliadigital.rubricaprojectpro.exception.ContattoException;
 import it.apuliadigital.rubricaprojectpro.repository.ContattoRepository;
 import it.apuliadigital.rubricaprojectpro.service.ContattoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,12 @@ public class ContattoServiceImpl implements ContattoService {
 
     @Override
     public ContattoEntity trovaContatto(int id) {
-        return contattoRepository.findById(id).orElse(null);
+        ContattoEntity contatto = contattoRepository.findById(id).orElse(null);
+        if (contatto == null) {
+            throw new ContattoException("Contatto non trovato");
+        } else {
+            return contatto;
+        }
     }
 
     @Override
