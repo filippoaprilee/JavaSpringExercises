@@ -1,10 +1,7 @@
 package it.apuliadigital.rubricaprojectpro.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern; // Corrected import
 import java.util.Objects;
 
 @Entity
@@ -16,7 +13,9 @@ public class ContattoEntity {
 
     private String nome;
     private String cognome;
+    //@Column(length = 15)
     private String telefono;
+    //@Pattern(regexp = ".+@.+\\..+", message = "Invalid email format") // Validation for email
     private String email;
 
     public ContattoEntity() {}

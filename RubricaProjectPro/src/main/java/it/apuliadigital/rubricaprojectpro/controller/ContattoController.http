@@ -1,0 +1,45 @@
+### Add Contatto
+POST http://localhost:8080/contatti
+Content-Type: application/json
+
+{
+  "nome": "Giovanni",
+  "cognome": "Verdi",
+  "telefono": "123456789",
+  "email": "giovanni.verdi@example.com"
+}
+
+###
+
+### Remove Contatto by ID
+DELETE http://localhost:8080/contatti/1
+
+###
+
+### Update Contatto by ID
+PUT http://localhost:8080/contatti/1
+Content-Type: application/json
+
+{
+  "nome": "Giovanni",
+  "cognome": "Verdi",
+  "telefono": "987654321",
+  "email": "g.verdi@example.com"
+}
+
+###
+
+### Find Contatto by ID
+GET http://localhost:8080/contatti/1
+
+###
+
+### Find all Contatti
+GET http://localhost:8080/contatti
+
+###
+
+### Search Contatti by Nome and Cognome
+GET http://localhost:8080/contatti/cerca?nome=Giovanni&cognome=Verdi
+
+###
