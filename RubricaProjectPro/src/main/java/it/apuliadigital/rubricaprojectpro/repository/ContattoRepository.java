@@ -13,4 +13,7 @@ import java.util.List;
 @Repository
 public interface ContattoRepository extends CrudRepository<ContattoEntity, Integer> {
     List<ContattoEntity> findByNomeAndCognome(String nome, String cognome);
+    List<ContattoEntity> findByNome(String nome);
+    List<ContattoEntity> findByCognome(String cognome);
+    List<ContattoEntity> findByNomeOrCognome(String nome, String cognome);
 }
