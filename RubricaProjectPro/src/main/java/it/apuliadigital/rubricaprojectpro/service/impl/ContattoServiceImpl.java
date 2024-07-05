@@ -30,21 +30,26 @@ public class ContattoServiceImpl implements ContattoService {
 
     @Override
     public boolean aggiornaContatto(int id, ContattoEntity cEntity) {
+        if (contattoRepository.existsById(id)) {
+            cEntity.setId(id);
+            contattoRepository.save(cEntity);
+            return true;
+        }
         return false;
     }
 
     @Override
     public ContattoEntity trovaContatto(int id) {
-        return null;
+        return contattoRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<ContattoEntity> trovaContatti() {
-        return List.of();
+        return (List<ContattoEntity>) contattoRepository.findAll();
     }
 
     @Override
     public List<ContattoEntity> cercaContatti(String nome, String cognome) {
-        return List.of();
+        return contattoRepository.findByNomeAndCognome(nome, cognome);
     }
 }
