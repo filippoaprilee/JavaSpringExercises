@@ -59,7 +59,8 @@ public class ContattoController {
     }
 
     @GetMapping("/cerca")
-    public SuccessResponse<List<ContattoEntity>> cercaContatti(@RequestParam String nome, @RequestParam String cognome) {
+    public SuccessResponse<List<ContattoEntity>> cercaContatti(@RequestParam(value = "nome", required = false) String nome,
+                                                               @RequestParam(value = "cognome", required = false) String cognome) {
         List<ContattoEntity> contatti = contattoService.cercaContatti(nome, cognome);
         return new SuccessResponse<>(HttpStatus.OK.value(), "Contatti trovati con successo", contatti);
     }
