@@ -52,8 +52,8 @@ public class BookRepositoryTest {
 
     @Test
     @Order(3)
-    void testFindByTitleContaining() {
-        List<BookEntity> foundBooks = bookRepository.findByTitle("Spring");
+    void testFindByTitle() {
+        List<BookEntity> foundBooks = bookRepository.findByTitle("Spring in Action");
 
         assertEquals(1, foundBooks.size());
         assertEquals("Spring in Action", foundBooks.get(0).getTitle());

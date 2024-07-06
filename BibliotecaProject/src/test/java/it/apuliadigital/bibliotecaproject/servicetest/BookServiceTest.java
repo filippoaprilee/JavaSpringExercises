@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -87,7 +88,7 @@ class BookServiceTest {
 
         boolean result = bookService.deleteBook(bookId);
 
-        assertEquals(true, result);
+        assertTrue(result);
         verify(bookRepository).deleteById(bookId);
     }
 }
