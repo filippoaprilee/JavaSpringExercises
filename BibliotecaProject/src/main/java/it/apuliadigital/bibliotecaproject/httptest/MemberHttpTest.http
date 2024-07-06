@@ -1,0 +1,53 @@
+###
+### Endpoint per creare un nuovo membro
+###
+
+POST http://localhost:8080/member/create
+Content-Type: application/json
+
+{
+  "name": "John",
+  "surname": "Doe",
+  "email": "john.doe@example.com",
+  "address": "123 Main St",
+  "phone": "555-1234"
+}
+
+###
+### Endpoint per aggiornare un membro esistente
+###
+
+PUT http://localhost:8080/member/update/1
+Content-Type: application/json
+
+{
+  "name": "John",
+  "surname": "Smith",
+  "email": "john.smith@example.com",
+  "address": "456 Oak St",
+  "phone": "555-5678"
+}
+
+###
+### Endpoint per trovare un membro per ID
+###
+
+GET http://localhost:8080/member/find/1
+
+###
+### Endpoint per trovare tutti i membri
+###
+
+GET http://localhost:8080/member/all
+
+###
+### Endpoint per cercare membri con parametri opzionali
+###
+
+GET http://localhost:8080/member/search?email=john.doe@example.com
+
+###
+### Endpoint per eliminare un membro per ID
+###
+
+DELETE http://localhost:8080/member/delete/1

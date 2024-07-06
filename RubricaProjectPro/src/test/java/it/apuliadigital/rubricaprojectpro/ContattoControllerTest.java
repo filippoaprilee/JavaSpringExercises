@@ -53,7 +53,7 @@ public class ContattoControllerTest {
 
         when(contattoService.rimuoviContatto(eq(id))).thenReturn(true);
 
-        SuccessResponse<Void> responseEntity = contattoController.rimuoviContatto(id);
+        SuccessResponse<String> responseEntity = contattoController.rimuoviContatto(id);
 
         assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCode());
         assertEquals("Contatto rimosso con successo", responseEntity.getMessage());
@@ -67,7 +67,7 @@ public class ContattoControllerTest {
 
         when(contattoService.rimuoviContatto(eq(id))).thenReturn(false);
 
-        SuccessResponse<Void> responseEntity = contattoController.rimuoviContatto(id);
+        SuccessResponse<String> responseEntity = contattoController.rimuoviContatto(id);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
         assertEquals("Contatto non trovato", responseEntity.getMessage());
@@ -84,7 +84,7 @@ public class ContattoControllerTest {
 
         when(contattoService.aggiornaContatto(eq(id), any(ContattoEntity.class))).thenReturn(true);
 
-        SuccessResponse<Void> responseEntity = contattoController.aggiornaContatto(id, contatto);
+        SuccessResponse<String> responseEntity = contattoController.aggiornaContatto(id, contatto);
 
         assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCode());
         assertEquals("Contatto aggiornato con successo", responseEntity.getMessage());
@@ -101,7 +101,7 @@ public class ContattoControllerTest {
 
         when(contattoService.aggiornaContatto(eq(id), any(ContattoEntity.class))).thenReturn(false);
 
-        SuccessResponse<Void> responseEntity = contattoController.aggiornaContatto(id, contatto);
+        SuccessResponse<String> responseEntity = contattoController.aggiornaContatto(id, contatto);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
         assertEquals("Contatto non trovato", responseEntity.getMessage());

@@ -26,7 +26,7 @@ public class ContattoController {
     }
 
     @DeleteMapping("/{id}")
-    public SuccessResponse<Void> rimuoviContatto(@PathVariable int id) {
+    public SuccessResponse<String> rimuoviContatto(@PathVariable int id) {
         boolean success = contattoService.rimuoviContatto(id);
         if (success) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Contatto rimosso con successo");
@@ -35,7 +35,7 @@ public class ContattoController {
     }
 
     @PutMapping("/{id}")
-    public SuccessResponse<Void> aggiornaContatto(@PathVariable int id, @RequestBody ContattoEntity contatto) {
+    public SuccessResponse<String> aggiornaContatto(@PathVariable int id, @RequestBody ContattoEntity contatto) {
         boolean success = contattoService.aggiornaContatto(id, contatto);
         if (success) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Contatto aggiornato con successo");
