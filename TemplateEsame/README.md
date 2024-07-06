@@ -321,6 +321,18 @@ visualizzato il risultato.
 3. È possibile eseguire tutti i test del progetto cliccando sul pulsante "Run All Tests" nella finestra dei test.
 
 
+### 14. Come lavorare con il progetto su IntelliJ IDEA
+Per lavorare con il progetto su IntelliJ IDEA, è necessario seguire i seguenti passaggi:
+1. Aprire IntelliJ IDEA.
+2. Cliccare su "File" -> "Apri...".
+3. Selezionare la cartella del progetto scaricato da Spring Initializr.
+4. Cliccare su "Apri".
+5. IntelliJ IDEA importerà il progetto e in alto a destra verrà visualizzata la finestra "Load Maven Changes".
+6. Per eseguire il progetto, andare da terminale come scritto sopra e digitare i comandi per eseguire il progetto.
+7. Per eseguire i test, cliccare sul pulsante "Run" vicino al nome del test per eseguire il test.
+8. È possibile eseguire tutti i test del progetto cliccando sul pulsante "Run All Tests" nella finestra dei test.
+
+
 ### Contatti
 Per qualsiasi domanda o suggerimento puoi contattarmi tramite [email](mailto:filippoaprilee@gmail.com).
 
