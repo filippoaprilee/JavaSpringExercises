@@ -27,7 +27,8 @@ public class LogServiceTest {
     void testSaveLog() {
         // Creazione di un esempio di LogEntity
         String path = "/book/search";
-        String message = "Ricerca libri con filtri - titolo: Java Programming, autore: John Doe, genere: Thriller, isbn: 1234567890, lingua: English, editore: ABC Publisher, data pubblicazione: null";
+        String message = "Ricerca libri con filtri - titolo: Java Programming, autore: John Doe, genere: Thriller," +
+                " isbn: 1234567890, lingua: English, editore: ABC Publisher, data pubblicazione: 1990-06-01";
         LocalDateTime timestamp = LocalDateTime.now();
         LogEntity logEntity = new LogEntity(path, message, timestamp);
 
