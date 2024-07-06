@@ -44,7 +44,7 @@ GET http://localhost:8080/member/all
 ### Endpoint per cercare membri con parametri opzionali
 ###
 
-GET http://localhost:8080/member/search?email=john.doe@example.com
+GET http://localhost:8080/member/search?name=John&surname=Doe
 
 ###
 ### Endpoint per eliminare un membro per ID

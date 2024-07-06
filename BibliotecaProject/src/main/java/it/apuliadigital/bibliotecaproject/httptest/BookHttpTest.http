@@ -54,4 +54,4 @@ GET http://localhost:8080/book/all
 ### GET /book/search?author=Umberto%20Eco
 ###
 
-GET http://localhost:8080/book/search?publishedDate=1980-09-30
+GET http://localhost:8080/book/search?author=Umberto
