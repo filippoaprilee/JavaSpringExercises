@@ -129,6 +129,40 @@ Sotto il test package del progetto:
 2. Creare il package `servicetest` per i test dei servizi del progetto.
 3. Creare il package `repositorytest` per i test dei repository del progetto.
 
+Esempio di package:
+```
+src
+├── main
+│   ├── java
+│   │   └── it
+│   │       └── apuliadigital
+│   │           └── nome-progetto
+│   │               ├── controller
+│   │               ├── service
+│   │               │   └── impl
+│   │               ├── repository
+│   │               ├── model (o entity)
+│   │               ├── dto (Facoltativo)
+│   │               ├── exception (Facoltativo)
+│   │               └── httptest (Facoltativo)
+│   └── resources
+│       ├── application.properties
+│       ├── application-mysql.properties
+│       └── application-sqlite.properties
+└── test
+    └── java
+        └── it
+            └── apuliadigital
+                └── nome-progetto
+                    ├── controllertest
+                    ├── servicetest
+                    └── repositorytest
+
+```
+
+
+
+
 ### 7. Creare le entità del progetto
 Per creare le entità del progetto, è necessario seguire i seguenti passaggi:
 1. Creare una classe per ogni entità del progetto sotto il package `model`/`entity`.
