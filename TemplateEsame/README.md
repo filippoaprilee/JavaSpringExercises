@@ -97,7 +97,7 @@ recarsi nella cartella java/resources dove dovranno essere presenti i seguenti f
     spring.jpa.hibernate.ddl-auto=create (Dopo il primo avvio deve cambiare in validate)
     spring.jpa.show-sql=true
     spring.datasource.url=jdbc:mysql://127.0.0.1:3306/nomeschema (Cambia nomeschema con il nome dello schema)
-    spring.datasource.username=root (Cambia root con l'username del database)
+    spring.datasource.username=root (Cambia root con il tuo username del database)
     spring.datasource.password=admin (Cambia admin con la password del database)
     ```
 3. application-sqlite.properties:
