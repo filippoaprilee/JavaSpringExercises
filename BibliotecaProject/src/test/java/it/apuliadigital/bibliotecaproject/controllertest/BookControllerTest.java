@@ -66,7 +66,7 @@ public class BookControllerTest {
         SuccessResponse<Boolean> responseEntity = bookController.deleteBook(id);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
-        assertEquals("Book non trovato", responseEntity.getMessage());
+        assertEquals("Book non trovato con id: " + id, responseEntity.getMessage());
 
         verify(bookService, times(1)).deleteBook(id);
     }
@@ -98,7 +98,7 @@ public class BookControllerTest {
         SuccessResponse<Boolean> responseEntity = bookController.updateBook(id, book);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
-        assertEquals("Book non trovato", responseEntity.getMessage());
+        assertEquals("Book non trovato con id: " + id, responseEntity.getMessage());
 
         verify(bookService, times(1)).updateBook(id, book);
     }
@@ -130,7 +130,7 @@ public class BookControllerTest {
         SuccessResponse<BookEntity> responseEntity = bookController.findBook(id);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
-        assertEquals("Book non trovato", responseEntity.getMessage());
+        assertEquals("Book non trovato con id: " + id, responseEntity.getMessage());
 
         verify(bookService, times(1)).getBookById(id);
     }

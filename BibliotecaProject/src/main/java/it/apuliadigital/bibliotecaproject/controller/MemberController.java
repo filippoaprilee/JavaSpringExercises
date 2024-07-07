@@ -30,7 +30,7 @@ public class MemberController {
         if (success) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Member rimosso con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato", false);
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato con id: " + id, false);
     }
 
     @PutMapping("/update/{id}")
@@ -39,7 +39,7 @@ public class MemberController {
         if (success) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Member aggiornato con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato", false);
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato con id: " + id, false);
     }
 
     @GetMapping("/find/{id}")
@@ -48,7 +48,7 @@ public class MemberController {
         if (member != null) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Member trovato con successo", member);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato");
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato con id: " + id, null);
     }
 
     @GetMapping("/all")

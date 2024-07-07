@@ -67,7 +67,7 @@ public class MemberControllerTest {
         SuccessResponse<Boolean> responseEntity = memberController.deleteMember(id);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
-        assertEquals("Member non trovato", responseEntity.getMessage());
+        assertEquals("Member non trovato con id: " + id, responseEntity.getMessage());
 
         verify(memberService, times(1)).deleteMember(id);
     }
@@ -101,7 +101,7 @@ public class MemberControllerTest {
         SuccessResponse<Boolean> responseEntity = memberController.updateMember(id, member);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
-        assertEquals("Member non trovato", responseEntity.getMessage());
+        assertEquals("Member non trovato con id: " + id, responseEntity.getMessage());
 
         verify(memberService, times(1)).updateMember(id, member);
     }
@@ -134,7 +134,7 @@ public class MemberControllerTest {
         SuccessResponse<MemberEntity> responseEntity = memberController.findMember(id);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
-        assertEquals("Member non trovato", responseEntity.getMessage());
+        assertEquals("Member non trovato con id: " + id, responseEntity.getMessage());
 
         verify(memberService, times(1)).getMemberById(id);
     }
@@ -188,7 +188,7 @@ public class MemberControllerTest {
     }
 
     @Test
-    public void testHandleMembersNotFound() {
+    public void testHandleMembersContactsNotFound() {
         MemberException exception = new MemberException("Member non trovato");
 
         ErrorResponse errorResponse = memberController.handleMembersContactsNotFound(exception);

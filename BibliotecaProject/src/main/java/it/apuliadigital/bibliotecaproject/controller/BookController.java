@@ -31,7 +31,7 @@ public class BookController {
         if (success) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Book rimosso con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato", false);
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato con id: " + id, false);
     }
 
     @PutMapping("/update/{id}")
@@ -40,7 +40,7 @@ public class BookController {
         if (success) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Book aggiornato con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato", false);
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato con id: " + id, false);
     }
 
     @GetMapping("/find/{id}")
@@ -49,7 +49,7 @@ public class BookController {
         if (book != null) {
             return new SuccessResponse<>(HttpStatus.OK.value(), "Book trovato con successo", book);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato");
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato con id: " + id, null);
     }
 
     @GetMapping("/all")
