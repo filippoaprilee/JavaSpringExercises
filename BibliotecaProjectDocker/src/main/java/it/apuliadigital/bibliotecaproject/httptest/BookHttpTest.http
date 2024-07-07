@@ -1,0 +1,57 @@
+###
+### POST /book/create
+###
+
+POST http://localhost:8080/book/create
+Content-Type: application/json
+
+{
+  "title": "Rosa",
+  "author": "Umberto",
+  "genre": "Romanzo",
+  "isbn": "9788806142108",
+  "language": "Italiano",
+  "publisher": "Bompiani",
+  "publishedDate": "1980-09-30"
+}
+
+###
+### DELETE /book/delete/{id}
+###
+
+DELETE http://localhost:8080/book/delete/1
+
+###
+### PUT /book/update/{id}
+###
+
+PUT http://localhost:8080/book/update/1
+Content-Type: application/json
+
+{
+  "title": "Pendolo",
+  "author": "Umberto",
+  "genre": "Romanzo",
+  "isbn": "9788845910873",
+  "language": "Italiano",
+  "publisher": "Bompiani",
+  "publishedDate": "1988-09-21"
+}
+
+###
+### GET /book/find/{id}
+###
+
+GET http://localhost:8080/book/find/1
+
+###
+### GET /book/all
+###
+
+GET http://localhost:8080/book/all
+
+###
+### GET /book/search?author=Umberto%20Eco
+###
+
+GET http://localhost:8080/book/search?author=Umberto
