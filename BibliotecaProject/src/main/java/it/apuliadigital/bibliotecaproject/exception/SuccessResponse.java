@@ -44,7 +44,7 @@ public class SuccessResponse<T> {
         this.message = message;
     }
 
-    public Object getObject() {
+    public T getObject() {
         return object;
     }
 

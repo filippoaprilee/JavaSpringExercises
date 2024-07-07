@@ -49,7 +49,7 @@ public class BookControllerTest {
 
         when(bookService.deleteBook(id)).thenReturn(true);
 
-        SuccessResponse<String> responseEntity = bookController.deleteBook(id);
+        SuccessResponse<Boolean> responseEntity = bookController.deleteBook(id);
 
         assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCode());
         assertEquals("Book rimosso con successo", responseEntity.getMessage());
@@ -63,7 +63,7 @@ public class BookControllerTest {
 
         when(bookService.deleteBook(id)).thenReturn(false);
 
-        SuccessResponse<String> responseEntity = bookController.deleteBook(id);
+        SuccessResponse<Boolean> responseEntity = bookController.deleteBook(id);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
         assertEquals("Book non trovato", responseEntity.getMessage());
@@ -79,7 +79,7 @@ public class BookControllerTest {
 
         when(bookService.updateBook(id, book)).thenReturn(true);
 
-        SuccessResponse<String> responseEntity = bookController.updateBook(id, book);
+        SuccessResponse<Boolean> responseEntity = bookController.updateBook(id, book);
 
         assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCode());
         assertEquals("Book aggiornato con successo", responseEntity.getMessage());
@@ -95,7 +95,7 @@ public class BookControllerTest {
 
         when(bookService.updateBook(id, book)).thenReturn(false);
 
-        SuccessResponse<String> responseEntity = bookController.updateBook(id, book);
+        SuccessResponse<Boolean> responseEntity = bookController.updateBook(id, book);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
         assertEquals("Book non trovato", responseEntity.getMessage());

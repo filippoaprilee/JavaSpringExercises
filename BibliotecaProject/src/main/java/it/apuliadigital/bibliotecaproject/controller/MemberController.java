@@ -25,21 +25,21 @@ public class MemberController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public SuccessResponse<String> deleteMember(@PathVariable int id) {
+    public SuccessResponse<Boolean> deleteMember(@PathVariable int id) {
         boolean success = memberService.deleteMember(id);
         if (success) {
-            return new SuccessResponse<>(HttpStatus.OK.value(), "Member rimosso con successo");
+            return new SuccessResponse<>(HttpStatus.OK.value(), "Member rimosso con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato");
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato", false);
     }
 
     @PutMapping("/update/{id}")
-    public SuccessResponse<String> updateMember(@PathVariable int id, @RequestBody MemberEntity member) {
+    public SuccessResponse<Boolean> updateMember(@PathVariable int id, @RequestBody MemberEntity member) {
         boolean success = memberService.updateMember(id, member);
         if (success) {
-            return new SuccessResponse<>(HttpStatus.OK.value(), "Member aggiornato con successo");
+            return new SuccessResponse<>(HttpStatus.OK.value(), "Member aggiornato con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato");
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Member non trovato", false);
     }
 
     @GetMapping("/find/{id}")

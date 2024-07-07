@@ -50,7 +50,7 @@ public class MemberControllerTest {
 
         when(memberService.deleteMember(id)).thenReturn(true);
 
-        SuccessResponse<String> responseEntity = memberController.deleteMember(id);
+        SuccessResponse<Boolean> responseEntity = memberController.deleteMember(id);
 
         assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCode());
         assertEquals("Member rimosso con successo", responseEntity.getMessage());
@@ -64,7 +64,7 @@ public class MemberControllerTest {
 
         when(memberService.deleteMember(id)).thenReturn(false);
 
-        SuccessResponse<String> responseEntity = memberController.deleteMember(id);
+        SuccessResponse<Boolean> responseEntity = memberController.deleteMember(id);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
         assertEquals("Member non trovato", responseEntity.getMessage());
@@ -81,7 +81,7 @@ public class MemberControllerTest {
 
         when(memberService.updateMember(id, member)).thenReturn(true);
 
-        SuccessResponse<String> responseEntity = memberController.updateMember(id, member);
+        SuccessResponse<Boolean> responseEntity = memberController.updateMember(id, member);
 
         assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCode());
         assertEquals("Member aggiornato con successo", responseEntity.getMessage());
@@ -98,7 +98,7 @@ public class MemberControllerTest {
 
         when(memberService.updateMember(id, member)).thenReturn(false);
 
-        SuccessResponse<String> responseEntity = memberController.updateMember(id, member);
+        SuccessResponse<Boolean> responseEntity = memberController.updateMember(id, member);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getStatusCode());
         assertEquals("Member non trovato", responseEntity.getMessage());

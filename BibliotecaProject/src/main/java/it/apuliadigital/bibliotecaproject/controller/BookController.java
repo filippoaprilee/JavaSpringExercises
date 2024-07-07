@@ -26,21 +26,21 @@ public class BookController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public SuccessResponse<String> deleteBook(@PathVariable int id) {
+    public SuccessResponse<Boolean> deleteBook(@PathVariable int id) {
         boolean success = bookService.deleteBook(id);
         if (success) {
-            return new SuccessResponse<>(HttpStatus.OK.value(), "Book rimosso con successo");
+            return new SuccessResponse<>(HttpStatus.OK.value(), "Book rimosso con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato");
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato", false);
     }
 
     @PutMapping("/update/{id}")
-    public SuccessResponse<String> updateBook(@PathVariable int id, @RequestBody BookEntity book) {
+    public SuccessResponse<Boolean> updateBook(@PathVariable int id, @RequestBody BookEntity book) {
         boolean success = bookService.updateBook(id, book);
         if (success) {
-            return new SuccessResponse<>(HttpStatus.OK.value(), "Book aggiornato con successo");
+            return new SuccessResponse<>(HttpStatus.OK.value(), "Book aggiornato con successo", true);
         }
-        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato");
+        return new SuccessResponse<>(HttpStatus.NOT_FOUND.value(), "Book non trovato", false);
     }
 
     @GetMapping("/find/{id}")
