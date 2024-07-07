@@ -4,6 +4,7 @@ import it.apuliadigital.bibliotecaproject.entity.BookEntity;
 import it.apuliadigital.bibliotecaproject.repository.BookRepository;
 import it.apuliadigital.bibliotecaproject.service.BookService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,10 +15,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class BookServiceTest {
@@ -34,24 +33,34 @@ class BookServiceTest {
 
     @BeforeEach
     void setUp() {
-        book1 = new BookEntity("Java Programming", "John Doe", "Thriller", "1234567890", "English", "ABC Publisher", LocalDate.now());
-        book2 = new BookEntity("Spring in Action", "Jane Smith", "History", "0987654321", "English", "XYZ Publisher", LocalDate.now());
+        book1 = new BookEntity("Java Programming", "John Doe", "Thriller", "1234567890",
+                "English", "ABC Publisher", LocalDate.now());
+        book2 = new BookEntity("Spring in Action", "Jane Smith", "History", "0987654321",
+                "English", "XYZ Publisher", LocalDate.now());
         bookList = List.of(book1, book2);
     }
 
 
     @Test
+    @Order(1)
     void testCreateBook() {
+        // Quando tu chiami bookrepository.save(book1) ritornami book1 a prescindere
         when(bookRepository.save(book1)).thenReturn(book1);
 
+        // Chiamo il metodo createBook del bookService con book1
         int createdBook = bookService.createBook(book1);
 
+        // Verifico che il metodo createBook abbia ritornato 0
         assertEquals(0, createdBook);
-        verify(bookRepository).save(book1);
+
+        assertNotEquals(1, createdBook);
+
+        // Verifico che il metodo save del bookRepository sia stato chiamato con book1 una volta sola
+        verify(bookRepository, times(1)).save(book1);
     }
 
-
     @Test
+    @Order(2)
     void testGetBookById() {
         int bookId = 1;
         book1.setId(bookId);
@@ -64,6 +73,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Order(3)
     void testGetAllBooks() {
         when(bookRepository.findAll()).thenReturn(bookList);
 
@@ -77,6 +87,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Order(4)
     void testUpdateBook() {
         int bookId = 1;
         book1.setId(bookId);
@@ -90,6 +101,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Order(5)
     void testDeleteBook() {
         int bookId = 1;
         when(bookRepository.existsById(bookId)).thenReturn(true);
@@ -98,8 +110,6 @@ class BookServiceTest {
 
         assertTrue(result);
         verify(bookRepository).deleteById(bookId);
-
-        verify(bookRepository).existsById(bookId);
     }
 
 

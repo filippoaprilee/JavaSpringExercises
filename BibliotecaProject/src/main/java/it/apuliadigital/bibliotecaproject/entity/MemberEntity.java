@@ -38,6 +38,7 @@ public class MemberEntity {
         this.phone = phone;
     }
 
+
     public int getId() {
         return id;
     }
