@@ -30,7 +30,7 @@ GET http://localhost:8080/heroes/1
 ### PUT /heroes/1
 ###
 
-PUT http://localhost:8080/heroes/3
+PUT http://localhost:8080/heroes/2
 Content-Type: application/json
 
 {

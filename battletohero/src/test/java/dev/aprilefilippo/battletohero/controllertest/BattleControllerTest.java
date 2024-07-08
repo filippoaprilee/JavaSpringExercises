@@ -1,7 +1,6 @@
 package dev.aprilefilippo.battletohero.controllertest;
 
 import dev.aprilefilippo.battletohero.controller.BattleController;
-import dev.aprilefilippo.battletohero.controller.HeroController;
 import dev.aprilefilippo.battletohero.exception.ErrorResponse;
 import dev.aprilefilippo.battletohero.exception.HeroException;
 import dev.aprilefilippo.battletohero.exception.SuccessResponse;
@@ -25,8 +24,6 @@ public class BattleControllerTest {
 
     @Autowired
     private BattleController battleController;
-    @Autowired
-    private HeroController heroController;
 
     @Test
     public void testBattle_Success() {

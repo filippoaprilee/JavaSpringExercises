@@ -42,13 +42,11 @@ public class HeroServiceTest {
     public void testCreateHero() {
         // Quando tu chiami heroRepository.save(hero1) ritornami hero1 a prescindere
         when(heroRepository.save(hero1)).thenReturn(hero1);
-
         // Chiamo il metodo createHero del heroService con hero1
         HeroEntity createdHero = heroService.createHero(hero1);
-
+        // Verifico che il metodo createHero abbia ritornato hero1 e non hero2
         assertEquals(hero1, createdHero);
         assertNotEquals(hero2, createdHero);
-
         // Verifico che il metodo save del heroRepository sia stato chiamato con hero1 una volta sola
         verify(heroRepository, times(1)).save(hero1);
     }
@@ -58,10 +56,8 @@ public class HeroServiceTest {
     public void testGetAllHeroes() {
         // Quando tu chiami heroRepository.findAll() ritornami heroList a prescindere
         when(heroRepository.findAll()).thenReturn(heroList);
-
         // Chiamo il metodo getAllHeroes del heroService
         List<HeroEntity> allHeroes = heroService.getAllHeroes();
-
         assertEquals(heroList.size(), allHeroes.size());
         for (int i = 0; i < heroList.size(); i++) {
             assertEquals(heroList.get(i), allHeroes.get(i));
@@ -75,13 +71,11 @@ public class HeroServiceTest {
     public void testGetHeroById() {
         // Quando tu chiami heroRepository.findById(1) ritornami hero1 a prescindere
         when(heroRepository.findById(1)).thenReturn(Optional.of(hero1));
-
         // Chiamo il metodo getHeroById del heroService con id 1
         HeroEntity hero = heroService.getHeroById(1);
-
+        // Verifico che il metodo getHeroById abbia ritornato hero1 e non hero2
         assertEquals(hero1, hero);
         assertNotEquals(hero2, hero);
-
         // Verifico che il metodo findById del heroRepository sia stato chiamato con 1 una volta sola
         verify(heroRepository, times(1)).findById(1);
     }
@@ -93,13 +87,10 @@ public class HeroServiceTest {
         when(heroRepository.existsById(1)).thenReturn(true);
         // Quando tu chiami heroRepository.save(hero1) ritornami hero1 a prescindere
         when(heroRepository.save(hero1)).thenReturn(hero1);
-
         // Chiamo il metodo updateHero del heroService con id 1 e hero1
         boolean result = heroService.updateHero(1, hero1);
-
         // Verifico che il metodo updateHero abbia ritornato true
         assertTrue(result);
-
         // Verifico che il metodo save del heroRepository sia stato chiamato con hero1 una volta sola
         verify(heroRepository, times(1)).save(hero1);
     }
@@ -109,13 +100,10 @@ public class HeroServiceTest {
     public void testDeleteHero() {
         // Quando tu chiami heroRepository.existsById(1) ritornami true a prescindere
         when(heroRepository.existsById(1)).thenReturn(true);
-
         // Chiamo il metodo deleteHero del heroService con id 1
         boolean result = heroService.deleteHero(1);
-
         // Verifico che il metodo deleteHero abbia ritornato true
         assertTrue(result);
-
         // Verifico che il metodo deleteById del heroRepository sia stato chiamato con 1 una volta sola
         verify(heroRepository, times(1)).deleteById(1);
     }

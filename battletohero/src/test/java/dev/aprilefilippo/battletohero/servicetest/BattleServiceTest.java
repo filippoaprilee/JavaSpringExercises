@@ -7,7 +7,6 @@ import dev.aprilefilippo.battletohero.repository.BattleRepository;
 import dev.aprilefilippo.battletohero.repository.HeroRepository;
 import dev.aprilefilippo.battletohero.service.BattleService;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
