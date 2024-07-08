@@ -1,0 +1,49 @@
+###
+### POST /heroes
+###
+
+POST http://localhost:8080/heroes
+Content-Type: application/json
+
+{
+  "name": "Spiderman",
+  "race": "METAHUMAN",
+  "strength": 100,
+  "defense": 100,
+  "health": 80,
+  "level": 55
+}
+
+###
+### GET /heroes
+###
+
+GET http://localhost:8080/heroes
+
+###
+### GET /heroes/1
+###
+
+GET http://localhost:8080/heroes/1
+
+###
+### PUT /heroes/1
+###
+
+PUT http://localhost:8080/heroes/3
+Content-Type: application/json
+
+{
+    "name": "Flash",
+    "race": "METAHUMAN",
+    "strength": 85,
+    "defense": 60,
+    "health": 70,
+    "level": 4
+}
+
+###
+### DELETE /heroes/1
+###
+
+DELETE http://localhost:8080/heroes/5

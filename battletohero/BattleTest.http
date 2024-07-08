@@ -1,0 +1,28 @@
+###
+### GET /battle con la logica di forza
+###
+GET http://localhost:8080/battle?heroe1=1&heroe2=2&logic=strength
+
+###
+### GET /battle con la logica di difesa
+###
+
+GET http://localhost:8080/battle?heroe1=3&heroe2=4&logic=defense
+
+###
+### GET /battle con la logica di salute
+###
+
+GET http://localhost:8080/battle?heroe1=1&heroe2=2&logic=health
+
+###
+### GET /battle con la logica di livello
+###
+
+GET http://localhost:8080/battle?heroe1=2&heroe2=3&logic=level
+
+###
+### GET /battle con nessuna logica
+###
+
+GET http://localhost:8080/battle?heroe1=4&heroe2=5&logic=none
