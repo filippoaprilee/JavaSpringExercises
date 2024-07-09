@@ -1,9 +1,9 @@
 # DOCUMENTAZIONE PER CREARE UN PROGETTO FUNZIONANTE CON SPRING BOOT
 
 ### 1. Spring Initializr
-Per creare un progetto funzionante con Spring Boot,
-è necessario utilizzare Spring Initializr. Questo strumento permette di creare un progetto Spring Boot
-con tutte le dipendenze necessarie. Per creare un progetto con Spring Initializr,
+Per creare un progetto funzionante con Spring Boot, 
+è necessario utilizzare Spring Initializr. Questo strumento permette di creare un progetto Spring Boot 
+con tutte le dipendenze necessarie. Per creare un progetto con Spring Initializr, 
 è necessario seguire i seguenti passaggi:
 1. Andare su [Spring Initializr](https://start.spring.io/).
 2. Scegliere il tipo di progetto (Maven)
@@ -17,7 +17,7 @@ con tutte le dipendenze necessarie. Per creare un progetto con Spring Initializr
     - Package name: it.apuliadigital.nome-progetto
     - Packaging: Jar
     - Java: 17
-6. Aggiungere le dipendenze necessarie:
+6. Aggiungere le dipendenze necessarie: 
     - Spring Web
     - Spring Data JPA
     - Spring Data JDBC
@@ -58,9 +58,9 @@ funzionamento del progetto:
             <artifactId>hibernate-community-dialects</artifactId>
     </dependency>
     ```
-
+   
 ### 4. Aggiungere i profili Maven per il database MySQL e SQLite
-Per utilizzare il database MySQL e SQLite, è necessario aggiungere i profili
+Per utilizzare il database MySQL e SQLite, è necessario aggiungere i profili 
 Maven nel file "pom.xml". I profili Maven permettono di configurare il progetto
 per l'utilizzo di un database specifico. Per aggiungere i profili Maven, è necessario
 seguire i seguenti passaggi:
@@ -84,7 +84,7 @@ seguire i seguenti passaggi:
     ```
 
 ### 5. Configurare i file .properties per il database MySQL e SQLite
-Per configurare i file .properties per il database MySQL e SQLite, è necessario
+Per configurare i file .properties per il database MySQL e SQLite, è necessario 
 recarsi nella cartella java/resources dove dovranno essere presenti i seguenti file:
 1. application.properties:
     ```properties
@@ -111,9 +111,9 @@ recarsi nella cartella java/resources dove dovranno essere presenti i seguenti f
    spring.datasource.username=sa
    spring.datasource.password=sa
    ```
-
+   
 ### 6. Creare i package per il progetto
-Per creare i package per il progetto, è necessario seguire i seguenti passaggi.
+Per creare i package per il progetto, è necessario seguire i seguenti passaggi. 
 Sotto il main package del progetto:
 1. Creare il package `controller` per i controller del progetto.
 2. Creare il package `service` per i servizi del progetto.
@@ -160,9 +160,6 @@ src
 
 ```
 
-
-
-
 ### 7. Creare le entità del progetto
 Per creare le entità del progetto, è necessario seguire i seguenti passaggi:
 1. Creare una classe per ogni entità del progetto sotto il package `model`/`entity`.
@@ -196,8 +193,8 @@ Per creare i repository del progetto, è necessario seguire i seguenti passaggi:
 1. Creare un'interfaccia per ogni repository del progetto sotto il package `repository`.
 2. Estendere l'interfaccia `CrudRepository` per il repository.
 3. Aggiungere l'annotazione `@Repository` all'interfaccia per indicare che è un repository.
-4. Aggiungere qualche metodo personalizzato per il repository.
-   [Vedi esempio](https://docs.spring.io/spring-data/jpa/docs/1.5.1.RELEASE/reference/html/jpa.repositories.html#jpa.query-methods.query-creation)
+4. Aggiungere qualche metodo personalizzato per il repository. 
+[Vedi esempio](https://docs.spring.io/spring-data/jpa/docs/1.5.1.RELEASE/reference/html/jpa.repositories.html#jpa.query-methods.query-creation)
 
 Esempio di repository:
 ```java
@@ -310,19 +307,19 @@ Per eseguire il progetto, è necessario seguire i seguenti passaggi:
             mvn spring-boot:run -Pmysql
            ```
     - Per SQLite:
-
+   
            ```bash
             mvn clean install -Psqlite
             mvn spring-boot:run -Psqlite
            ```
     - Per eseguire il progetto senza profili:
-
+   
            ```bash
             mvn clean install
             mvn spring-boot:run
            ```
-- Il progetto verrà avviato e sarà possibile accedere ai servizi REST tramite il browser
-  o Postman o tramite i file di test HTTP. Esempio di file di test HTTP:
+- Il progetto verrà avviato e sarà possibile accedere ai servizi REST tramite il browser 
+o Postman o tramite i file di test HTTP. Esempio di file di test HTTP:
 ```http
 POST http://localhost:8080/api/users HTTP/1.1
 Content-Type: application/json
@@ -350,10 +347,9 @@ Content-Type: application/json
 ### 13. Come eseguire i test del progetto
 Per eseguire i test del progetto, è necessario seguire i seguenti passaggi:
 1. Aprire il terminale nel vostro IDE.
-2. Cliccare sul pulsante "Run" vicino al nome del test per eseguire il test, i test verranno eseguiti e verrà
-   visualizzato il risultato.
+2. Cliccare sul pulsante "Run" vicino al nome del test per eseguire il test, i test verranno eseguiti e verrà 
+visualizzato il risultato.
 3. È possibile eseguire tutti i test del progetto cliccando sul pulsante "Run All Tests" nella finestra dei test.
-
 
 ### 14. Come lavorare con il progetto su IntelliJ IDEA
 Per lavorare con il progetto su IntelliJ IDEA, è necessario seguire i seguenti passaggi:
@@ -365,6 +361,8 @@ Per lavorare con il progetto su IntelliJ IDEA, è necessario seguire i seguenti 
 6. Per eseguire il progetto, andare da terminale come scritto sopra e digitare i comandi per eseguire il progetto.
 7. Per eseguire i test, cliccare sul pulsante "Run" vicino al nome del test per eseguire il test.
 8. È possibile eseguire tutti i test del progetto cliccando sul pulsante "Run All Tests" nella finestra dei test.
+
+
 
 
 ### Contatti
