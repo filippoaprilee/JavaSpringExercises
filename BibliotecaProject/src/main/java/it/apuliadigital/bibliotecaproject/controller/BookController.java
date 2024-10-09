@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/book")
+@CrossOrigin(origins = "http://localhost:5173") // Consenti richieste da localhost:5173
 public class BookController {
 
     @Autowired
