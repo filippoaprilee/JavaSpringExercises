@@ -1,10 +1,10 @@
-package it.apuliadigital.AlbumAPI;
+package it.apuliadigital.albumApi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AlbumApiApplicationTests {
+class AlbumEntityApiApplicationTests {
 
 	@Test
 	void contextLoads() {

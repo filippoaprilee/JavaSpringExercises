@@ -1,75 +1,72 @@
-package it.apuliadigital.AlbumAPI.controller;
+package it.apuliadigital.albumApi.controller;
 
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import it.apuliadigital.AlbumAPI.api.AlbumApi;
-import it.apuliadigital.AlbumAPI.api.ApiUtil;
-import it.apuliadigital.AlbumAPI.model.Album;
-import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.List;
+import java.util.Map;
+
+import it.apuliadigital.albumApi.entity.AlbumEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import it.apuliadigital.albumApi.api.AlbumApi;
+import it.apuliadigital.albumApi.api.ApiUtil;
+import it.apuliadigital.albumApi.model.Album;
+import it.apuliadigital.albumApi.model.Album.GenereEnum;
+import it.apuliadigital.albumApi.service.AlbumService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 @RestController
 public class AlbumController implements AlbumApi {
 
-    Logger logger = LoggerFactory.getLogger(LoggingController.class);
+    @Autowired
+    AlbumService albumService;
 
     @Override
-    public ResponseEntity<Album> addAlbum(
-            @Parameter(name = "Album", description = "Create a new album in the store", required = true) @Valid @RequestBody Album album
-    ) {
-        // Todo business logic
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+    public ResponseEntity<Album> addBandToAlbum(
+            @Parameter(name = "idAlbum", description = "ID of album to return", required = true, in = ParameterIn.PATH) @PathVariable("idAlbum") Long idAlbum,
+            @Parameter(name = "request_body", description = "Mette una band nell'album", required = true) @Valid @RequestBody Map<String, String> requestBody) {
+                
+        return new ResponseEntity<Album>(HttpStatus.OK);
     }
 
-//    @Override
-//    public void deleteAlbum() {
-//
-//    }
+    @Override
+    public ResponseEntity<Album> createAlbum(
+            @Parameter(name = "Album", description = "Crea un nuovo album nello store", required = true) @Valid @RequestBody Album album) {
+        Album newAlbum = albumService.createAlbum(album);
+        return new ResponseEntity<Album>(newAlbum, HttpStatus.CREATED);
+    }
 
-    public ResponseEntity<Album> getAlbumById(
-            @Parameter(name = "albumId", description = "ID of album to return", required = true, in = ParameterIn.PATH) @PathVariable("albumId") Long albumId
-    ) {
-        // Todo business logic
-        HashMap<String, String> bandMap = new HashMap<>();
-        bandMap.put("Chitarra", "David Gilmour");
-        bandMap.put("Batteria", "Slayer");
-        bandMap.put("Basso", "Megadeth");
-        bandMap.put("Voce", "Bruce Dickinson");
-        List<Map<String, String>> band = new ArrayList<>();
-        band.add(bandMap);
-
-        Album a = new Album();
-        a.setTitle("Album title");
-        a.setAuthor("Album artist");
-        a.setBand(band);
-        a.setGenre(Album.GenreEnum.ROCK);
-        a.setIdAlbum(1L);
-        a.setYear(2021);
-
+    @Override
+    public ResponseEntity<Album> deleteAlbum(
+            @Parameter(name = "idAlbum", description = "Id dell'album da eliminare", required = true, in = ParameterIn.PATH) @PathVariable("idAlbum") Long idAlbum) {
         return new ResponseEntity<>(HttpStatus.OK);
-
     }
 
-//    @Override
-//    public void getAlbums() {
-//
-//    }
-//
-//    @Override
-//    public void updateAlbum() {
-//
-//    }
+    @Override
+    public ResponseEntity<List<Album>> findAlbumsByGenres(
+            @NotNull @Parameter(name = "genre", description = "Valori del genere che devono essere considerate per il filtro", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "genre", required = true, defaultValue = "rock") String genre) {
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Album> getAlbumById(
+            @Parameter(name = "idAlbum", description = "ID of album to return", required = true, in = ParameterIn.PATH) @PathVariable("idAlbum") Long idAlbum
+    ) {
+        Album album = albumService.getAlbumById(idAlbum);
+        return new ResponseEntity<Album>(album, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Album> updateAlbum(
+            @Parameter(name = "Album", description = "Aggiorna un album nello store", required = true) @Valid @RequestBody Album album) {
+        return new ResponseEntity<Album>(album, HttpStatus.OK);
+    }
 }

@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b98d23c1-d8d0-4d28-b6c5-2cf1e443b176" name="Changes" comment="" />
+    <list default="true" id="b98d23c1-d8d0-4d28-b6c5-2cf1e443b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/entity/AlbumEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/entity/GenereEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/repository/AlbumRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/service/AlbumService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlbumAPI/src/test/java/it/apuliadigital/AlbumAPI/AlbumEntityApiApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/app.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/myapp.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AlbumAPI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/AlbumApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/AlbumApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/controller/AlbumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/controller/LoggingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/java/it/apuliadigital/AlbumAPI/controller/LoggingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/src/main/resources/album.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AlbumAPI/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AlbumAPI/src/test/java/it/apuliadigital/AlbumAPI/AlbumApiApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,12 +43,12 @@
     &quot;assignee&quot;: &quot;filippoaprilee&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/filippoaprilee/JavaSpringExercises.git&quot;,
-    &quot;accountId&quot;: &quot;33ccad91-9e3c-48ce-8d56-0a10a05c74f4&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/filippoaprilee/JavaSpringExercises.git",
+    "accountId": "a8c7c251-2d31-4e40-bb13-b4e5bc7aeb8c"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
@@ -46,28 +61,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.PrenotazioniApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;filippoaprilee&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/filip/JavaSpringExercises/eserciziohtml&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.PrenotazioniApplication.executor": "Run",
+    "git-widget-placeholder": "filippoaprilee",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Studente/EserciziJava/JavaSpringExercises/RubricaProjectPro",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\filip\JavaSpringExercises\prenotazioni\prenotazioni\src\main\resources\static\css" />
@@ -102,6 +117,7 @@
       <workItem from="1719850533392" duration="1812000" />
       <workItem from="1719852564513" duration="2126000" />
       <workItem from="1719936895987" duration="523000" />
+      <workItem from="1728553351913" duration="38000" />
     </task>
     <servers />
   </component>

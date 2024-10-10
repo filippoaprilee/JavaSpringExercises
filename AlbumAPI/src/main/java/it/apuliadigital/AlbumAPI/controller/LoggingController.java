@@ -1,4 +1,4 @@
-package it.apuliadigital.AlbumAPI.controller;
+package it.apuliadigital.albumApi.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +18,6 @@ public class LoggingController {
         logger.warn("A WARN Message");
         logger.error("An ERROR Message");
 
-        return "Check out the Logs to see the output...";
+        return "Howdy! Check out the Logs to see the output...";
     }
 }
