@@ -1,0 +1,363 @@
+openapi: 3.0.3
+info:
+  title: Reviews and Ratings API
+  description: API for managing album reviews and ratings, with CRUD operations and search capabilities.
+  version: 1.0.0
+  contact:
+    email: faprile@studenti.apuliadigitalmaker.it
+
+paths:
+  /reviews:
+    post:
+      tags:
+        - review
+      summary: Create a new review
+      description: Add a new review for an album
+      operationId: createReview
+      requestBody:
+        description: Data for the new review
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '201':
+          description: Review created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '400':
+          description: Invalid input
+
+    get:
+      tags:
+        - review
+      summary: List all reviews
+      description: Returns a list of all reviews
+      operationId: getAllReviews
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+        '404':
+          description: No reviews found
+
+  /reviews/{reviewId}:
+    get:
+      tags:
+        - review
+      summary: Retrieve a single review
+      description: Get the details of a review by ID
+      operationId: getReviewById
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '404':
+          description: Review not found
+
+    put:
+      tags:
+        - review
+      summary: Update a review
+      description: Update the details of an existing review
+      operationId: updateReview
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Updated review data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '200':
+          description: Review updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '404':
+          description: Review not found
+
+    delete:
+      tags:
+        - review
+      summary: Delete a review
+      description: Delete a review by ID
+      operationId: deleteReview
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Review deleted
+        '404':
+          description: Review not found
+
+  /ratings:
+    post:
+      tags:
+        - rating
+      summary: Create a new rating
+      description: Add a new rating for an album
+      operationId: createRating
+      requestBody:
+        description: Data for the new rating
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        '201':
+          description: Rating created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        '400':
+          description: Invalid input
+
+    get:
+      tags:
+        - rating
+      summary: List all ratings
+      description: Returns a list of all ratings
+      operationId: getAllRatings
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rating'
+        '404':
+          description: No ratings found
+
+  /ratings/{ratingId}:
+    get:
+      tags:
+        - rating
+      summary: Retrieve a single rating
+      description: Get the details of a rating by ID
+      operationId: getRatingById
+      parameters:
+        - name: ratingId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        '404':
+          description: Rating not found
+
+    put:
+      tags:
+        - rating
+      summary: Update a rating
+      description: Update the details of an existing rating
+      operationId: updateRating
+      parameters:
+        - name: ratingId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Updated rating data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        '200':
+          description: Rating updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        '404':
+          description: Rating not found
+
+    delete:
+      tags:
+        - rating
+      summary: Delete a rating
+      description: Delete a rating by ID
+      operationId: deleteRating
+      parameters:
+        - name: ratingId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Rating deleted
+        '404':
+          description: Rating not found
+
+  /ratings/album/{albumId}:
+    get:
+      tags:
+        - rating
+      summary: Get ratings for an album
+      description: Get all ratings for a specific album
+      operationId: getRatingsByAlbumId
+      parameters:
+        - name: albumId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rating'
+        '404':
+          description: No ratings found for this album
+
+  /reviews/album/{albumId}:
+    get:
+      tags:
+        - review
+      summary: Get reviews for an album
+      description: Get all reviews for a specific album
+      operationId: getReviewsByAlbumId
+      parameters:
+        - name: albumId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+        '404':
+          description: No reviews found for this album
+
+  /reviews/author/{reviewerEmail}:
+    get:
+      tags:
+        - review
+      summary: Get reviews by author email
+      description: Get all reviews written by a specific author using their email
+      operationId: getReviewsByAuthorEmail
+      parameters:
+        - name: reviewerEmail
+          in: path
+          required: true
+          schema:
+            type: string
+            format: email
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+        '404':
+          description: No reviews found for this author
+
+components:
+  schemas:
+    Review:
+      type: object
+      properties:
+        reviewId:
+          type: integer
+          format: int64
+          readOnly: true
+        reviewDate:
+          type: string
+          format: date
+        author:
+          type: string
+        reviewerEmail:
+          type: string
+          format: email
+        text:
+          type: string
+        albumId:
+          type: integer
+          format: int64
+      required:
+        - reviewDate
+        - author
+        - reviewerEmail
+        - text
+        - albumId
+
+    Rating:
+      type: object
+      properties:
+        ratingId:
+          type: integer
+          format: int64
+          readOnly: true
+        score:
+          type: integer
+          minimum: 1
+          maximum: 5
+        albumId:
+          type: integer
+          format: int64
+      required:
+        - score
+        - albumId

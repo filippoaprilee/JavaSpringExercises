@@ -47,6 +47,7 @@ public class AlbumController implements AlbumApi {
     @Override
     public ResponseEntity<Album> deleteAlbum(
             @Parameter(name = "idAlbum", description = "Id dell'album da eliminare", required = true, in = ParameterIn.PATH) @PathVariable("idAlbum") Long idAlbum) {
+        albumService.deleteAlbum(idAlbum);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -67,6 +68,10 @@ public class AlbumController implements AlbumApi {
     @Override
     public ResponseEntity<Album> updateAlbum(
             @Parameter(name = "Album", description = "Aggiorna un album nello store", required = true) @Valid @RequestBody Album album) {
+        boolean updated = albumService.updateAlbum(album.getIdAlbum(), album);
+        if (!updated) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<Album>(album, HttpStatus.OK);
     }
 }
