@@ -2334,3 +2334,29 @@ java.lang.IllegalStateException: Ambiguous handler methods mapped for '/ratings/
 2024-10-11T13:51:53.083+02:00  INFO 10708 --- [ReviewAndRating] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-10-11T13:51:53.086+02:00  INFO 10708 --- [ReviewAndRating] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-10-11T13:51:53.088+02:00  INFO 10708 --- [ReviewAndRating] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-11T14:23:59.644+02:00  INFO 13148 --- [ReviewAndRating] [main] i.a.R.ReviewAndRatingApplication         : Starting ReviewAndRatingApplication using Java 17.0.12 with PID 13148 (C:\Users\Studente\EserciziJava\JavaSpringExercises\ReviewAndRating\target\classes started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\ReviewAndRating)
+2024-10-11T14:23:59.647+02:00  INFO 13148 --- [ReviewAndRating] [main] i.a.R.ReviewAndRatingApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-10-11T14:24:00.448+02:00  INFO 13148 --- [ReviewAndRating] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-11T14:24:00.522+02:00  INFO 13148 --- [ReviewAndRating] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 2 JPA repository interfaces.
+2024-10-11T14:24:01.097+02:00  INFO 13148 --- [ReviewAndRating] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-11T14:24:01.116+02:00  INFO 13148 --- [ReviewAndRating] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-11T14:24:01.117+02:00  INFO 13148 --- [ReviewAndRating] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-11T14:24:01.209+02:00  INFO 13148 --- [ReviewAndRating] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-11T14:24:01.210+02:00  INFO 13148 --- [ReviewAndRating] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1506 ms
+2024-10-11T14:24:01.249+02:00  INFO 13148 --- [ReviewAndRating] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-11T14:24:01.472+02:00  INFO 13148 --- [ReviewAndRating] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/reviewandrating user=SA
+2024-10-11T14:24:01.475+02:00  INFO 13148 --- [ReviewAndRating] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-11T14:24:01.486+02:00  INFO 13148 --- [ReviewAndRating] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/reviewandrating'
+2024-10-11T14:24:01.618+02:00  INFO 13148 --- [ReviewAndRating] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-11T14:24:01.686+02:00  INFO 13148 --- [ReviewAndRating] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-11T14:24:01.727+02:00  INFO 13148 --- [ReviewAndRating] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-11T14:24:02.074+02:00  INFO 13148 --- [ReviewAndRating] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-11T14:24:02.133+02:00  WARN 13148 --- [ReviewAndRating] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-11T14:24:03.039+02:00  INFO 13148 --- [ReviewAndRating] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-11T14:24:03.077+02:00  INFO 13148 --- [ReviewAndRating] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-11T14:24:03.922+02:00  INFO 13148 --- [ReviewAndRating] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-11T14:24:03.931+02:00  INFO 13148 --- [ReviewAndRating] [main] i.a.R.ReviewAndRatingApplication         : Started ReviewAndRatingApplication in 4.778 seconds (process running for 5.202)
+2024-10-11T14:24:06.009+02:00  INFO 13148 --- [ReviewAndRating] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-11T14:24:06.010+02:00  INFO 13148 --- [ReviewAndRating] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-11T14:24:06.011+02:00  INFO 13148 --- [ReviewAndRating] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-11T14:24:06.608+02:00  INFO 13148 --- [ReviewAndRating] [http-nio-8080-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 400 ms

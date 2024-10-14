@@ -1,0 +1,288 @@
+openapi: 3.0.3
+info:
+  title: API delle Opere del Museo
+  description: API per la gestione delle opere del museo e dei relativi artisti, incluse le operazioni CRUD e le funzionalità di ricerca.
+  version: 1.0.0
+  contact:
+    email: faprile@studenti.apuliadigitalmaker.it
+
+paths:
+  /opere:
+    post:
+      tags:
+        - opera
+      summary: Crea una nuova opera
+      description: Aggiungi una nuova opera alla collezione del museo
+      operationId: creaOpera
+      requestBody:
+        description: Dati per la nuova opera
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opera'
+      responses:
+        '201':
+          description: Opera creata con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opera'
+        '400':
+          description: Input non valido
+
+    get:
+      tags:
+        - opera
+      summary: Elenca tutte le opere
+      description: Restituisce una lista di tutte le opere del museo
+      operationId: getTutteLeOpere
+      responses:
+        '200':
+          description: Operazione riuscita
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Opera'
+        '404':
+          description: Nessuna opera trovata
+
+  /opere/{idOpera}:
+    get:
+      tags:
+        - opera
+      summary: Ottieni i dettagli di un'opera
+      description: Recupera i dettagli di un'opera tramite il suo ID
+      operationId: getOperaById
+      parameters:
+        - name: idOpera
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Operazione riuscita
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opera'
+        '404':
+          description: Opera non trovata
+
+    put:
+      tags:
+        - opera
+      summary: Aggiorna un'opera
+      description: Aggiorna i dettagli di un'opera esistente
+      operationId: aggiornaOpera
+      parameters:
+        - name: idOpera
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Dati aggiornati dell'opera
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opera'
+      responses:
+        '204':
+          description: Opera aggiornata con successo
+        '404':
+          description: Opera non trovata
+
+    delete:
+      tags:
+        - opera
+      summary: Elimina un'opera
+      description: Elimina un'opera tramite il suo ID
+      operationId: eliminaOpera
+      parameters:
+        - name: idOpera
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Opera eliminata con successo
+        '404':
+          description: Opera non trovata
+
+  /artisti:
+    post:
+      tags:
+        - artista
+      summary: Crea un nuovo artista
+      description: Aggiungi un nuovo artista nel sistema
+      operationId: creaArtista
+      requestBody:
+        description: Dati per il nuovo artista
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Artista'
+      responses:
+        '201':
+          description: Artista creato con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artista'
+        '400':
+          description: Input non valido
+
+    get:
+      tags:
+        - artista
+      summary: Elenca tutti gli artisti
+      description: Restituisce una lista di tutti gli artisti
+      operationId: getTuttiGliArtisti
+      responses:
+        '200':
+          description: Operazione riuscita
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Artista'
+        '404':
+          description: Nessun artista trovato
+
+  /artisti/{idArtista}:
+    get:
+      tags:
+        - artista
+      summary: Ottieni i dettagli di un artista
+      description: Recupera i dettagli di un artista tramite il suo ID
+      operationId: getArtistaById
+      parameters:
+        - name: idArtista
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Operazione riuscita
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artista'
+        '404':
+          description: Artista non trovato
+
+    put:
+      tags:
+        - artista
+      summary: Aggiorna un artista
+      description: Aggiorna i dettagli di un artista esistente
+      operationId: aggiornaArtista
+      parameters:
+        - name: idArtista
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Dati aggiornati dell'artista
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Artista'
+      responses:
+        '204':
+          description: Artista aggiornato con successo
+        '404':
+          description: Artista non trovato
+
+    delete:
+      tags:
+        - artista
+      summary: Elimina un artista
+      description: Elimina un artista tramite il suo ID
+      operationId: eliminaArtista
+      parameters:
+        - name: idArtista
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Artista eliminato con successo
+        '404':
+          description: Artista non trovato
+
+components:
+  schemas:
+    Opera:
+      type: object
+      properties:
+        idOpera:
+          type: integer
+          format: int64
+          readOnly: true
+        nomeOpera:
+          type: string
+        idArtista:
+          type: integer
+          format: int64
+        nomeArtista:
+          type: string
+        annoProduzione:
+          type: integer
+        descrizioneOpera:
+          type: string
+        tipologiaOpera:
+          type: string
+          enum: [pittura, scultura, fotografia, installazione]
+      required:
+        - nomeOpera
+        - idArtista
+        - nomeArtista
+        - annoProduzione
+        - descrizioneOpera
+        - tipologiaOpera
+
+    Artista:
+      type: object
+      properties:
+        idArtista:
+          type: integer
+          format: int64
+          readOnly: true
+        nomeArtista:
+          type: string
+        annoNascita:
+          type: integer
+        annoMorte:
+          type: integer
+        biografia:
+          type: string
+        nazionalità:
+          type: string
+        tipologiaArtista:
+          type: string
+          enum: [pittore, scultore, fotografo, illustratore]
+      required:
+        - nomeArtista
+        - annoNascita
+        - biografia
+        - nazionalità
+        - tipologiaArtista

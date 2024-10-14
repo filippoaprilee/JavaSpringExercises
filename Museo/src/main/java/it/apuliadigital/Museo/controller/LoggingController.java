@@ -1,4 +1,4 @@
-package it.apuliadigital.Artist.controller;
+package it.apuliadigital.Museo.controller;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import org.slf4j.Logger;

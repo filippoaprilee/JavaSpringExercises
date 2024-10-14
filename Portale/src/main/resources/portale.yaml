@@ -1,0 +1,170 @@
+openapi: 3.0.3
+info:
+  title: Portale API
+  description: API for retrieving artist and album information.
+  version: 1.0.0
+
+paths:
+  /portale/artistAndAlbum/{idArtista}:
+    get:
+      tags:
+        - portale
+      summary: Find artist by ID and his albums
+      description: Returns an artist's information and their albums
+      operationId: artistAndAlbum
+      parameters:
+        - name: idArtista
+          in: path
+          description: ID of the artist to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArtistaEAlbums'
+        '404':
+          description: Artist not found
+        '500':
+          description: Internal server error
+
+  /portale/album/{idAlbum}:
+    get:
+      tags:
+        - portale
+      summary: Find album by ID and its artist
+      description: Returns album details along with artist information
+      operationId: albumAndArtist
+      parameters:
+        - name: idAlbum
+          in: path
+          description: ID of the album to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlbumEArtista'
+        '404':
+          description: Album not found
+        '500':
+          description: Internal server error
+
+  /portale/albums:
+    get:
+      tags:
+        - portale
+      summary: Find all albums by genre
+      description: Returns a list of albums filtered by genre
+      operationId: getAlbumsByGenre
+      parameters:
+        - name: genre
+          in: query
+          description: Genre to filter albums
+          required: true
+          schema:
+            type: string
+            enum: [pop, rock, jazz]
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlbumDTO'
+        '404':
+          description: No albums found for the given genre
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    ArtistDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          readOnly: true
+        name:
+          type: string
+        surname:
+          type: string
+        stageName:
+          type: string
+        birthYear:
+          type: integer
+        biography:
+          type: string
+        genre:
+          type: string
+          enum: [pop, rock, jazz]
+        nationality:
+          type: string
+      required:
+        - name
+        - surname
+        - stageName
+        - birthYear
+        - biography
+        - genre
+        - nationality
+
+    AlbumDTO:
+      type: object
+      properties:
+        idAlbum:
+          type: integer
+          format: int64
+          minimum: 0
+          readOnly: true
+        title:
+          type: string
+          description: Title of the album
+        artist:
+          type: string
+          description: Artist of the album
+        year:
+          type: integer
+        genre:
+          type: string
+          enum:
+            - pop
+            - rock
+            - jazz
+        tracks:
+          type: array
+          items:
+            type: string
+
+    ArtistaEAlbums:
+      type: object
+      properties:
+        artista:
+          $ref: '#/components/schemas/ArtistDTO'
+        listaAlbum:
+          $ref: '#/components/schemas/AlbumList'
+
+    AlbumList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AlbumDTO'
+
+    AlbumEArtista:
+      type: object
+      properties:
+        album:
+          $ref: '#/components/schemas/AlbumDTO'
+        artista:
+          $ref: '#/components/schemas/ArtistDTO'

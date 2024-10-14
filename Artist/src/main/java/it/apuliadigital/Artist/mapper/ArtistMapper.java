@@ -5,9 +5,8 @@ import it.apuliadigital.Artist.model.Artist;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ArtistMapper {
-    ArtistMapper INSTANCE = Mappers.getMapper(ArtistMapper.class);
 
     // Mappa da Entity a DTO
     Artist toDto(ArtistEntity artistEntity);

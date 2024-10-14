@@ -19,7 +19,8 @@ public class ArtistServiceImpl implements ArtistService {
     @Autowired
     private ArtistRepository artistRepository;
 
-    private final ArtistMapper artistMapper = ArtistMapper.INSTANCE;
+    @Autowired
+    private ArtistMapper artistMapper;
 
 
     @Override
