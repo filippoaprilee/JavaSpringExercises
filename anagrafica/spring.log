@@ -956,3 +956,28 @@ Caused by: org.hibernate.AnnotationException: Association 'it.apuliadigital.anag
 2024-10-15T22:25:11.854+02:00  INFO 6120 --- [anagrafica] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-10-15T22:25:11.858+02:00  INFO 6120 --- [anagrafica] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-10-15T22:25:11.862+02:00  INFO 6120 --- [anagrafica] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-15T22:45:51.186+02:00  INFO 14204 --- [anagrafica] [main] i.a.anagrafica.anagraficaApplication     : Starting anagraficaApplication using Java 17.0.12 with PID 14204 (C:\Users\filip\JavaSpringExercises\anagrafica\target\classes started by filip in C:\Users\filip\JavaSpringExercises\anagrafica)
+2024-10-15T22:45:51.191+02:00  INFO 14204 --- [anagrafica] [main] i.a.anagrafica.anagraficaApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-15T22:45:52.085+02:00  INFO 14204 --- [anagrafica] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-15T22:45:52.169+02:00  INFO 14204 --- [anagrafica] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 1 JPA repository interface.
+2024-10-15T22:45:52.918+02:00  INFO 14204 --- [anagrafica] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-10-15T22:45:52.947+02:00  INFO 14204 --- [anagrafica] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-15T22:45:52.948+02:00  INFO 14204 --- [anagrafica] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-15T22:45:53.037+02:00  INFO 14204 --- [anagrafica] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-15T22:45:53.038+02:00  INFO 14204 --- [anagrafica] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1791 ms
+2024-10-15T22:45:53.078+02:00  INFO 14204 --- [anagrafica] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-15T22:45:53.363+02:00  INFO 14204 --- [anagrafica] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:anagrafica user=SA
+2024-10-15T22:45:53.367+02:00  INFO 14204 --- [anagrafica] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-15T22:45:53.388+02:00  INFO 14204 --- [anagrafica] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:anagrafica'
+2024-10-15T22:45:53.746+02:00  INFO 14204 --- [anagrafica] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-15T22:45:53.907+02:00  INFO 14204 --- [anagrafica] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-15T22:45:54.024+02:00  INFO 14204 --- [anagrafica] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-15T22:45:54.591+02:00  INFO 14204 --- [anagrafica] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-15T22:45:54.694+02:00  WARN 14204 --- [anagrafica] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-15T22:45:56.021+02:00  INFO 14204 --- [anagrafica] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-15T22:45:56.076+02:00  INFO 14204 --- [anagrafica] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-15T22:45:57.016+02:00  INFO 14204 --- [anagrafica] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-10-15T22:45:57.028+02:00  INFO 14204 --- [anagrafica] [main] i.a.anagrafica.anagraficaApplication     : Started anagraficaApplication in 6.342 seconds (process running for 6.877)
+2024-10-15T22:51:52.277+02:00  INFO 14204 --- [anagrafica] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-15T22:51:52.281+02:00  INFO 14204 --- [anagrafica] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-15T22:51:52.284+02:00  INFO 14204 --- [anagrafica] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
