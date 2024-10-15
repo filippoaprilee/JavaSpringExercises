@@ -1,0 +1,14 @@
+it\apuliadigital\Artist\mapper\ArtistMapperImpl.class
+it\apuliadigital\Artist\model\Artist$TypeEnum.class
+it\apuliadigital\Artist\entity\ArtistEntity.class
+it\apuliadigital\Artist\api\ArtistsApi.class
+it\apuliadigital\Artist\api\ApiUtil.class
+it\apuliadigital\Artist\service\ArtistService.class
+it\apuliadigital\Artist\controller\ArtistController.class
+it\apuliadigital\Artist\repository\ArtistRepository.class
+it\apuliadigital\Artist\service\impl\ArtistServiceImpl.class
+it\apuliadigital\Artist\ArtistApplication.class
+it\apuliadigital\Artist\mapper\ArtistMapper.class
+it\apuliadigital\Artist\model\Artist$GenreEnum.class
+it\apuliadigital\Artist\controller\LoggingController.class
+it\apuliadigital\Artist\model\Artist.class
