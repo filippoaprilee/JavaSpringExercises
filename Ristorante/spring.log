@@ -1,0 +1,38 @@
+2024-10-15T09:36:26.584+02:00  INFO 9124 --- [Ristorante] [main] i.a.R.RistoranteApplicationTests         : Starting RistoranteApplicationTests using Java 17.0.12 with PID 9124 (started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\Ristorante)
+2024-10-15T09:36:26.586+02:00  INFO 9124 --- [Ristorante] [main] i.a.R.RistoranteApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2024-10-15T09:36:27.782+02:00  INFO 9124 --- [Ristorante] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-15T09:36:27.866+02:00  INFO 9124 --- [Ristorante] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 1 JPA repository interface.
+2024-10-15T09:36:28.438+02:00  INFO 9124 --- [Ristorante] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-15T09:36:28.546+02:00  INFO 9124 --- [Ristorante] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-15T09:36:28.602+02:00  INFO 9124 --- [Ristorante] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-15T09:36:29.129+02:00  INFO 9124 --- [Ristorante] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-15T09:36:29.181+02:00  INFO 9124 --- [Ristorante] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-15T09:36:29.490+02:00  INFO 9124 --- [Ristorante] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/ristorante user=SA
+2024-10-15T09:36:29.493+02:00  INFO 9124 --- [Ristorante] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-15T09:36:29.536+02:00  WARN 9124 --- [Ristorante] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-15T09:36:30.513+02:00  INFO 9124 --- [Ristorante] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-15T09:36:30.556+02:00  INFO 9124 --- [Ristorante] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-15T09:36:31.661+02:00  INFO 9124 --- [Ristorante] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/ristorante'
+2024-10-15T09:36:31.728+02:00  INFO 9124 --- [Ristorante] [main] i.a.R.RistoranteApplicationTests         : Started RistoranteApplicationTests in 5.534 seconds (process running for 6.887)
+2024-10-15T09:36:32.399+02:00  INFO 9124 --- [Ristorante] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-15T09:36:32.403+02:00  INFO 9124 --- [Ristorante] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-15T09:36:32.409+02:00  INFO 9124 --- [Ristorante] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-15T10:02:22.473+02:00  INFO 14904 --- [Ristorante] [main] i.a.R.RistoranteApplicationTests         : Starting RistoranteApplicationTests using Java 17.0.12 with PID 14904 (started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\Ristorante)
+2024-10-15T10:02:22.476+02:00  INFO 14904 --- [Ristorante] [main] i.a.R.RistoranteApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2024-10-15T10:02:23.568+02:00  INFO 14904 --- [Ristorante] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-15T10:02:23.647+02:00  INFO 14904 --- [Ristorante] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 1 JPA repository interface.
+2024-10-15T10:02:24.173+02:00  INFO 14904 --- [Ristorante] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-15T10:02:24.261+02:00  INFO 14904 --- [Ristorante] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-15T10:02:24.315+02:00  INFO 14904 --- [Ristorante] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-15T10:02:24.800+02:00  INFO 14904 --- [Ristorante] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-15T10:02:24.856+02:00  INFO 14904 --- [Ristorante] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-15T10:02:25.134+02:00  INFO 14904 --- [Ristorante] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/ristorante user=SA
+2024-10-15T10:02:25.136+02:00  INFO 14904 --- [Ristorante] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-15T10:02:25.172+02:00  WARN 14904 --- [Ristorante] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-15T10:02:26.108+02:00  INFO 14904 --- [Ristorante] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-15T10:02:26.141+02:00  INFO 14904 --- [Ristorante] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-15T10:02:27.233+02:00  INFO 14904 --- [Ristorante] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/ristorante'
+2024-10-15T10:02:27.301+02:00  INFO 14904 --- [Ristorante] [main] i.a.R.RistoranteApplicationTests         : Started RistoranteApplicationTests in 5.196 seconds (process running for 6.44)
+2024-10-15T10:02:27.985+02:00  INFO 14904 --- [Ristorante] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-15T10:02:27.989+02:00  INFO 14904 --- [Ristorante] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-15T10:02:27.992+02:00  INFO 14904 --- [Ristorante] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

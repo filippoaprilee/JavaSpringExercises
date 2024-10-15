@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Ristorante API
+  description: API for managing a restaurant's menu.
+  version: 1.0.0
+
+paths:
+  /menu:
+    post:
+      tags:
+        - menu
+      summary: Create a new menu item
+      description: Adds a new menu item to the database
+      operationId: createMenuItem
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Piatto'
+      responses:
+        '201':
+          description: Menu item created
+        '500':
+          description: Internal server error
+
+    get:
+      tags:
+        - menu
+      summary: Get all menu items by type
+      description: Returns a list of menu items filtered by type
+      operationId: getMenuItemsByType
+      parameters:
+        - name: tipoPiatto
+          in: query
+          description: Type of the menu items to return (e.g., Contorno, Primo, etc.)
+          required: true
+          schema:
+            type: string
+            enum:
+              - Contorno
+              - Primo
+              - Secondo
+              - Dolce
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Piatto'
+        '404':
+          description: No menu items found for the specified type
+        '500':
+          description: Internal server error
+
+  /menu/{idPiatto}:
+    get:
+      tags:
+        - menu
+      summary: Get menu item by ID
+      description: Returns the menu item with the specified ID
+      operationId: getMenuItemById
+      parameters:
+        - name: idPiatto
+          in: path
+          description: ID of the menu item to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Piatto'
+        '404':
+          description: Menu item not found
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    Piatto:
+      type: object
+      properties:
+        idPiatto:
+          type: integer
+          format: int64
+          readOnly: true
+        nomepiatto:
+          type: string
+        listaIngredienti:
+          type: string
+          description: List of ingredients separated by commas
+        prezzoPubblico:
+          type: number
+          format: float
+        tipologiaPiatto:
+          type: string
+          enum: [Contorno, Primo, Secondo, Dolce]
+      required:
+        - nomepiatto
+        - listaIngredienti
+        - prezzoPubblico
+        - tipologiaPiatto

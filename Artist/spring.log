@@ -1,1 +1,0 @@
-2024-10-14T01:12:13.069+02:00  WARN 13816 --- [Artist] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h39m40s129ms842µs200ns).
