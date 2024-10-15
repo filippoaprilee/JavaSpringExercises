@@ -13,10 +13,10 @@ public class AnagraficaClientApplication {
 	}
 
 	@Bean
-	public PersonaApi personaApiClient() {
-		PersonaApi personaApiClient = new PersonaApi();
-		personaApiClient.getApiClient().setBasePath("http://127.0.0.1:8081");
-		return personaApiClient;
+	public PersonaApi albumApiClient() {
+		PersonaApi albumApiClient = new PersonaApi();
+		albumApiClient.getApiClient().setBasePath("http://127.0.0.1:8081");
+		return albumApiClient;
 	}
 
 }

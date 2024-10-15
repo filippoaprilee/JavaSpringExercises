@@ -90,28 +90,6 @@
 				<version>7.8.0</version>
 				<executions>
 					<execution>
-						<id>generate-server-anagrafica</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>
-								${project.basedir}/src/main/resources/anagrafica.yaml
-							</inputSpec>
-							<generatorName>spring</generatorName>
-							<apiPackage>it.apuliadigital.anagraficaClient.server.api</apiPackage>
-							<modelPackage>it.apuliadigital.anagraficaClient.server.model</modelPackage>
-							<supportingFilesToGenerate>
-								ApiUtil.java
-							</supportingFilesToGenerate>
-							<configOptions>
-								<delegatePattern>false</delegatePattern>
-								<interfaceOnly>true</interfaceOnly>
-								<useSpringBoot3>true</useSpringBoot3>
-							</configOptions>
-						</configuration>
-					</execution>
-					<execution>
 						<id>generate-client-anagrafica</id>
 						<goals>
 							<goal>generate</goal>
