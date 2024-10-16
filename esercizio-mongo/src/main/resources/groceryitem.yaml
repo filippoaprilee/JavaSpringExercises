@@ -1,0 +1,265 @@
+openapi: 3.0.3
+info:
+  title: Grocery API
+  description: API for managing grocery items, with CRUD operations and advanced search capabilities.
+  version: 1.0.0
+  contact:
+    email: faprile@studenti.apuliadigitalmaker.it
+
+paths:
+  /grocery-items:
+    post:
+      tags:
+        - grocery
+      summary: Create a new grocery item
+      description: Add a new item to the grocery list
+      operationId: createGroceryItem
+      requestBody:
+        description: Data for the new grocery item
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroceryItemDTO'
+      responses:
+        '201':
+          description: Grocery item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryItemDTO'
+              examples:
+                example1:
+                  summary: Example of a created grocery item
+                  value:
+                    id: "1"
+                    name: "Apple"
+                    quantity: 5
+                    category: "Fruits"
+        '400':
+          description: Invalid input
+
+    get:
+      tags:
+        - grocery
+      summary: Retrieve all grocery items
+      description: Get a list of all grocery items
+      operationId: getAllGroceryItems
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroceryItemDTO'
+              examples:
+                example1:
+                  summary: Example of retrieved grocery items
+                  value:
+                    - id: "1"
+                      name: "Apple"
+                      quantity: 5
+                      category: "Fruits"
+                    - id: "2"
+                      name: "Carrot"
+                      quantity: 10
+                      category: "Vegetables"
+        '404':
+          description: No grocery items found
+
+  /grocery-items/{itemId}:
+    get:
+      tags:
+        - grocery
+      summary: Retrieve a single grocery item
+      description: Get the details of a grocery item by ID
+      operationId: getGroceryItemById
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryItemDTO'
+              examples:
+                example1:
+                  summary: Example of a retrieved grocery item
+                  value:
+                    id: "1"
+                    name: "Apple"
+                    quantity: 5
+                    category: "Fruits"
+        '404':
+          description: Grocery item not found
+
+    put:
+      tags:
+        - grocery
+      summary: Update a grocery item
+      description: Update the details of an existing grocery item
+      operationId: updateGroceryItem
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Updated grocery item data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroceryItemDTO'
+      responses:
+        '200':
+          description: Grocery item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryItemDTO'
+        '400':
+          description: Invalid input
+        '404':
+          description: Grocery item not found
+
+    delete:
+      tags:
+        - grocery
+      summary: Delete a grocery item
+      description: Delete a grocery item by ID
+      operationId: deleteGroceryItem
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Grocery item deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryItemDTO'
+        '404':
+          description: Grocery item not found
+  /grocery-items/name/{name}:
+    get:
+      tags:
+        - grocery
+      summary: Retrieve a grocery item by name
+      description: Get the details of a grocery item by its name
+      operationId: getGroceryItemByName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryItemDTO'
+              examples:
+                example1:
+                  summary: Example of a retrieved grocery item by name
+                  value:
+                    id: "1"
+                    name: "Apple"
+                    quantity: 5
+                    category: "Fruits"
+        '404':
+          description: Grocery item not found
+
+  /grocery-items/category/{category}:
+    get:
+      tags:
+        - grocery
+      summary: Retrieve all grocery items by category
+      description: Get a list of grocery items in a specific category
+      operationId: getAllItemsByCategory
+      parameters:
+        - name: category
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroceryItemDTO'
+              examples:
+                example1:
+                  summary: Example of retrieved grocery items by category
+                  value:
+                    - id: "1"
+                      name: "Apple"
+                      quantity: 5
+                      category: "Fruits"
+                    - id: "2"
+                      name: "Carrot"
+                      quantity: 10
+                      category: "Vegetables"
+        '404':
+          description: No grocery items found for the category
+
+  /grocery-items/count:
+    get:
+      tags:
+        - grocery
+      summary: Count all grocery items
+      description: Get the total number of grocery items
+      operationId: countGroceryItems
+      responses:
+        '200':
+          description: Successful count retrieval
+          content:
+            application/json:
+              schema:
+                type: integer
+              examples:
+                example1:
+                  summary: Example of total grocery items count
+                  value: 100
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    GroceryItemDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: "1"
+        name:
+          type: string
+          example: "Apple"
+        quantity:
+          type: integer
+          example: 5
+        category:
+          type: string
+          example: "Fruits"
+      required:
+        - name
+        - quantity
+        - category
