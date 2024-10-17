@@ -1,4 +1,4 @@
-2024-10-17 10:43:11 [http-nio-8082-exec-7] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+17-10-2024 10:51:22 [http-nio-8082-exec-9] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
     id: 1
     type: solo
     name: string
@@ -9,7 +9,7 @@
     genre: pop
     nationality: string
 }
-2024-10-17 10:43:11 [http-nio-8082-exec-8] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+17-10-2024 10:51:22 [http-nio-8082-exec-10] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
     id: 2
     type: solo
     name: string
@@ -20,7 +20,7 @@
     genre: pop
     nationality: string
 }
-2024-10-17 10:43:11 [http-nio-8082-exec-9] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+17-10-2024 10:51:22 [http-nio-8082-exec-1] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
     id: 3
     type: solo
     name: string
@@ -31,7 +31,7 @@
     genre: pop
     nationality: string
 }
-2024-10-17 10:43:12 [http-nio-8082-exec-10] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+17-10-2024 10:51:22 [http-nio-8082-exec-2] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
     id: 4
     type: solo
     name: string
