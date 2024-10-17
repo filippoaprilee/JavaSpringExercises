@@ -1,0 +1,4 @@
+src/main/java/it/apuliadigital/anagraficaClient/client/api/ApiUtil.java
+src/main/java/it/apuliadigital/anagraficaClient/client/api/PersonaApi.java
+src/main/java/it/apuliadigital/anagraficaClient/client/model/PersonaClient.java
+src/main/java/it/apuliadigital/anagraficaClient/client/model/PersonaClientNumeriTelefonici.java

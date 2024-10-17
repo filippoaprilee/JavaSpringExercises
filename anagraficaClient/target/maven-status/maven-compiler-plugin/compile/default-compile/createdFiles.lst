@@ -1,0 +1,5 @@
+it\apuliadigital\anagraficaClient\client\model\PersonaClientNumeriTelefonici.class
+it\apuliadigital\anagraficaClient\client\model\PersonaClient.class
+it\apuliadigital\anagraficaClient\client\api\ApiUtil.class
+it\apuliadigital\anagraficaClient\client\api\PersonaApi.class
+it\apuliadigital\anagraficaClient\AnagraficaClientApplication.class

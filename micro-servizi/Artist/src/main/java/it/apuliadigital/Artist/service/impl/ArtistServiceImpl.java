@@ -1,6 +1,7 @@
 package it.apuliadigital.Artist.service.impl;
 
 import it.apuliadigital.Artist.entity.ArtistEntity;
+import it.apuliadigital.Artist.exception.ArtistNotFoundException;
 import it.apuliadigital.Artist.mapper.ArtistMapper;
 import it.apuliadigital.Artist.model.Artist;
 import it.apuliadigital.Artist.repository.ArtistRepository;
@@ -23,8 +24,9 @@ public class ArtistServiceImpl implements ArtistService {
 
     @Override
     public Artist getArtistById(Long idArtist) {
-        Optional<ArtistEntity> entity = artistRepository.findById(idArtist);
-        return entity.map(artistMapper::toDto).orElse(null);
+        ArtistEntity entity = artistRepository.findById(idArtist)
+                .orElseThrow(() -> new ArtistNotFoundException("Artist with ID " + idArtist + " not found"));
+        return artistMapper.toDto(entity);
     }
 
     @Override
@@ -37,22 +39,22 @@ public class ArtistServiceImpl implements ArtistService {
 
     @Override
     public boolean updateArtist(Long id, Artist artist) {
-        if (artistRepository.existsById(id)) {
-            ArtistEntity entity = artistMapper.toEntity(artist);  // Usa il mapper per la conversione a Entity
-            entity.setId(id);
-            artistRepository.save(entity);
-            return true;
+        if (!artistRepository.existsById(id)) {
+            throw new ArtistNotFoundException("Artist with ID " + id + " not found");
         }
-        return false;
+        ArtistEntity entity = artistMapper.toEntity(artist);
+        entity.setId(id);
+        artistRepository.save(entity);
+        return true;
     }
 
     @Override
     public boolean deleteArtist(Long id) {
-        if (artistRepository.existsById(id)) {
-            artistRepository.deleteById(id);
-            return true;
+        if (!artistRepository.existsById(id)) {
+            throw new ArtistNotFoundException("Artist with ID " + id + " not found");
         }
-        return false;
+        artistRepository.deleteById(id);
+        return true;
     }
 
     @Override
