@@ -20,11 +20,11 @@
         </encoder>
     </appender>
 
-    <!-- Appender per errori -->
-    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/application-error.log</file>
+    <!-- Appender per INFO -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application-info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/application-error-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logs/application-info-%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -32,11 +32,23 @@
         </encoder>
     </appender>
 
-    <!-- Appender per info -->
-    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/application-info.log</file>
+    <!-- Appender per WARN -->
+    <appender name="WARN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application-warn.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/application-info-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logs/application-warn-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender per ERROR -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/application-error-%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -62,14 +74,22 @@
         <appender-ref ref="GENERAL_FILE" />
     </root>
 
-    <!-- Logger per errori -->
-    <logger name="ERROR_LOGGER" level="ERROR" additivity="false">
-        <appender-ref ref="ERROR_FILE" />
-    </logger>
-
-    <!-- Logger per info -->
+    <!-- Logger per INFO -->
     <logger name="INFO_LOGGER" level="INFO" additivity="false">
         <appender-ref ref="INFO_FILE" />
+        <appender-ref ref="GENERAL_FILE" />
+    </logger>
+
+    <!-- Logger per WARN -->
+    <logger name="WARN_LOGGER" level="WARN" additivity="false">
+        <appender-ref ref="WARN_FILE" />
+        <appender-ref ref="GENERAL_FILE" />
+    </logger>
+
+    <!-- Logger per ERROR -->
+    <logger name="ERROR_LOGGER" level="ERROR" additivity="false">
+        <appender-ref ref="ERROR_FILE" />
+        <appender-ref ref="GENERAL_FILE" />
     </logger>
 
     <!-- Logger per H2 -->
@@ -85,7 +105,6 @@
     <!-- Logger per il tuo controller -->
     <logger name="it.apuliadigital.Artist.controller.ArtistController" level="DEBUG" additivity="false">
         <appender-ref ref="GENERAL_FILE" />
-        <appender-ref ref="INFO_FILE" />
         <appender-ref ref="H2_FILE" />
     </logger>
 
