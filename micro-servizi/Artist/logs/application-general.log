@@ -1,0 +1,121 @@
+17-10-2024 11:21:06 [main] INFO  i.a.Artist.ArtistApplicationTests - Starting ArtistApplicationTests using Java 17.0.12 with PID 10472 (started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist)
+17-10-2024 11:21:06 [main] INFO  i.a.Artist.ArtistApplicationTests - No active profile set, falling back to 1 default profile: "default"
+17-10-2024 11:21:08 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17-10-2024 11:21:08 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+17-10-2024 11:21:08 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+17-10-2024 11:21:08 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17-10-2024 11:21:09 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/artist user=SA
+17-10-2024 11:21:09 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17-10-2024 11:21:09 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+17-10-2024 11:21:10 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+17-10-2024 11:21:11 [main] INFO  i.a.Artist.ArtistApplicationTests - Started ArtistApplicationTests in 6.052 seconds (process running for 7.364)
+17-10-2024 11:21:12 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17-10-2024 11:21:12 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17-10-2024 11:21:33 [main] INFO  i.a.Artist.ArtistApplication - Starting ArtistApplication using Java 17.0.12 with PID 14020 (C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist\target\classes started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist)
+17-10-2024 11:21:33 [main] INFO  i.a.Artist.ArtistApplication - No active profile set, falling back to 1 default profile: "default"
+17-10-2024 11:21:34 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+17-10-2024 11:21:34 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17-10-2024 11:21:34 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-10-2024 11:21:34 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17-10-2024 11:21:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17-10-2024 11:21:35 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/artist user=SA
+17-10-2024 11:21:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17-10-2024 11:21:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17-10-2024 11:21:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+17-10-2024 11:21:35 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+17-10-2024 11:21:35 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+17-10-2024 11:21:36 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+17-10-2024 11:21:37 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+17-10-2024 11:21:37 [main] INFO  i.a.Artist.ArtistApplication - Started ArtistApplication in 4.717 seconds (process running for 5.096)
+17-10-2024 11:21:42 [http-nio-8082-exec-10] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17-10-2024 11:21:43 [http-nio-8082-exec-1] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 332 ms
+17-10-2024 11:21:47 [http-nio-8082-exec-9] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 1
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-2] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 2
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-3] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 3
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-4] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 4
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-8] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 5
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-5] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 6
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:48 [http-nio-8082-exec-10] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 7
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:48 [http-nio-8082-exec-7] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 8
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:22:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17-10-2024 11:22:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

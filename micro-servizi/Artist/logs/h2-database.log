@@ -1,0 +1,88 @@
+17-10-2024 11:21:47 [http-nio-8082-exec-9] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 1
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-2] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 2
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-3] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 3
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-4] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 4
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-8] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 5
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:47 [http-nio-8082-exec-5] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 6
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:48 [http-nio-8082-exec-10] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 7
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
+17-10-2024 11:21:48 [http-nio-8082-exec-7] INFO  i.a.A.controller.ArtistController - Artist created: class Artist {
+    id: 8
+    type: solo
+    name: string
+    surname: string
+    stageName: string
+    birthYear: 0
+    biography: string
+    genre: pop
+    nationality: string
+}
