@@ -1,4 +1,3 @@
-FROM ubuntu:latest
-LABEL authors="Studente"
-
-ENTRYPOINT ["top", "-b"]
+FROM openjdk:17
+ADD target/DockerJAR-0.0.1-SNAPSHOT.jar app1.jar
+ENTRYPOINT [ "java", "-jar","app1.jar" ]
