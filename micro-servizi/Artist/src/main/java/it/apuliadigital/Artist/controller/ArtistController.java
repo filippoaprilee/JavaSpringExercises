@@ -27,21 +27,36 @@ public class ArtistController implements ArtistsApi {
 
     @Override
     public ResponseEntity<Artist> createArtist(@Parameter(name = "Artist",description = "Data for the new artist",required = true) @RequestBody @Valid Artist artist) {
-        Artist newArtist = artistService.createArtist(artist);
-        logger.info("Artist created: " + newArtist);
-        return new ResponseEntity<Artist>(newArtist, HttpStatus.CREATED);
+        try {
+            Artist newArtist = artistService.createArtist(artist);
+            logger.info("Artist created: " + newArtist); // Questo sarà nel GENERAL_FILE e INFO_FILE
+            return new ResponseEntity<>(newArtist, HttpStatus.CREATED);
+        } catch (Exception e) {
+            logger.error("Error creating artist: " + artist, e); // Questo sarà nel ERROR_FILE
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public ResponseEntity<Artist> deleteArtist(@Parameter(name = "artistId",description = "",required = true,in = ParameterIn.PATH) @PathVariable("artistId") Long artistId) {
-        artistService.deleteArtist(artistId);
-        return new ResponseEntity<>(HttpStatus.OK);
+        try {
+            artistService.deleteArtist(artistId);
+            logger.info("Deleted artist with ID: " + artistId); // Livello INFO
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            logger.error("Error deleting artist with ID: " + artistId, e); // Livello ERROR
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public ResponseEntity<List<Artist>> getAllArtists() {
+        logger.debug("Fetching all artists"); // Livello DEBUG
         List<Artist> artists = artistService.getAllArtists();
-        return new ResponseEntity<List<Artist>>(artists, HttpStatus.OK);
+        if (artists.isEmpty()) {
+            logger.warn("No artists found"); // Livello WARN
+        }
+        return new ResponseEntity<>(artists, HttpStatus.OK);
     }
 
     @Override

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Appender per la Console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender per il file generale di log -->
+    <appender name="GENERAL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application-general.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/application-general-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory> <!-- Mantieni i log degli ultimi 30 giorni -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender per errori -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/application-error-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender per info -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application-info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/application-info-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender per i log di H2 -->
+    <appender name="H2_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/h2-database.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/h2-database-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger per la root (file generale e console) -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="GENERAL_FILE" />
+    </root>
+
+    <!-- Logger per errori -->
+    <logger name="ERROR_LOGGER" level="ERROR" additivity="false">
+        <appender-ref ref="ERROR_FILE" />
+    </logger>
+
+    <!-- Logger per info -->
+    <logger name="INFO_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="INFO_FILE" />
+    </logger>
+
+    <!-- Logger per H2 -->
+    <logger name="org.h2" level="DEBUG" additivity="false">
+        <appender-ref ref="H2_FILE" />
+    </logger>
+
+    <!-- Logger per Spring -->
+    <logger name="org.springframework" level="WARN" additivity="false">
+        <appender-ref ref="ERROR_FILE" />
+    </logger>
+
+    <!-- Logger per il tuo controller -->
+    <logger name="it.apuliadigital.Artist.controller.ArtistController" level="DEBUG" additivity="false">
+        <appender-ref ref="GENERAL_FILE" />
+        <appender-ref ref="INFO_FILE" />
+        <appender-ref ref="H2_FILE" />
+    </logger>
+
+</configuration>
