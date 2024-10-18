@@ -1016,3 +1016,70 @@ Caused by: com.fasterxml.jackson.core.JsonParseException: Illegal unquoted chara
 17-10-2024 23:18:05 [http-nio-8082-exec-5] WARN  i.a.A.e.GlobalExceptionHandler - Artist not found: Artist with ID 888888 not found
 17-10-2024 23:18:42 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 17-10-2024 23:18:42 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+18-10-2024 10:27:56 [main] INFO  i.a.Artist.ArtistApplicationTests - Starting ArtistApplicationTests using Java 17.0.12 with PID 2172 (started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist)
+18-10-2024 10:27:56 [main] INFO  i.a.Artist.ArtistApplicationTests - No active profile set, falling back to 1 default profile: "default"
+18-10-2024 10:27:58 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+18-10-2024 10:27:58 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+18-10-2024 10:27:58 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+18-10-2024 10:27:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+18-10-2024 10:27:59 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/artist user=SA
+18-10-2024 10:27:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+18-10-2024 10:27:59 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+18-10-2024 10:28:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+18-10-2024 10:28:03 [main] INFO  i.a.Artist.ArtistApplicationTests - Started ArtistApplicationTests in 7.297 seconds (process running for 8.495)
+18-10-2024 10:28:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+18-10-2024 10:28:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+18-10-2024 10:29:24 [main] INFO  i.a.Artist.ArtistApplication - Starting ArtistApplication using Java 17.0.12 with PID 2440 (C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist\target\classes started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist)
+18-10-2024 10:29:24 [main] INFO  i.a.Artist.ArtistApplication - No active profile set, falling back to 1 default profile: "default"
+18-10-2024 10:29:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+18-10-2024 10:29:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+18-10-2024 10:29:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+18-10-2024 10:29:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18-10-2024 10:29:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+18-10-2024 10:29:26 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/artist user=SA
+18-10-2024 10:29:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+18-10-2024 10:29:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+18-10-2024 10:29:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+18-10-2024 10:29:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+18-10-2024 10:29:26 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+18-10-2024 10:29:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+18-10-2024 10:29:28 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+18-10-2024 10:29:28 [main] INFO  i.a.Artist.ArtistApplication - Started ArtistApplication in 4.39 seconds (process running for 16.4)
+18-10-2024 10:29:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+18-10-2024 10:29:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+18-10-2024 10:34:51 [main] INFO  i.a.Artist.ArtistApplication - Starting ArtistApplication using Java 17.0.12 with PID 19200 (C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist\target\classes started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist)
+18-10-2024 10:34:51 [main] INFO  i.a.Artist.ArtistApplication - No active profile set, falling back to 1 default profile: "default"
+18-10-2024 10:34:52 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+18-10-2024 10:34:52 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+18-10-2024 10:34:52 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+18-10-2024 10:34:52 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18-10-2024 10:34:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+18-10-2024 10:34:52 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/artist user=SA
+18-10-2024 10:34:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+18-10-2024 10:34:52 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+18-10-2024 10:34:52 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+18-10-2024 10:34:52 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+18-10-2024 10:34:53 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+18-10-2024 10:34:54 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+18-10-2024 10:34:54 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+18-10-2024 10:34:54 [main] INFO  i.a.Artist.ArtistApplication - Started ArtistApplication in 4.263 seconds (process running for 8.238)
+18-10-2024 10:35:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+18-10-2024 10:35:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+18-10-2024 10:36:28 [main] INFO  i.a.Artist.ArtistApplication - Starting ArtistApplication using Java 17.0.12 with PID 11068 (C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist\target\classes started by Studente in C:\Users\Studente\EserciziJava\JavaSpringExercises\micro-servizi\Artist)
+18-10-2024 10:36:28 [main] INFO  i.a.Artist.ArtistApplication - No active profile set, falling back to 1 default profile: "default"
+18-10-2024 10:36:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+18-10-2024 10:36:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+18-10-2024 10:36:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+18-10-2024 10:36:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18-10-2024 10:36:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+18-10-2024 10:36:29 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/artist user=SA
+18-10-2024 10:36:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+18-10-2024 10:36:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+18-10-2024 10:36:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+18-10-2024 10:36:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+18-10-2024 10:36:30 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+18-10-2024 10:36:31 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+18-10-2024 10:36:32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+18-10-2024 10:36:32 [main] INFO  i.a.Artist.ArtistApplication - Started ArtistApplication in 4.305 seconds (process running for 7.409)
+18-10-2024 10:36:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+18-10-2024 10:36:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,0 +1,10 @@
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-11
+    checkOutDate: 2024-10-12
+    totalPrice: 450.5
+}

@@ -1,0 +1,248 @@
+openapi: 3.0.0
+info:
+  title: Album and Artist API
+  version: 1.0.0
+  description: API for managing Albums and Artists
+servers:
+  - url: http://localhost:8080/api
+    description: Local server
+
+tags:
+  - name: Albums
+    description: Operations related to albums
+  - name: Artists
+    description: Operations related to artists
+
+paths:
+  /albums:
+    get:
+      tags:
+        - Albums
+      summary: Get all albums
+      operationId: getAllAlbums
+      responses:
+        '200':
+          description: List of albums retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlbumDTO'
+    post:
+      tags:
+        - Albums
+      summary: Create a new album
+      operationId: createAlbum
+      requestBody:
+        description: Album object that needs to be added
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumDTO'
+      responses:
+        '201':
+          description: Album created successfully
+        '400':
+          description: Invalid input
+
+  /albums/{id}:
+    get:
+      tags:
+        - Albums
+      summary: Get album by ID
+      operationId: getAlbumById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Album retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlbumDTO'
+        '404':
+          description: Album not found
+    put:
+      tags:
+        - Albums
+      summary: Update an existing album
+      operationId: updateAlbum
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Album object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumDTO'
+      responses:
+        '200':
+          description: Album updated successfully
+        '400':
+          description: Invalid input
+        '404':
+          description: Album not found
+    delete:
+      tags:
+        - Albums
+      summary: Delete an album
+      operationId: deleteAlbum
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Album deleted successfully
+        '404':
+          description: Album not found
+
+  /artists:
+    get:
+      tags:
+        - Artists
+      summary: Get all artists
+      operationId: getAllArtists
+      responses:
+        '200':
+          description: List of artists retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ArtistDTO'
+    post:
+      tags:
+        - Artists
+      summary: Create a new artist
+      operationId: createArtist
+      requestBody:
+        description: Artist object that needs to be added
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtistDTO'
+      responses:
+        '201':
+          description: Artist created successfully
+        '400':
+          description: Invalid input
+
+  /artists/{id}:
+    get:
+      tags:
+        - Artists
+      summary: Get artist by ID
+      operationId: getArtistById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Artist retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArtistDTO'
+        '404':
+          description: Artist not found
+    put:
+      tags:
+        - Artists
+      summary: Update an existing artist
+      operationId: updateArtist
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Artist object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtistDTO'
+      responses:
+        '200':
+          description: Artist updated successfully
+        '400':
+          description: Invalid input
+        '404':
+          description: Artist not found
+    delete:
+      tags:
+        - Artists
+      summary: Delete an artist
+      operationId: deleteArtist
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Artist deleted successfully
+        '404':
+          description: Artist not found
+
+components:
+  schemas:
+    AlbumDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: The Dark Side of the Moon
+        releaseDate:
+          type: string
+          format: date
+          example: 1973-03-01
+        trackTitles:
+          type: array
+          items:
+            type: string
+          example: ["Speak to Me", "Breathe", "On the Run"]
+        artistName:
+          type: string
+          example: Pink Floyd
+    ArtistDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Pink Floyd
+        genres:
+          type: array
+          items:
+            type: string
+          example: ["Progressive Rock", "Psychedelic Rock"]
+        country:
+          type: string
+          example: UK
