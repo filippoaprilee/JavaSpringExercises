@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+  description: API per la gestione di una generica entità.
+
+paths:
+  /entity:
+    get:
+      summary: Ottieni tutte le entità
+      operationId: getAllEntities
+      tags:
+        - Entity
+      responses:
+        '200':
+          description: Lista di entità
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Entity'
+        '500':
+          description: Errore del server
+
+    post:
+      summary: Crea una nuova entità
+      operationId: createEntity
+      tags:
+        - Entity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Entity'
+      responses:
+        '201':
+          description: Entità creata
+        '400':
+          description: Richiesta non valida
+        '500':
+          description: Errore del server
+
+  /entity/{id}:
+    get:
+      summary: Ottieni un'entità per ID
+      operationId: getEntityById
+      tags:
+        - Entity
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Entità trovata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entity'
+        '404':
+          description: Entità non trovata
+        '500':
+          description: Errore del server
+
+    delete:
+      summary: Elimina un'entità per ID
+      operationId: deleteEntityById
+      tags:
+        - Entity
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Entità eliminata
+        '404':
+          description: Entità non trovata
+        '500':
+          description: Errore del server
+
+    put:
+      summary: Aggiorna un'entità per ID
+      operationId: updateEntityById
+      tags:
+        - Entity
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Entity'
+      responses:
+        '200':
+          description: Entità aggiornata
+        '400':
+          description: Richiesta non valida
+        '404':
+          description: Entità non trovata
+        '500':
+          description: Errore del server
+
+components:
+  schemas:
+    Entity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
