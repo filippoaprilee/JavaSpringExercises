@@ -1,0 +1,191 @@
+18-10-2024 13:03:52 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18-10-2024 13:03:53 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
+18-10-2024 13:03:53 [main] INFO  TomcatWebServer - Tomcat initialized with port 8080 (http)
+18-10-2024 13:03:53 [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1309 ms
+18-10-2024 13:03:53 [main] INFO  H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/booking'
+18-10-2024 13:03:54 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+18-10-2024 13:03:55 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:03:55 [main] INFO  TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+18-10-2024 13:03:58 [http-nio-8080-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+18-10-2024 13:03:58 [http-nio-8080-exec-1] INFO  DispatcherServlet - Completed initialization in 1 ms
+18-10-2024 13:03:58 [http-nio-8080-exec-1] INFO  BookingController - Ingresso nel metodo getAllBookings
+18-10-2024 13:03:58 [http-nio-8080-exec-1] WARN  BookingController - Nessuna prenotazione trovata.
+18-10-2024 13:03:59 [http-nio-8080-exec-3] INFO  BookingController - Ingresso nel metodo getAllBookings
+18-10-2024 13:03:59 [http-nio-8080-exec-3] WARN  BookingController - Nessuna prenotazione trovata.
+18-10-2024 13:04:23 [http-nio-8080-exec-2] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:04:23 [http-nio-8080-exec-2] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:04:23 [http-nio-8080-exec-2] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-06
+    checkOutDate: 2024-10-07
+    totalPrice: 450.5
+}
+18-10-2024 13:05:37 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:05:56 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18-10-2024 13:05:56 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
+18-10-2024 13:05:56 [main] INFO  TomcatWebServer - Tomcat initialized with port 8080 (http)
+18-10-2024 13:05:56 [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1347 ms
+18-10-2024 13:05:57 [main] INFO  H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/booking'
+18-10-2024 13:05:57 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+18-10-2024 13:05:58 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:05:59 [main] INFO  TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+18-10-2024 13:06:14 [http-nio-8080-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+18-10-2024 13:06:14 [http-nio-8080-exec-1] INFO  DispatcherServlet - Completed initialization in 1 ms
+18-10-2024 13:06:15 [http-nio-8080-exec-1] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:06:15 [http-nio-8080-exec-1] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:06:15 [http-nio-8080-exec-1] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-06
+    checkOutDate: 2024-10-07
+    totalPrice: 450.5
+}
+18-10-2024 13:06:17 [http-nio-8080-exec-2] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:06:17 [http-nio-8080-exec-2] ERROR BookingController - La prenotazione per la camera 101 già esiste per la data di check-in 2024-10-06
+18-10-2024 13:08:43 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:08:55 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18-10-2024 13:08:55 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interface.
+18-10-2024 13:08:55 [main] INFO  TomcatWebServer - Tomcat initialized with port 8080 (http)
+18-10-2024 13:08:55 [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1346 ms
+18-10-2024 13:08:56 [main] INFO  H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/booking'
+18-10-2024 13:08:57 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+18-10-2024 13:08:58 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:08:58 [main] INFO  TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+18-10-2024 13:09:02 [http-nio-8080-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+18-10-2024 13:09:02 [http-nio-8080-exec-1] INFO  DispatcherServlet - Completed initialization in 1 ms
+18-10-2024 13:09:02 [http-nio-8080-exec-1] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:09:03 [http-nio-8080-exec-1] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:09:03 [http-nio-8080-exec-1] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-06
+    checkOutDate: 2024-10-10
+    totalPrice: 450.5
+}
+18-10-2024 13:09:10 [http-nio-8080-exec-3] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:09:10 [http-nio-8080-exec-3] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-06 a 2024-10-10
+18-10-2024 13:09:17 [http-nio-8080-exec-2] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:09:17 [http-nio-8080-exec-2] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-06 a 2024-10-10
+18-10-2024 13:09:25 [http-nio-8080-exec-6] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:09:25 [http-nio-8080-exec-6] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-06 a 2024-10-10
+18-10-2024 13:09:31 [http-nio-8080-exec-5] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:09:31 [http-nio-8080-exec-5] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:09:31 [http-nio-8080-exec-5] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-10
+    checkOutDate: 2024-10-11
+    totalPrice: 450.5
+}
+18-10-2024 13:10:55 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:11:06 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18-10-2024 13:11:07 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interface.
+18-10-2024 13:11:07 [main] INFO  TomcatWebServer - Tomcat initialized with port 8080 (http)
+18-10-2024 13:11:07 [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1293 ms
+18-10-2024 13:11:07 [main] INFO  H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/booking'
+18-10-2024 13:11:08 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+18-10-2024 13:11:09 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:11:09 [main] INFO  TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+18-10-2024 13:11:16 [http-nio-8080-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+18-10-2024 13:11:16 [http-nio-8080-exec-1] INFO  DispatcherServlet - Completed initialization in 1 ms
+18-10-2024 13:11:16 [http-nio-8080-exec-1] INFO  BookingController - Ingresso nel metodo getAllBookings
+18-10-2024 13:11:16 [http-nio-8080-exec-1] WARN  BookingController - Nessuna prenotazione trovata.
+18-10-2024 13:11:19 [http-nio-8080-exec-2] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:11:19 [http-nio-8080-exec-2] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:11:19 [http-nio-8080-exec-2] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-10
+    checkOutDate: 2024-10-11
+    totalPrice: 450.5
+}
+18-10-2024 13:11:21 [http-nio-8080-exec-3] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:11:21 [http-nio-8080-exec-3] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-10 a 2024-10-11
+18-10-2024 13:11:30 [http-nio-8080-exec-4] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:11:35 [http-nio-8080-exec-5] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:11:35 [http-nio-8080-exec-5] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:11:35 [http-nio-8080-exec-5] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-12
+    checkOutDate: 2024-10-13
+    totalPrice: 450.5
+}
+18-10-2024 13:11:53 [http-nio-8080-exec-9] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:12:09 [http-nio-8080-exec-7] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:12:13 [http-nio-8080-exec-8] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:12:13 [http-nio-8080-exec-8] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:12:13 [http-nio-8080-exec-8] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-11
+    checkOutDate: 2024-10-12
+    totalPrice: 450.5
+}
+18-10-2024 13:12:15 [http-nio-8080-exec-6] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:12:15 [http-nio-8080-exec-6] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:13:02 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:13:14 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18-10-2024 13:13:14 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 1 JPA repository interface.
+18-10-2024 13:13:14 [main] INFO  TomcatWebServer - Tomcat initialized with port 8080 (http)
+18-10-2024 13:13:14 [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1356 ms
+18-10-2024 13:13:15 [main] INFO  H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/booking'
+18-10-2024 13:13:15 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+18-10-2024 13:13:16 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:13:17 [main] INFO  TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+18-10-2024 13:13:25 [http-nio-8080-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+18-10-2024 13:13:25 [http-nio-8080-exec-1] INFO  DispatcherServlet - Completed initialization in 1 ms
+18-10-2024 13:13:25 [http-nio-8080-exec-1] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:25 [http-nio-8080-exec-1] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:13:25 [http-nio-8080-exec-1] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-11
+    checkOutDate: 2024-10-12
+    totalPrice: 450.5
+}
+18-10-2024 13:13:38 [http-nio-8080-exec-2] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:38 [http-nio-8080-exec-2] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:13:41 [http-nio-8080-exec-3] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:41 [http-nio-8080-exec-3] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:13:41 [http-nio-8080-exec-4] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:41 [http-nio-8080-exec-4] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:13:41 [http-nio-8080-exec-5] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:41 [http-nio-8080-exec-5] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:13:41 [http-nio-8080-exec-6] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:41 [http-nio-8080-exec-6] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:13:41 [http-nio-8080-exec-7] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:41 [http-nio-8080-exec-7] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:13:42 [http-nio-8080-exec-8] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:13:42 [http-nio-8080-exec-8] ERROR BookingController - Sovrapposizione di prenotazione per la camera 101: già prenotata da 2024-10-11 a 2024-10-12
+18-10-2024 13:16:25 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:16:42 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+18-10-2024 13:16:42 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interface.
+18-10-2024 13:16:43 [main] INFO  TomcatWebServer - Tomcat initialized with port 8080 (http)
+18-10-2024 13:16:43 [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1364 ms
+18-10-2024 13:16:43 [main] INFO  H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/booking'
+18-10-2024 13:16:44 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+18-10-2024 13:16:45 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18-10-2024 13:16:46 [main] INFO  TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  DispatcherServlet - Completed initialization in 1 ms
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  BookingController - Ingresso nel metodo createBooking
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  BookingController - Prenotazione creata con id: 2
+18-10-2024 13:16:50 [http-nio-8080-exec-1] INFO  BookingController - Uscita dal metodo createBooking con risultato: class BookingDTO {
+    id: 2
+    guestName: Luca Rossi
+    roomNumber: 101
+    checkInDate: 2024-10-11
+    checkOutDate: 2024-10-12
+    totalPrice: 450.5
+}
+18-10-2024 13:16:59 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
